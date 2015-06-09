@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
+from django.shortcuts import get_object_or_404
+
 import sark.models as m
 
 # Create your views here.
@@ -37,9 +39,8 @@ def inventory(request):
 
 def program(request, year, month, day):
     selected = "demo"
-    print("hello")
 
-    show = m.RadioShow.objects.get(date="{0}-{1}-{2}".format(year, month, day))
+    show = get_object_or_404(m.RadioShow, date="{0}-{1}-{2}".format(year, month, day))
     host = show.host.name
     date = show.date
     script = show.script.plaintext_link
