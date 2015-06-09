@@ -1,0 +1,51 @@
+[
+  {
+    "model": "sark.person",
+    "pk": 1,
+    "fields": {
+      "name": "Rita Rochelle",
+      "role": 2
+    }
+  },
+  {
+    "model": "sark.person",
+    "pk": 2,
+    "fields": {
+      "name": "Sue Moran",
+      "role": 2
+    }
+  },
+  {
+    "model": "sark.person",
+    "pk": 3,
+    "fields": {
+      "name": "Bryn Poole",
+      "role": 2
+    }
+  },
+  {
+    "model": "sark.person",
+    "pk": 4,
+    "fields": {
+      "name": "Matthew Lavoie",
+      "role": 2
+    }
+  },
+  {
+    "model": "sark.person",
+    "pk": 5,
+    "fields": {
+      "name": "John Lennon",
+      "role": 1
+    }
+  },
+  {
+    "model": "sark.person",
+    "pk": 6,
+    "fields": {
+      "name": "Paul McCartney",
+      "role": 1
+    }
+  }
+]
+

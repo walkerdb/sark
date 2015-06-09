@@ -1,0 +1,19 @@
+[
+  {
+    "model": "sark.radioshow",
+    "pk": 1,
+    "fields": {
+      "date": "1968-01-05",
+      "host": 2,
+      "script": 1,
+      "audio": 1
+    }
+  },
+  {
+    "model": "sark.audio",
+    "pk": 1,
+    "fields": {
+      "access_link": "1968-01-05_access.mp3"
+    }
+  }
+]
