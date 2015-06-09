@@ -3,7 +3,21 @@
     "model": "sark.script",
     "pk": 1,
     "fields": {
+      "plaintext_link": "no_script.txt"
+    }
+  },
+  {
+    "model": "sark.script",
+    "pk": 2,
+    "fields": {
       "plaintext_link": "1968-01-05_script.txt"
+    }
+  },
+  {
+    "model": "sark.script",
+    "pk": 3,
+    "fields": {
+      "plaintext_link": "1989-07-16_script.txt"
     }
   }
 ]

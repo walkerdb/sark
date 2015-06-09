@@ -45,14 +45,40 @@ class RadioShow(models.Model):
     # performances = models.ManyToManyField(Performance)
 
 
+class Location(models.Model):
+    name = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    longitude = models.FloatField()
+    latitude = models.FloatField()
+    zoom = models.IntegerField(default=10)
+
+
 # class Performance(models.Model):
-#     name =
+#     title = models.CharField(max_length=200)
+#     location = models.ForeignKey(Location, null=True)
+#     date = models.DateField()
 #
+#     # instruments = models.ManyToManyField(Instrument)
+#     # genres = models.ManyToManyField(Genre)
+#     performers = models.ManyToManyField(Person, null=True)
+#     # groups = models.ManyToManyField(Group, null=True)
+
 
 # class Group(models.Model):
 #     members = models.ManyToManyField(Person)
-#     name = models.CharField()
-#
+#     name = models.CharField(max_length=100)
+
+
+# class InstrumentFamily(models.Model):
+#     family = models.CharField(max_length=100)
+
+
+# class Instrument(models.Model):
+#     name = models.CharField(max_length=100)
+#     family = models.ForeignKey(InstrumentFamily)
+
+
+
 #
 # class Photo(models.Model):
 #     filename = models.FileField()

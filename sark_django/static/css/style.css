@@ -8,12 +8,16 @@ h1 {
 }
 
 .script{
-    font-family: "Courier", "serif";
+    font-family: "Courier New", "Courier", "serif";
     height: 600px;
     overflow: scroll;
     overflow-x: hidden;
     background-color: #f4f4f4;
     padding: 1em 1em 1em 1em;
+}
+
+li {
+    font-size: 1.2em;
 }
 
 .navbar-brand{

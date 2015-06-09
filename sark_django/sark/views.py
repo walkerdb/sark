@@ -44,12 +44,13 @@ def program(request, year, month, day):
     host = show.host.name
     date = show.date
     script = show.script.plaintext_link
+    print(script)
     audio = show.audio.access_link
 
     with open("C:/Users/dev/PycharmProjects/sark_django/sark_django/static/sarkfiles/scripts/" + script, mode="r") as f:
         text = f.read()
     text = "<p>" + text + "</p>"
-    text = text.replace("\n\n", "</p>\n<p>")
+    text = text.replace("\n", "</p>\n<p>")
 
     t = get_template("program.html")
     html = t.render(Context({'selected': selected, 'host': host, 'date': date, 'script_text': text, 'audio': audio}))
