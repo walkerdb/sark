@@ -55,3 +55,15 @@ def program(request, year, month, day):
     t = get_template("program.html")
     html = t.render(Context({'selected': selected, 'host': host, 'date': date, 'script_text': text, 'audio': audio}))
     return HttpResponse(html)
+
+def location(request, name, country):
+    selected = "demo"
+    location = get_object_or_404(m.Location, name=name, country=country)
+
+    google_web_api_string = "https://www.google.com/maps/embed/v1/place?zoom={0}&center={1}%2C{2}&q={3}+{4}&key=AIzaSyDzDeB74FnjIvGAQhApW_8HVfrJSNq-nrE"
+    google_web_api_string = google_web_api_string.format(location.zoom, location.latitude, location.longitude, location.name, location.country)
+
+    t = get_template("location.html")
+
+    html = t.render(Context({'selected': selected, 'google_maps_api_link': google_web_api_string}))
+    return HttpResponse(html)
