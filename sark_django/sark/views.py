@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
@@ -8,10 +8,11 @@ import sark_django.sark.models as m
 
 # Create your views here.
 def home(request):
-    selected = "index"
-    t = get_template("index.html")
-    html = t.render(Context({'selected': selected}))
-    return HttpResponse(html)
+    return redirect("/demo")
+    # selected = "index"
+    # t = get_template("index.html")
+    # html = t.render(Context({'selected': selected}))
+    # return HttpResponse(html)
 
 def demo(request):
     selected = "demo"
