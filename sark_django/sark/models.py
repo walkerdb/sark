@@ -48,8 +48,8 @@ class RadioShow(models.Model):
 class Location(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    longitude = models.FloatField()
-    latitude = models.FloatField()
+    longitude = models.FloatField(null=True)
+    latitude = models.FloatField(null=True)
     zoom = models.IntegerField(default=10)
 
 

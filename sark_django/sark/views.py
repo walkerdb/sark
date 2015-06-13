@@ -4,7 +4,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import get_object_or_404
 
-import sark.models as m
+import sark_django.sark.models as m
 
 # Create your views here.
 def home(request):
@@ -60,10 +60,17 @@ def location(request, name, country):
     selected = "demo"
     location = get_object_or_404(m.Location, name=name, country=country)
 
-    google_web_api_string = "https://www.google.com/maps/embed/v1/place?zoom={0}&center={1}%2C{2}&q={3}+{4}&key=AIzaSyDzDeB74FnjIvGAQhApW_8HVfrJSNq-nrE"
-    google_web_api_string = google_web_api_string.format(location.zoom, location.latitude, location.longitude, location.name, location.country)
+    if location.longitude and location.latitude:
+        google_web_api_string = "https://www.google.com/maps/embed/v1/place?zoom={0}&center={1}%2C{2}&q={3}+{4}&key=AIzaSyDzDeB74FnjIvGAQhApW_8HVfrJSNq-nrE"
+        google_web_api_string = google_web_api_string.format(location.zoom, location.latitude, location.longitude, location.name, location.country)
+    else:
+        google_web_api_string = "https://www.google.com/maps/embed/v1/place?zoom={0}&q={1}+{2}&key=AIzaSyDzDeB74FnjIvGAQhApW_8HVfrJSNq-nrE"
+        google_web_api_string = google_web_api_string.format(location.zoom, location.name, location.country)
 
+    name_string = location.name + ", " + location.country
     t = get_template("location.html")
 
-    html = t.render(Context({'selected': selected, 'google_maps_api_link': google_web_api_string}))
+    html = t.render(Context({'selected': selected,
+                             'google_maps_api_link': google_web_api_string,
+                             'location_name': name_string}))
     return HttpResponse(html)

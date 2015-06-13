@@ -1,5 +1,5 @@
-.sarkcontent > p {
-    font-size: 1.4em;
+p {
+    font-size: 1.3em;
 }
 
 h1 {
@@ -14,6 +14,11 @@ h1 {
     overflow-x: hidden;
     background-color: #f4f4f4;
     padding: 1em 1em 1em 1em;
+    font-size: 1.2em;
+}
+
+body > .container {
+  padding: 20px 15px 0;
 }
 
 li {

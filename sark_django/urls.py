@@ -15,15 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from sark import views
+from sark_django.sark import views
 
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
+    url(r'^$', views.demo, name='home'),
     url(r'^demo/$', views.demo),
     url(r'^aboutus/$', views.aboutus),
     url(r'^inventory/$', views.inventory),
     url(r'^aboutmtia/$', views.aboutmtia),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^demo/program/([0-9]{4})-([0-9]{2})-([0-9]{2})/', views.program),
-    url(r'^demo/location/([a-zA-Z]*)\+([a-zA-Z]*)', views.location),
+    url(r'^program/([0-9]{4})-([0-9]{2})-([0-9]{2})/', views.program),
+    url(r'^location/([a-zA-Z]*)\+([a-zA-Z]*)', views.location),
 ]
