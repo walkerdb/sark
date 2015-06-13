@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import get_object_or_404
+import os
 
-import sark_django.sark.models as m
+from ..settings import BASE_DIR
+from ..sark import models as m
 
 # Create your views here.
 def home(request):
@@ -42,13 +44,13 @@ def program(request, year, month, day):
     selected = "demo"
 
     show = get_object_or_404(m.RadioShow, date="{0}-{1}-{2}".format(year, month, day))
-    host = show.host.name
+    host = show.person.name
     date = show.date
     script = show.script.plaintext_link
     print(script)
     audio = show.audio.access_link
 
-    with open("C:/Users/dev/PycharmProjects/sark_django/sark_django/static/sarkfiles/scripts/" + script, mode="r") as f:
+    with open(os.path.join(BASE_DIR, "sark_django/static/sarkfiles/scripts/") + script, mode="r") as f:
         text = f.read()
     text = "<p>" + text + "</p>"
     text = text.replace("\n", "</p>\n<p>")

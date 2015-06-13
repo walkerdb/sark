@@ -2,7 +2,7 @@ from django.core.urlresolvers import resolve
 from django.http import HttpRequest
 from django.test import TestCase
 
-from sark_django.sark.views import home
+from .views import home
 
 
 class HomePageTest(TestCase):

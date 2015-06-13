@@ -39,7 +39,7 @@ class Audio(models.Model):
 
 class RadioShow(models.Model):
     date = models.DateField()
-    host = models.ForeignKey(Person)
+    person = models.ForeignKey(Person)
     script = models.ForeignKey(Script)
     audio = models.ForeignKey(Audio)
     # performances = models.ManyToManyField(Performance)
