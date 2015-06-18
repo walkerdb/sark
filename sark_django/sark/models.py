@@ -9,8 +9,17 @@ class Role(models.Model):
     role = models.CharField(max_length=200)
 
 
+class Location(models.Model):
+    name = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    longitude = models.FloatField(null=True)
+    latitude = models.FloatField(null=True)
+    zoom = models.IntegerField(default=10)
+
+
 class Person(models.Model):
     name = models.CharField(max_length=200)
+    birthplace = models.ForeignKey(Location, null=True)
     birthdate = models.DateField(blank=True, null=True)
     deathdate = models.DateField(blank=True, null=True)
     bio = models.CharField(default="No bio on record", max_length=2000)
@@ -45,12 +54,6 @@ class RadioShow(models.Model):
     # performances = models.ManyToManyField(Performance)
 
 
-class Location(models.Model):
-    name = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
-    longitude = models.FloatField(null=True)
-    latitude = models.FloatField(null=True)
-    zoom = models.IntegerField(default=10)
 
 
 # class Performance(models.Model):

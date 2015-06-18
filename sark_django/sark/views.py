@@ -78,3 +78,19 @@ def location(request, name, country):
                              'google_maps_api_link': google_web_api_string,
                              'location_name': name_string}))
     return HttpResponse(html)
+
+def person(request, name):
+    selected = "demo"
+    sark_person = get_object_or_404(m.Person, name=name)
+
+    t = get_template("person.html")
+    html = t.render(Context({'role': sark_person.role.role,
+                             'name': sark_person.name,
+                             'birthdate': sark_person.birthdate,
+                             'deathdate': sark_person.deathdate,
+                             'bio': sark_person.bio,
+                             'birthplace': sark_person.birthplace,
+                             'selected': selected
+                             }))
+
+    return HttpResponse(html)
