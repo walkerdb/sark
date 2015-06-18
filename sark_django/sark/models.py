@@ -17,6 +17,10 @@ class Location(models.Model):
     zoom = models.IntegerField(default=10)
 
 
+class CopyrightStatus(models.Model):
+    status = models.CharField(max_length=50)
+
+
 class Person(models.Model):
     name = models.CharField(max_length=200)
     birthplace = models.ForeignKey(Location, null=True)
@@ -48,7 +52,7 @@ class Audio(models.Model):
 
 class RadioShow(models.Model):
     date = models.DateField()
-    person = models.ForeignKey(Person)
+    host = models.ForeignKey(Person)
     script = models.ForeignKey(Script)
     audio = models.ForeignKey(Audio)
     # performances = models.ManyToManyField(Performance)

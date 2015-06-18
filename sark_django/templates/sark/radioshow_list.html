@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+    <br>
+    <form class="row form-inline center" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control input-lg" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-lg">Submit</button>
+    </form>
+    <br>
+    <p class="center">[Search not yet functional]</p>
+
+    <p>Example programs:</p>
+    <ul>
+        {% for show in object_list %}
+            <li>{{ show.host.name }}: <a href="../demo/program/{{ show.date|date:"Y-m-d" }}">{{ show.date }}</a></li>
+        {% endfor %}
+    </ul>
+    <p>Hosts</p>
+    <ul>
+        {% for host in hosts %}
+            <li><a href="../demo/person/{{ host.name }}">{{ host.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <p>Performers</p>
+    <ul>
+        {% for performer in performers %}
+            <li><a href="../demo/person/{{ performer.name }}">{{ performer.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <p>Locations</p>
+    <ul>
+        {% for location in locations %}
+            <li><a href="../demo/location/{{ location.name }}+{{ location.country }}">{{ location.name }}, {{ location.country }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import get_object_or_404
+from django.views.generic import ListView, DetailView, UpdateView
 import os
 
 from ..settings import BASE_DIR
@@ -16,6 +17,17 @@ def home(request):
     # t = get_template("index.html")
     # html = t.render(Context({'selected': selected}))
     # return HttpResponse(html)
+
+class Demo(ListView):
+    model = m.RadioShow
+    # context_object_name = "radio_shows"
+
+    def get_context_data(self, **kwargs):
+        context = super(Demo, self).get_context_data(**kwargs)
+        context['hosts'] = m.Person.objects.filter(role_id=2)
+        context['performers'] = m.Person.objects.filter(role_id=1)
+        context['locations'] = m.Location.objects.all()
+        return context
 
 def demo(request):
     selected = "demo"
@@ -45,7 +57,7 @@ def program(request, year, month, day):
     selected = "demo"
 
     show = get_object_or_404(m.RadioShow, date="{0}-{1}-{2}".format(year, month, day))
-    host = show.person.name
+    host = show.host.name
     date = show.date
     script = show.script.plaintext_link
     print(script)
@@ -94,3 +106,6 @@ def person(request, name):
                              }))
 
     return HttpResponse(html)
+
+class PersonListView(ListView):
+    model = m.Person
