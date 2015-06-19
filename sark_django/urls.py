@@ -28,6 +28,5 @@ urlpatterns = [
     url(r'^demo/program/([0-9]{4})-([0-9]{2})-([0-9]{2})/', views.program),
     url(r'^demo/location/([a-zA-Z]*)\+([a-zA-Z]*)', views.location),
     url(r'^demo/person/(.*)', views.person),
-    url(r'^test/people', views.PersonListView.as_view()),
     url(r'^test/demo', views.Demo.as_view())
 ]

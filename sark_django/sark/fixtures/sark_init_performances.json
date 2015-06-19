@@ -1,0 +1,96 @@
+[
+  {
+    "model": "sark.performance",
+    "pk": 1,
+    "fields": {
+      "title": "MTiA 1965-05-01 - full broadcast",
+      "date": "1965-05-01",
+      "audio": 1,
+      "performers": [3]
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 2,
+    "fields": {
+      "title": "MTiA 1968-01-05 - full broadcast",
+      "date": "1968-01-05",
+      "audio": 2,
+      "performers": [2]
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 3,
+    "fields": {
+      "title": "MTiA 1989-07-16 - full broadcast",
+      "date": "1989-07-16",
+      "audio": 3,
+      "performers": [1]
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 4,
+    "fields": {
+      "title": "MTIA 1973-10-28 - insert 01",
+      "audio": 4
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 5,
+    "fields": {
+      "title": "MTIA 1973-10-28 - insert 02",
+      "audio": 5
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 6,
+    "fields": {
+      "title": "MTIA 1973-10-28 - insert 03",
+      "audio": 6
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 7,
+    "fields": {
+      "title": "MTIA 1973-10-28 - insert 04",
+      "audio": 7
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 8,
+    "fields": {
+      "title": "MTIA 1973-10-28 - insert 05",
+      "audio": 8
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 9,
+    "fields": {
+      "title": "MTIA 1973-10-28 - insert 06",
+      "audio": 9
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 10,
+    "fields": {
+      "title": "MTIA 1973-10-28 - insert 07",
+      "audio": 10
+    }
+  },
+  {
+    "model": "sark.performance",
+    "pk": 11,
+    "fields": {
+      "title": "MTIA 1973-10-28 - insert 08",
+      "audio": 11
+    }
+  }
+]

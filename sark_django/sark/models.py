@@ -9,6 +9,23 @@ class Role(models.Model):
     role = models.CharField(max_length=200)
 
 
+class Genre(models.Model):
+    genre = models.CharField(max_length=50)
+
+
+class CopyrightStatus(models.Model):
+    status = models.CharField(max_length=50)
+
+
+class InstrumentFamily(models.Model):
+    family = models.CharField(max_length=100)
+
+
+class Instrument(models.Model):
+    name = models.CharField(max_length=100)
+    family = models.ForeignKey(InstrumentFamily)
+
+
 class Location(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
@@ -16,19 +33,20 @@ class Location(models.Model):
     latitude = models.FloatField(null=True)
     zoom = models.IntegerField(default=10)
 
-
-class CopyrightStatus(models.Model):
-    status = models.CharField(max_length=50)
-
-
 class Person(models.Model):
     name = models.CharField(max_length=200)
     birthplace = models.ForeignKey(Location, null=True)
     birthdate = models.DateField(blank=True, null=True)
     deathdate = models.DateField(blank=True, null=True)
+    dates_active = models.CharField(blank=True, null=True, max_length=20)
     bio = models.CharField(default="No bio on record", max_length=2000)
     role = models.ForeignKey(Role, default=0)
     # photos = models.ManyToManyField(Photo)
+
+
+class Group(models.Model):
+    members = models.ManyToManyField(Person)
+    name = models.CharField(max_length=100)
 
 
 class Script(models.Model):
@@ -50,40 +68,24 @@ class Audio(models.Model):
         default=0
     )
 
+class Performance(models.Model):
+    title = models.CharField(max_length=200)
+    date = models.DateField(null=True)
+
+    audio = models.ForeignKey(Audio)
+    location = models.ForeignKey(Location, null=True)
+    instruments = models.ManyToManyField(Instrument, blank=True)
+    genres = models.ManyToManyField(Genre, blank=True)
+    performers = models.ManyToManyField(Person, blank=True)
+    # groups = models.ManyToManyField(Group, null=True, blank=True)
+
+
 class RadioShow(models.Model):
     date = models.DateField()
     host = models.ForeignKey(Person)
     script = models.ForeignKey(Script)
-    audio = models.ForeignKey(Audio)
-    # performances = models.ManyToManyField(Performance)
-
-
-
-
-# class Performance(models.Model):
-#     title = models.CharField(max_length=200)
-#     location = models.ForeignKey(Location, null=True)
-#     date = models.DateField()
-#
-#     # instruments = models.ManyToManyField(Instrument)
-#     # genres = models.ManyToManyField(Genre)
-#     performers = models.ManyToManyField(Person, null=True)
-#     # groups = models.ManyToManyField(Group, null=True)
-
-
-# class Group(models.Model):
-#     members = models.ManyToManyField(Person)
-#     name = models.CharField(max_length=100)
-
-
-# class InstrumentFamily(models.Model):
-#     family = models.CharField(max_length=100)
-
-
-# class Instrument(models.Model):
-#     name = models.CharField(max_length=100)
-#     family = models.ForeignKey(InstrumentFamily)
-
+    description = models.CharField(max_length=200, null=True)
+    performances = models.ManyToManyField(Performance)
 
 
 #

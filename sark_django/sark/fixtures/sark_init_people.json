@@ -4,15 +4,19 @@
     "pk": 1,
     "fields": {
       "name": "Rita Rochelle",
-      "role": 2
+      "role": 2,
+      "bio": "MTiA host, 1978 - 2004",
+      "dates_active": "1978 - 2004"
     }
   },
   {
     "model": "sark.person",
     "pk": 2,
     "fields": {
-      "name": "Sue Moran",
-      "role": 2
+      "name": "Susan Moran",
+      "role": 2,
+      "bio": "MTiA host, 1968 - c.1978",
+      "dates_active": "1968 - c.1978"
     }
   },
   {
@@ -20,7 +24,9 @@
     "pk": 3,
     "fields": {
       "name": "Bryn Poole",
-      "role": 2
+      "role": 2,
+      "bio": "MTiA host, 1965 - c.1968",
+      "dates_active": "1965 - c.1968"
     }
   },
   {
@@ -28,7 +34,9 @@
     "pk": 4,
     "fields": {
       "name": "Matthew Lavoie",
-      "role": 2
+      "role": 2,
+      "bio": "MTiA host, 2004 - 2010",
+      "dates_active": "2004 - 2010"
     }
   },
   {

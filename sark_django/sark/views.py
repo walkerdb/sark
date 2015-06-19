@@ -19,21 +19,15 @@ def home(request):
     # return HttpResponse(html)
 
 class Demo(ListView):
-    model = m.RadioShow
+    queryset = m.RadioShow.objects.order_by("-date").reverse()
     # context_object_name = "radio_shows"
 
     def get_context_data(self, **kwargs):
         context = super(Demo, self).get_context_data(**kwargs)
-        context['hosts'] = m.Person.objects.filter(role_id=2)
+        context['hosts'] = m.Person.objects.filter(role_id=2).order_by("-dates_active").reverse()
         context['performers'] = m.Person.objects.filter(role_id=1)
         context['locations'] = m.Location.objects.all()
         return context
-
-def demo(request):
-    selected = "demo"
-    t = get_template("demo.html")
-    html = t.render(Context({'selected': selected}))
-    return HttpResponse(html)
 
 def aboutus(request):
     selected = "aboutus"
@@ -57,11 +51,8 @@ def program(request, year, month, day):
     selected = "demo"
 
     show = get_object_or_404(m.RadioShow, date="{0}-{1}-{2}".format(year, month, day))
-    host = show.host.name
-    date = show.date
     script = show.script.plaintext_link
-    print(script)
-    audio = show.audio.access_link
+    performances = show.performances.all()
 
     with open(os.path.join(BASE_DIR, "sark_django/static/sarkfiles/scripts/") + script, mode="r") as f:
         text = f.read()
@@ -69,7 +60,10 @@ def program(request, year, month, day):
     text = text.replace("\n", "</p>\n<p>")
 
     t = get_template("program.html")
-    html = t.render(Context({'selected': selected, 'host': host, 'date': date, 'script_text': text, 'audio': audio}))
+    html = t.render(Context({'selected': selected,
+                             'show': show,
+                             'script_text': text,
+                             'performances': performances}))
     return HttpResponse(html)
 
 def location(request, name, country):
@@ -94,6 +88,7 @@ def location(request, name, country):
 def person(request, name):
     selected = "demo"
     sark_person = get_object_or_404(m.Person, name=name)
+    shows = m.RadioShow.objects.filter(host_id=sark_person.pk).order_by("-date").reverse()
 
     t = get_template("person.html")
     html = t.render(Context({'role': sark_person.role.role,
@@ -102,10 +97,8 @@ def person(request, name):
                              'deathdate': sark_person.deathdate,
                              'bio': sark_person.bio,
                              'birthplace': sark_person.birthplace,
+                             'shows': shows,
                              'selected': selected
                              }))
 
     return HttpResponse(html)
-
-class PersonListView(ListView):
-    model = m.Person

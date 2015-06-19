@@ -2,7 +2,11 @@
 {% block content %}
     <h3>{{ name }}</h3>
     <hr>
-    <p>Role: {{ role }}</p>
-    <p>Bio: {{ bio }}</p>
-    <p></p>
+    <p>{{ bio }}</p>
+    <p>Shows:</p>
+    <ul>
+        {% for show in shows %}
+            <li><a href="../program/{{ show.date|date:"Y-m-d" }}">{{ show.date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

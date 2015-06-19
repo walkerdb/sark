@@ -1,33 +1,13 @@
 [
   {
-    "model": "sark.audio",
-    "pk": 1,
-    "fields": {
-      "access_link": "1965-05-01_access.mp3"
-    }
-  },
-  {
-    "model": "sark.audio",
-    "pk": 2,
-    "fields": {
-      "access_link": "1968-01-05_access.mp3"
-    }
-  },
-  {
-    "model": "sark.audio",
-    "pk": 3,
-    "fields": {
-      "access_link": "1989-07-16_access.mp3"
-    }
-  },
-    {
     "model": "sark.radioshow",
     "pk": 1,
     "fields": {
       "date": "1965-05-01",
       "host": 3,
       "script": 1,
-      "audio": 1
+      "description": "Show #1 - music from the Democratic Republic of Congo, Mozambique, Rhodesia, and the Republic of Guinea",
+      "performances": [1]
     }
   },
   {
@@ -37,7 +17,8 @@
       "date": "1968-01-05",
       "host": 2,
       "script": 2,
-      "audio": 2
+      "description": "Music of the Tonga people of southwest Zambia",
+      "performances": [2]
     }
   },
   {
@@ -47,7 +28,19 @@
       "date": "1989-07-16",
       "host": 1,
       "script": 3,
-      "audio": 3
+      "description": "Traditional and popular music",
+      "performances": [3]
+    }
+  },
+  {
+    "model": "sark.radioshow",
+    "pk": 4,
+    "fields": {
+      "date": "1973-10-28",
+      "host": 2,
+      "script": 4,
+      "description": "Music of the Republic of Dahomey (now Benin)",
+      "performances": [4,5,6,7,8,9,10,11]
     }
   }
 ]

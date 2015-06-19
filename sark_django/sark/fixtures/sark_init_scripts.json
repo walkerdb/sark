@@ -19,5 +19,12 @@
     "fields": {
       "plaintext_link": "1989-07-16_script.txt"
     }
+  },
+  {
+    "model": "sark.script",
+    "pk": 4,
+    "fields": {
+      "plaintext_link": "1973-10-28_script.txt"
+    }
   }
 ]

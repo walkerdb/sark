@@ -13,13 +13,13 @@
     <p>Example programs:</p>
     <ul>
         {% for show in object_list %}
-            <li>{{ show.host.name }}: <a href="../demo/program/{{ show.date|date:"Y-m-d" }}">{{ show.date }}</a></li>
+            <li>{{ show.host.name }}: <a href="../demo/program/{{ show.date|date:"Y-m-d" }}">{{ show.date|date:"Y-m-d" }}</a></li>
         {% endfor %}
     </ul>
     <p>Hosts</p>
     <ul>
         {% for host in hosts %}
-            <li><a href="../demo/person/{{ host.name }}">{{ host.name }}</a></li>
+            <li>{{ host.dates_active }} - <a href="../demo/person/{{ host.name }}">{{ host.name }}</a></li>
         {% endfor %}
     </ul>
     <p>Performers</p>
