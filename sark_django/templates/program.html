@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block header_material %}
-    <link type="text/css" rel="stylesheet" href="{% static 'js/bar-ui/css/bar-ui.css' %}"/>
+
+    <!-- css -->
+    <!-- audio player (soundmanager2) -->
+    <link type="text/css" rel="stylesheet" href="{% static 'js/soundmanager2/bar-ui/css/bar-ui.css' %}"/>
     <link type="text/css" rel="stylesheet" href="{% static 'css/sm2-bar-ui.css' %}"/>
-    <script src="{% static 'js/soundmanager2.js'%}"></script>
-    <script src="{% static 'js/bar-ui/script/bar-ui.js'%}"></script>
-{#    <script src="{% static 'js/bar-ui/script/demo.js'%}"></script>#}
+
+    <!-- image viewer (photoswipe) -->
+    <link rel="stylesheet" href="{% static 'css/photoswipe.css' %}">
+    <link rel="stylesheet" href="{% static 'js/photoswipe/default-skin/default-skin.css' %}">
+
+    <!-- js -->
+    <!-- audio player (soundmanager2) -->
+    <script src="{% static 'js/soundmanager2/soundmanager2.js' %}"></script>
+    <script src="{% static 'js/soundmanager2/bar-ui/script/bar-ui.js' %}"></script>
+
+    <!-- image viewer (photoswipe) -->
+    <script src="{% static 'js/photoswipe/photoswipe.js' %}"></script>
+    <script src="{% static 'js/photoswipe/photoswipe-ui-default.js' %}"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -15,11 +29,76 @@
     <hr>
     <div class="script">{{ script_text|safe }}</div>
     <hr>
-{#    <div class="audio_player">#}
-{#    <audio controls style="width: 100%">#}
-{#        <source src="{% static 'sarkfiles/audio/' %}{{ audio }}" type="audio/mpeg">#}
-{#    </audio>#}
-{#    </div>#}
+
+    <!-- image viewer (photoswipe.js) -->
+
+    <div class="image_gallery">
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="large-image.jpg" itemprop="contentUrl" data-size="600x400">
+            <img src="small-image.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Image caption</figcaption>
+        </figure>
+    </div>
+
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+
+            <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+
+                    <!--  Controls are self-explanatory. Order can be changed. -->
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- element will get class pswp__preloader--active when preloader is running -->
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- audio player (soundmanager2.js) -->
 
     <div class="sm2-bar-ui full-width fixed flat">
         <div class="bd sm2-main-controls">
@@ -100,4 +179,32 @@
         </div>
     </div>
 
+    <script>
+var pswpElement = document.querySelectorAll('.pswp')[0];
+
+// build items array
+var items = [
+    {
+        src: 'https://placekitten.com/600/400',
+        w: 600,
+        h: 400
+    },
+    {
+        src: 'https://placekitten.com/1200/900',
+        w: 1200,
+        h: 900
+    }
+];
+
+// define options (if needed)
+var options = {
+    // optionName: 'option value'
+    // for example:
+    index: 0 // start at first slide
+};
+
+// Initializes and opens PhotoSwipe
+var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+gallery.init();
+    </script>
 {% endblock %}

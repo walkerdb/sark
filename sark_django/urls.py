@@ -30,3 +30,5 @@ urlpatterns = [
     url(r'^demo/person/(.*)', views.person),
     url(r'^test/demo', views.Demo.as_view())
 ]
+
+admin.site.site_header = 'Sarkisian Project admin'

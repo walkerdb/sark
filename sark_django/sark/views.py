@@ -69,6 +69,8 @@ def program(request, year, month, day):
 def location(request, name, country):
     selected = "demo"
     location = get_object_or_404(m.Location, name=name, country=country)
+    people = m.Person.objects.filter(birthplace_id=location.pk)
+    print(people)
 
     if location.longitude and location.latitude:
         google_web_api_string = "https://www.google.com/maps/embed/v1/place?zoom={0}&center={1}%2C{2}&q={3}+{4}&key=AIzaSyDzDeB74FnjIvGAQhApW_8HVfrJSNq-nrE"
@@ -82,7 +84,8 @@ def location(request, name, country):
 
     html = t.render(Context({'selected': selected,
                              'google_maps_api_link': google_web_api_string,
-                             'location_name': name_string}))
+                             'location_name': name_string,
+                             'people': people}))
     return HttpResponse(html)
 
 def person(request, name):
