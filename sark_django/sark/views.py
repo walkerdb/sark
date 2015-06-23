@@ -53,6 +53,7 @@ def program(request, year, month, day):
     show = get_object_or_404(m.RadioShow, date="{0}-{1}-{2}".format(year, month, day))
     script = show.script.plaintext_link
     performances = show.performances.all()
+    photos = show.photos.all()
 
     with open(os.path.join(BASE_DIR, "sark_django/static/sarkfiles/scripts/") + script, mode="r") as f:
         text = f.read()
@@ -65,7 +66,8 @@ def program(request, year, month, day):
     html = t.render(Context({'selected': selected,
                              'show': show,
                              'script_text': text,
-                             'performances': performances}))
+                             'performances': performances,
+                             'photos': photos}))
     return HttpResponse(html)
 
 def location(request, name, country):

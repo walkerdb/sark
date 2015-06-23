@@ -25,22 +25,33 @@
 {% block content %}
     <p><strong>Host:</strong> <a href="../../person/{{ show.host.name }}">{{ show.host.name }}</a></p>
     <p><strong>Air-date:</strong> {{ show.date }}</p>
-    <p><em>{{ show.description }}</em> - <span class="small"><a href="../../admin/sark/radioshow/{{ show.pk }}">[edit show]</a></span></p>
+    <p><em>{{ show.description }}</em> - <span class="small"><a href="../../../admin/sark/radioshow/{{ show.pk }}">[edit show]</a></span></p>
     <hr>
-    <div class="script">{{ script_text|safe }}</div>
-    <hr>
+    {% if photos %}
+        <div class="row">
+            <div class="col-md-10">
 
-    <!-- image viewer (photoswipe.js) -->
-
-    <div class="image_gallery">
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="http://i.imgur.com/QfKCBbr.jpg" itemprop="contentUrl" data-size="1600x1200">
-            <img src="http://i.imgur.com/QfKCBbrb.jpg" itemprop="thumbnail" alt="Image description" />
-            </a>
-            <figcaption itemprop="caption description">Image caption</figcaption>
-        </figure>
-    </div>
-
+                <div class="script">{{ script_text|safe }}</div>
+                <hr>
+            </div>
+            <!-- image viewer (photoswipe.js) -->
+            <div class="col-md-2">
+                <div class="image_gallery">
+                    {% for photo in photos %}
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="/static/sarkfiles/{{ photo.file.name }}" itemprop="contentUrl" data-size="{{ photo.image_width }}x{{ photo.image_height }}">
+                            <img src="/static/sarkfiles/{{ photo.thumb.name }}" itemprop="thumbnail" alt="Image description" />
+                            </a>
+                            <br><br>
+            {#                <figcaption itemprop="caption description">Image caption</figcaption>#}
+                        </figure>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="script">{{ script_text|safe }}</div>
+    {% endif %}
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 

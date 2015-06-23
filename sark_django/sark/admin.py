@@ -49,3 +49,7 @@ class ScriptAdmin(admin.ModelAdmin):
 @admin.register(m.Role)
 class RoleAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(m.Photo)
+class PhotoAdmin(admin.ModelAdmin):
+    pass

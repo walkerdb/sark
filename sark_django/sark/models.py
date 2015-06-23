@@ -108,6 +108,18 @@ class Audio(models.Model):
     class Meta:
         verbose_name_plural = "audio"
 
+class Photo(models.Model):
+    file = models.ImageField(upload_to="img", height_field='image_height', width_field='image_width')
+    thumb = models.ImageField(upload_to="img")
+    image_height = models.PositiveIntegerField(null=True, editable=False)
+    image_width = models.PositiveIntegerField(null=True, editable=False)
+    description = models.CharField(blank=True, null=True, max_length=300)
+    date = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return self.file.name
+
+
 class Performance(models.Model):
     title = models.CharField(max_length=200)
     date = models.DateField(null=True)
@@ -117,7 +129,7 @@ class Performance(models.Model):
     instruments = models.ManyToManyField(Instrument, blank=True)
     genres = models.ManyToManyField(Genre, blank=True)
     performers = models.ManyToManyField(Person, blank=True)
-    # groups = models.ManyToManyField(Group, null=True, blank=True)
+    photos = models.ManyToManyField(Photo)
 
     def __str__(self):
         return "{0} - {1}".format(self.title, str(self.date))
@@ -129,13 +141,7 @@ class RadioShow(models.Model):
     script = models.ForeignKey(Script)
     description = models.CharField(max_length=200, null=True)
     performances = models.ManyToManyField(Performance)
+    photos = models.ManyToManyField(Photo)
 
     def __str__(self):
         return "MTiA: {0} ({1})".format(str(self.date), self.host.name)
-
-
-#
-# class Photo(models.Model):
-#     filename = models.FileField()
-#     description = models.CharField()
-#     date = models.DateField(blank=True)

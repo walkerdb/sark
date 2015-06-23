@@ -1,6 +1,9 @@
 django==1.8.2
+django-bootstrap3==5.4.0
+django-admin-bootstrapped==2.5.1
 django-haystack==2.3.1
 gunicorn==19.3.0
 jinja2==2.7.3
+pillow==2.8.2
 psycopg2==2.6
 pysolr==3.3.2
