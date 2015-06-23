@@ -1,12 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3>{{ name }}</h3>
+    <h3>{{ persondata.name }} - <span class="small"><a href="../../admin/sark/person/{{ persondata.pk }}">[edit]</a></span></h3>
     <hr>
-    <p>{{ bio }}</p>
-    <p>Shows:</p>
-    <ul>
-        {% for show in shows %}
-            <li><a href="../program/{{ show.date|date:"Y-m-d" }}">{{ show.date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
-        {% endfor %}
-    </ul>
+        {% if persondata.birthplace %}
+        <p>Birthplace: <a href="../location/{{ persondata.birthplace.name }}+{{ persondata.birthplace.country }}">{{ persondata.birthplace }}</a></p>
+    {% endif %}
+    <p>{{ persondata.bio }}</p>
+    {% if shows %}
+        <p>Shows:</p>
+        <ul>
+            {% for show in shows %}
+                <li><a href="../program/{{ show.date|date:"Y-m-d" }}">{{ show.date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No performances on record</p>
+    {% endif %}
 {% endblock %}

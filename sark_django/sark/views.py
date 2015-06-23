@@ -56,8 +56,10 @@ def program(request, year, month, day):
 
     with open(os.path.join(BASE_DIR, "sark_django/static/sarkfiles/scripts/") + script, mode="r") as f:
         text = f.read()
-    text = "<p>" + text + "</p>"
-    text = text.replace("\n", "</p>\n<p>")
+
+    if "<p>" not in text:
+        text = "<p>" + text + "</p>"
+        text = text.replace("\n", "</p>\n<p>")
 
     t = get_template("program.html")
     html = t.render(Context({'selected': selected,
@@ -94,12 +96,7 @@ def person(request, name):
     shows = m.RadioShow.objects.filter(host_id=sark_person.pk).order_by("-date").reverse()
 
     t = get_template("person.html")
-    html = t.render(Context({'role': sark_person.role.role,
-                             'name': sark_person.name,
-                             'birthdate': sark_person.birthdate,
-                             'deathdate': sark_person.deathdate,
-                             'bio': sark_person.bio,
-                             'birthplace': sark_person.birthplace,
+    html = t.render(Context({'persondata': sark_person,
                              'shows': shows,
                              'selected': selected
                              }))
