@@ -13,25 +13,25 @@
     <p>Example programs:</p>
     <ul>
         {% for show in object_list %}
-            <li>{{ show.host.name }}: <a href="../demo/program/{{ show.date|date:"Y-m-d" }}">{{ show.date|date:"Y-m-d" }}</a></li>
+            <li>{{ show.host.name }}: <a href="{% url 'sark_django.sark.views.program' show.date|date:"Y" show.date|date:"m" show.date|date:"d" %}">{{ show.date|date:"Y-m-d" }}</a></li>
         {% endfor %}
     </ul>
     <p>Hosts</p>
     <ul>
         {% for host in hosts %}
-            <li>{{ host.dates_active }} - <a href="../demo/person/{{ host.name }}">{{ host.name }}</a></li>
+            <li>{{ host.dates_active }} - <a href="{% url 'sark_django.sark.views.agent' host.name %}">{{ host.name }}</a></li>
         {% endfor %}
     </ul>
     <p>Performers</p>
     <ul>
         {% for performer in performers %}
-            <li><a href="../demo/person/{{ performer.name }}">{{ performer.name }}</a></li>
+            <li><a href="{% url 'sark_django.sark.views.agent' performer.name %}">{{ performer.name }}</a></li>
         {% endfor %}
     </ul>
     <p>Locations</p>
     <ul>
         {% for location in locations %}
-            <li><a href="../demo/location/{{ location.name }}+{{ location.country }}">{{ location.name }}, {{ location.country }}</a></li>
+            <li><a href="{% url 'sark_django.sark.views.location' location.name location.country%}">{{ location.name }}, {{ location.country }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

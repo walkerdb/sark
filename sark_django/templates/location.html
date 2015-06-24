@@ -11,10 +11,10 @@
         allowfullscreen></iframe>
 
     <br><br>
-    <p>People from {{ location_name }}:</p>
+    <p>People and groups from {{ location_name }}:</p>
     <ul>
         {% for person in people %}
-            <li><a href="../person/{{ person.name }}">{{ person.name }}</a></li>
+            <li><a href="{% url 'sark_django.sark.views.agent' person.name %}">{{ person.name }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

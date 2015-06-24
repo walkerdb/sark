@@ -24,8 +24,8 @@ class Demo(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(Demo, self).get_context_data(**kwargs)
-        context['hosts'] = m.Person.objects.filter(role_id=2).order_by("-dates_active").reverse()
-        context['performers'] = m.Person.objects.filter(role_id=1)
+        context['hosts'] = m.Agent.objects.filter(role_id=2).order_by("-dates_active").reverse()
+        context['performers'] = m.Agent.objects.filter(role_id=1)
         context['locations'] = m.Location.objects.all()
         return context
 
@@ -73,7 +73,7 @@ def program(request, year, month, day):
 def location(request, name, country):
     selected = "demo"
     location = get_object_or_404(m.Location, name=name, country=country)
-    people = m.Person.objects.filter(birthplace_id=location.pk)
+    people = m.Agent.objects.filter(primary_place_of_activity_id=location.pk)
     print(people)
 
     if location.longitude and location.latitude:
@@ -92,15 +92,17 @@ def location(request, name, country):
                              'people': people}))
     return HttpResponse(html)
 
-def person(request, name):
+def agent(request, name):
     selected = "demo"
-    sark_person = get_object_or_404(m.Person, name=name)
-    shows = m.RadioShow.objects.filter(host_id=sark_person.pk).order_by("-date").reverse()
+    agent = get_object_or_404(m.Agent, name=name)
+    shows = m.RadioShow.objects.filter(host_id=agent.pk).order_by("-date").reverse()
+    members = agent.members.all()
 
     t = get_template("person.html")
-    html = t.render(Context({'persondata': sark_person,
+    html = t.render(Context({'agentdata': agent,
                              'shows': shows,
-                             'selected': selected
+                             'selected': selected,
+                             'members': members
                              }))
 
     return HttpResponse(html)

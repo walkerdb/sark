@@ -1,16 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3>{{ persondata.name }} - <span class="small"><a href="../../admin/sark/person/{{ persondata.pk }}">[edit]</a></span></h3>
+    <h3>{{ agentdata.name }} <span class="small"><a href="../../admin/sark/agent/{{ agentdata.pk }}">[edit]</a></span></h3>
     <hr>
-        {% if persondata.birthplace %}
-        <p>Birthplace: <a href="../location/{{ persondata.birthplace.name }}+{{ persondata.birthplace.country }}">{{ persondata.birthplace }}</a></p>
+        {% if agentdata.primary_place_of_activity %}
+        <p>Primary location of activity: <a href="{% url 'sark_django.sark.views.location' agentdata.primary_place_of_activity.name agentdata.primary_place_of_activity.country %}">{{ agentdata.primary_place_of_activity }}</a></p>
     {% endif %}
-    <p>{{ persondata.bio }}</p>
+    <p>{{ agentdata.bio }}</p>
+    {% if members %}
+        <p>Known members:</p>
+        <ul>
+            {% for member in members %}
+                <li></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     {% if shows %}
         <p>Shows:</p>
         <ul>
             {% for show in shows %}
-                <li><a href="../program/{{ show.date|date:"Y-m-d" }}">{{ show.date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
+                <li><a href="{% url 'sark_django.sark.views.program' show.date|date:"Y" show.date|date:"m" show.date|date:"d" %}">{{ show.date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
             {% endfor %}
         </ul>
     {% else %}
