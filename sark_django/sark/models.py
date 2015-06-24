@@ -55,29 +55,19 @@ class Location(models.Model):
     def __str__(self):
         return "{0}, {1}".format(self.name, self.country)
 
-class Person(models.Model):
+class Agent(models.Model):
     name = models.CharField(max_length=200)
-    birthplace = models.ForeignKey(Location, null=True)
+    primary_place_of_activity = models.ForeignKey(Location, null=True, blank=True)
     birthdate = models.DateField(blank=True, null=True)
     deathdate = models.DateField(blank=True, null=True)
     dates_active = models.CharField(blank=True, null=True, max_length=20)
     bio = models.CharField(default="No bio on record", max_length=2000)
     role = models.ForeignKey(Role, default=0)
+    members = models.ManyToManyField("self", blank=True)
     # photos = models.ManyToManyField(Photo)
 
     def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = "people"
-
-
-class Group(models.Model):
-    members = models.ManyToManyField(Person)
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
+        return "{} ({})".format(self.name, self.role.role)
 
 
 class Script(models.Model):
@@ -128,7 +118,7 @@ class Performance(models.Model):
     location = models.ForeignKey(Location, null=True)
     instruments = models.ManyToManyField(Instrument, blank=True)
     genres = models.ManyToManyField(Genre, blank=True)
-    performers = models.ManyToManyField(Person, blank=True)
+    performers = models.ManyToManyField(Agent, blank=True)
     photos = models.ManyToManyField(Photo)
 
     def __str__(self):
@@ -137,7 +127,7 @@ class Performance(models.Model):
 
 class RadioShow(models.Model):
     date = models.DateField()
-    host = models.ForeignKey(Person)
+    host = models.ForeignKey(Agent)
     script = models.ForeignKey(Script)
     description = models.CharField(max_length=200, null=True)
     performances = models.ManyToManyField(Performance)

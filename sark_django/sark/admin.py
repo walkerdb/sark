@@ -10,8 +10,8 @@ class RadioShowAdmin(admin.ModelAdmin):
 class PerformanceAdmin(admin.ModelAdmin):
     date_hierarchy = 'date'
 
-@admin.register(m.Person)
-class PersonAdmin(admin.ModelAdmin):
+@admin.register(m.Agent)
+class AgentAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(m.Audio)
@@ -24,10 +24,6 @@ class CopyrightAdmin(admin.ModelAdmin):
 
 @admin.register(m.Genre)
 class GenreAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(m.Group)
-class GroupAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(m.Instrument)

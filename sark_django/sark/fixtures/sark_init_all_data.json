@@ -1,1 +1,819 @@
-[{"model": "sark.role", "fields": {"role": "Performer"}, "pk": 1}, {"model": "sark.role", "fields": {"role": "Host"}, "pk": 2}, {"model": "sark.role", "fields": {"role": "Composer"}, "pk": 3}, {"model": "sark.role", "fields": {"role": "Recording technician"}, "pk": 4}, {"model": "sark.location", "fields": {"name": "Todee", "latitude": 6.6328538, "country": "Liberia", "longitude": -10.4905701, "zoom": 10}, "pk": 1}, {"model": "sark.location", "fields": {"name": "Liverpool", "latitude": null, "country": "England", "longitude": null, "zoom": 10}, "pk": 2}, {"model": "sark.location", "fields": {"name": "Kinshasa", "latitude": null, "country": "Zaire", "longitude": null, "zoom": 9}, "pk": 3}, {"model": "sark.person", "fields": {"role": 2, "birthplace": null, "birthdate": null, "deathdate": null, "dates_active": "1978 - 2004", "name": "Rita Rochelle", "bio": "MTiA host, 1978 - 2004"}, "pk": 1}, {"model": "sark.person", "fields": {"role": 2, "birthplace": null, "birthdate": null, "deathdate": null, "dates_active": "1968 - c.1978", "name": "Susan Moran", "bio": "MTiA host, 1968 - c.1978"}, "pk": 2}, {"model": "sark.person", "fields": {"role": 2, "birthplace": null, "birthdate": null, "deathdate": null, "dates_active": "1965 - c.1968", "name": "Bryn Poole", "bio": "MTiA host, 1965 - c.1968"}, "pk": 3}, {"model": "sark.person", "fields": {"role": 2, "birthplace": null, "birthdate": null, "deathdate": null, "dates_active": "2004 - 2010", "name": "Matthew Lavoie", "bio": "MTiA host, 2004 - 2010"}, "pk": 4}, {"model": "sark.person", "fields": {"role": 1, "birthplace": null, "birthdate": null, "deathdate": null, "dates_active": null, "name": "John Lennon", "bio": "No bio on record"}, "pk": 5}, {"model": "sark.person", "fields": {"role": 1, "birthplace": 2, "birthdate": null, "deathdate": null, "dates_active": "", "name": "Paul McCartney", "bio": "No bio on record"}, "pk": 6}, {"model": "sark.script", "fields": {"plaintext_link": "no_script.txt"}, "pk": 1}, {"model": "sark.script", "fields": {"plaintext_link": "1968-01-05_script.txt"}, "pk": 2}, {"model": "sark.script", "fields": {"plaintext_link": "1989-07-16_script.txt"}, "pk": 3}, {"model": "sark.script", "fields": {"plaintext_link": "1973-10-28_script.txt"}, "pk": 4}, {"model": "sark.audio", "fields": {"access_link": "1965-05-01_access.mp3"}, "pk": 1}, {"model": "sark.audio", "fields": {"access_link": "1968-01-05_access.mp3"}, "pk": 2}, {"model": "sark.audio", "fields": {"access_link": "1989-07-16_access.mp3"}, "pk": 3}, {"model": "sark.audio", "fields": {"access_link": "1973-10-28_access_01.mp3"}, "pk": 4}, {"model": "sark.audio", "fields": {"access_link": "1973-10-28_access_02.mp3"}, "pk": 5}, {"model": "sark.audio", "fields": {"access_link": "1973-10-28_access_03.mp3"}, "pk": 6}, {"model": "sark.audio", "fields": {"access_link": "1973-10-28_access_04.mp3"}, "pk": 7}, {"model": "sark.audio", "fields": {"access_link": "1973-10-28_access_05.mp3"}, "pk": 8}, {"model": "sark.audio", "fields": {"access_link": "1973-10-28_access_06.mp3"}, "pk": 9}, {"model": "sark.audio", "fields": {"access_link": "1973-10-28_access_07.mp3"}, "pk": 10}, {"model": "sark.audio", "fields": {"access_link": "1973-10-28_access_08.mp3"}, "pk": 11}, {"model": "sark.photo", "fields": {"thumb": "img/1965-05-01_1-boxfront_thumb.jpg", "file": "img/1965-05-01_1-boxfront_access_xXXFcDh.jpg", "description": "", "image_width": 2181, "image_height": 2190, "date": null}, "pk": 2}, {"model": "sark.photo", "fields": {"thumb": "img/1965-05-01_1-boxback_thumb.jpg", "file": "img/1965-05-01_1-boxback_access.jpg", "description": "", "image_width": 2000, "image_height": 2011, "date": null}, "pk": 3}, {"model": "sark.photo", "fields": {"thumb": "img/1965-05-01_1-boxleft_thumb.jpg", "file": "img/1965-05-01_1-boxleft_access.jpg", "description": "", "image_width": 2000, "image_height": 211, "date": null}, "pk": 4}, {"model": "sark.photo", "fields": {"thumb": "img/1965-05-01_1-reelfront_thumb.jpg", "file": "img/1965-05-01_1-reelfront_access.jpg", "description": "", "image_width": 2000, "image_height": 2006, "date": null}, "pk": 5}, {"model": "sark.performance", "fields": {"audio": 1, "photos": [], "instruments": [], "location": null, "genres": [], "date": "1965-05-01", "title": "MTiA 1965-05-01 - full broadcast", "performers": []}, "pk": 1}, {"model": "sark.performance", "fields": {"audio": 2, "photos": [], "instruments": [], "location": null, "genres": [], "date": "1968-01-05", "title": "MTiA 1968-01-05 - full broadcast", "performers": []}, "pk": 2}, {"model": "sark.performance", "fields": {"audio": 3, "photos": [], "instruments": [], "location": null, "genres": [], "date": "1989-07-16", "title": "MTiA 1989-07-16 - full broadcast", "performers": []}, "pk": 3}, {"model": "sark.performance", "fields": {"audio": 4, "photos": [], "instruments": [], "location": null, "genres": [], "date": null, "title": "MTIA 1973-10-28 - insert 01", "performers": []}, "pk": 4}, {"model": "sark.performance", "fields": {"audio": 5, "photos": [], "instruments": [], "location": null, "genres": [], "date": null, "title": "MTIA 1973-10-28 - insert 02", "performers": []}, "pk": 5}, {"model": "sark.performance", "fields": {"audio": 6, "photos": [], "instruments": [], "location": null, "genres": [], "date": null, "title": "MTIA 1973-10-28 - insert 03", "performers": []}, "pk": 6}, {"model": "sark.performance", "fields": {"audio": 7, "photos": [], "instruments": [], "location": null, "genres": [], "date": null, "title": "MTIA 1973-10-28 - insert 04", "performers": []}, "pk": 7}, {"model": "sark.performance", "fields": {"audio": 8, "photos": [], "instruments": [], "location": null, "genres": [], "date": null, "title": "MTIA 1973-10-28 - insert 05", "performers": []}, "pk": 8}, {"model": "sark.performance", "fields": {"audio": 9, "photos": [], "instruments": [], "location": null, "genres": [], "date": null, "title": "MTIA 1973-10-28 - insert 06", "performers": []}, "pk": 9}, {"model": "sark.performance", "fields": {"audio": 10, "photos": [], "instruments": [], "location": null, "genres": [], "date": null, "title": "MTIA 1973-10-28 - insert 07", "performers": []}, "pk": 10}, {"model": "sark.performance", "fields": {"audio": 11, "photos": [], "instruments": [], "location": null, "genres": [], "date": null, "title": "MTIA 1973-10-28 - insert 08", "performers": []}, "pk": 11}, {"model": "sark.radioshow", "fields": {"photos": [2, 3, 4, 5], "performances": [1], "host": 3, "description": "Show #1 - music from the Democratic Republic of Congo, Mozambique, Rhodesia, and the Republic of Guinea", "script": 1, "date": "1965-05-01"}, "pk": 1}, {"model": "sark.radioshow", "fields": {"photos": [], "performances": [2], "host": 2, "description": "Music of the Tonga people of southwest Zambia", "script": 2, "date": "1968-01-05"}, "pk": 2}, {"model": "sark.radioshow", "fields": {"photos": [], "performances": [3], "host": 1, "description": "Traditional and popular music", "script": 3, "date": "1989-07-16"}, "pk": 3}, {"model": "sark.radioshow", "fields": {"photos": [], "performances": [4, 5, 6, 7, 8, 9, 10, 11], "host": 2, "description": "Music of the Republic of Dahomey (now Benin)", "script": 4, "date": "1973-10-28"}, "pk": 4}]
+[
+  {
+    "fields": {
+      "model": "logentry",
+      "app_label": "admin"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "model": "permission",
+      "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "model": "group",
+      "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "model": "user",
+      "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "model": "contenttype",
+      "app_label": "contenttypes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "model": "session",
+      "app_label": "sessions"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "model": "role",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "model": "genre",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "model": "copyrightstatus",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "model": "instrumentfamily",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "model": "instrument",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "model": "location",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "model": "agent",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "model": "script",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "model": "audio",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "model": "photo",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "model": "performance",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "model": "radioshow",
+      "app_label": "sark"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "expire_date": "2015-07-07T16:25:13.122Z",
+      "session_data": "NWM3Y2M4Mzk4MTMwZTQwZTRmYjllY2RkYjk1YjU0ZjY0OGYyOGVjODp7Il9hdXRoX3VzZXJfaGFzaCI6IjRlNDk4ODIzZGQ2YjU0OWFjZTNmYjhlMmQwMzdhNGU4OTE1MDVlZDUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
+    },
+    "model": "sessions.session",
+    "pk": "niq90jgh5dcvmduoo7yd66z2fg2y0ltj"
+  },
+  {
+    "fields": {
+      "expire_date": "2015-07-07T16:28:38.532Z",
+      "session_data": "MTgwYWMwNGE5ZGE1ZTMxNGY5ZWRiZTliNWVmMDFlODVjNTcxMjE0ZDp7Il9hdXRoX3VzZXJfaGFzaCI6ImQ5NWE5ZGZlOGQxZWY5MGVmNGM5NzA2YTFhYWQ4ZGRiYTkyOWZiMGYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0="
+    },
+    "model": "sessions.session",
+    "pk": "r0evb3maognq71ymjffjgknrjd1tmmyl"
+  },
+  {
+    "fields": {
+      "expire_date": "2015-07-07T08:32:07.856Z",
+      "session_data": "NWM3Y2M4Mzk4MTMwZTQwZTRmYjllY2RkYjk1YjU0ZjY0OGYyOGVjODp7Il9hdXRoX3VzZXJfaGFzaCI6IjRlNDk4ODIzZGQ2YjU0OWFjZTNmYjhlMmQwMzdhNGU4OTE1MDVlZDUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
+    },
+    "model": "sessions.session",
+    "pk": "subi4v9zfb1selde6uziouk0o98sdk2k"
+  },
+  {
+    "fields": {
+      "expire_date": "2015-07-07T10:45:53.284Z",
+      "session_data": "NWM3Y2M4Mzk4MTMwZTQwZTRmYjllY2RkYjk1YjU0ZjY0OGYyOGVjODp7Il9hdXRoX3VzZXJfaGFzaCI6IjRlNDk4ODIzZGQ2YjU0OWFjZTNmYjhlMmQwMzdhNGU4OTE1MDVlZDUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
+    },
+    "model": "sessions.session",
+    "pk": "up7lnftyrwqbn880hbt15o7fzbwbisfh"
+  },
+  {
+    "fields": {
+      "role": "Performer"
+    },
+    "model": "sark.role",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "role": "Host"
+    },
+    "model": "sark.role",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "role": "Composer"
+    },
+    "model": "sark.role",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "role": "Recording technician"
+    },
+    "model": "sark.role",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "role": "Performing group"
+    },
+    "model": "sark.role",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "role": "Ethnic group"
+    },
+    "model": "sark.role",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "family": "Idiophone"
+    },
+    "model": "sark.instrumentfamily",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "family": "Membranophone"
+    },
+    "model": "sark.instrumentfamily",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "family": "Chordophone"
+    },
+    "model": "sark.instrumentfamily",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "family": "Aerophone"
+    },
+    "model": "sark.instrumentfamily",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "name": "Chikere-kere",
+      "family": 1
+    },
+    "model": "sark.instrument",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Jenje",
+      "family": 2
+    },
+    "model": "sark.instrument",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "name": "Barakarankou",
+      "family": 2
+    },
+    "model": "sark.instrument",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "name": "Gen",
+      "family": 2
+    },
+    "model": "sark.instrument",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "name": "Gourou",
+      "family": 4
+    },
+    "model": "sark.instrument",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "name": "Bou-an-rou",
+      "family": 1
+    },
+    "model": "sark.instrument",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "latitude": 6.6328538,
+      "country": "Liberia",
+      "name": "Todee",
+      "longitude": -10.4905701,
+      "zoom": 10
+    },
+    "model": "sark.location",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "latitude": null,
+      "country": "England",
+      "name": "Liverpool",
+      "longitude": null,
+      "zoom": 10
+    },
+    "model": "sark.location",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "latitude": null,
+      "country": "Zaire",
+      "name": "Kinshasa",
+      "longitude": null,
+      "zoom": 9
+    },
+    "model": "sark.location",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "latitude": null,
+      "country": "MA",
+      "name": "Lawrence",
+      "longitude": null,
+      "zoom": 10
+    },
+    "model": "sark.location",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "bio": "MTiA host, 1978 - 2004",
+      "birthplace": null,
+      "name": "Rita Rochelle",
+      "birthdate": null,
+      "dates_active": "1978 - 2004",
+      "role": 2,
+      "deathdate": null
+    },
+    "model": "sark.agent",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "bio": "MTiA host, 1968 - c.1978",
+      "birthplace": null,
+      "name": "Susan Moran",
+      "birthdate": null,
+      "dates_active": "1968 - c.1978",
+      "role": 2,
+      "deathdate": null
+    },
+    "model": "sark.agent",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "bio": "MTiA host, 1965 - c.1968",
+      "birthplace": null,
+      "name": "Bryn Poole",
+      "birthdate": null,
+      "dates_active": "1965 - c.1968",
+      "role": 2,
+      "deathdate": null
+    },
+    "model": "sark.agent",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "bio": "No bio on record",
+      "birthplace": 2,
+      "name": "John",
+      "birthdate": null,
+      "dates_active": "",
+      "role": 1,
+      "deathdate": null
+    },
+    "model": "sark.agent",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "bio": "No bio on record",
+      "birthplace": 2,
+      "name": "Paul",
+      "birthdate": null,
+      "dates_active": "",
+      "role": 1,
+      "deathdate": null
+    },
+    "model": "sark.agent",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "bio": "No bio on record",
+      "birthplace": 2,
+      "name": "Ringo",
+      "birthdate": null,
+      "dates_active": "",
+      "role": 1,
+      "deathdate": null
+    },
+    "model": "sark.agent",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "bio": "No bio on record",
+      "birthplace": 2,
+      "name": "George",
+      "birthdate": null,
+      "dates_active": "",
+      "role": 1,
+      "deathdate": null
+    },
+    "model": "sark.agent",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "bio": "Musicman, MTiA founder and co-host, 1965-2012",
+      "birthplace": 4,
+      "name": "Leo Sarkisian",
+      "birthdate": "1921-01-04",
+      "dates_active": "1965 - c.2012",
+      "role": 2,
+      "deathdate": null
+    },
+    "model": "sark.agent",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "plaintext_link": "no_script.txt"
+    },
+    "model": "sark.script",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "plaintext_link": "1968-01-05_script.txt"
+    },
+    "model": "sark.script",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "plaintext_link": "1989-07-16_script.txt"
+    },
+    "model": "sark.script",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "plaintext_link": "1973-10-28_script.txt"
+    },
+    "model": "sark.script",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "access_link": "1965-05-01_access.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "access_link": "1968-01-05_access.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "access_link": "1989-07-16_access.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "access_link": "1973-10-28_access_01.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "access_link": "1973-10-28_access_02.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "access_link": "1973-10-28_access_03.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "access_link": "1973-10-28_access_04.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "access_link": "1973-10-28_access_05.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "access_link": "1973-10-28_access_06.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "access_link": "1973-10-28_access_07.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "access_link": "1973-10-28_access_08.mp3"
+    },
+    "model": "sark.audio",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "description": "",
+      "image_width": 2181,
+      "image_height": 2190,
+      "file": "img/1965-05-01_1-boxfront_access_xXXFcDh.jpg",
+      "date": null,
+      "thumb": "img/1965-05-01_1-boxfront_thumb.jpg"
+    },
+    "model": "sark.photo",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "description": "",
+      "image_width": 2000,
+      "image_height": 2011,
+      "file": "img/1965-05-01_1-boxback_access.jpg",
+      "date": null,
+      "thumb": "img/1965-05-01_1-boxback_thumb.jpg"
+    },
+    "model": "sark.photo",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "description": "",
+      "image_width": 2000,
+      "image_height": 211,
+      "file": "img/1965-05-01_1-boxleft_access.jpg",
+      "date": null,
+      "thumb": "img/1965-05-01_1-boxleft_thumb.jpg"
+    },
+    "model": "sark.photo",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "description": "",
+      "image_width": 2000,
+      "image_height": 2006,
+      "file": "img/1965-05-01_1-reelfront_access.jpg",
+      "date": null,
+      "thumb": "img/1965-05-01_1-reelfront_thumb.jpg"
+    },
+    "model": "sark.photo",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTiA 1965-05-01 - full broadcast",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": "1965-05-01",
+      "audio": 1
+    },
+    "model": "sark.performance",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTiA 1968-01-05 - full broadcast",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": "1968-01-05",
+      "audio": 2
+    },
+    "model": "sark.performance",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTiA 1989-07-16 - full broadcast",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": "1989-07-16",
+      "audio": 3
+    },
+    "model": "sark.performance",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 01",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": null,
+      "audio": 4
+    },
+    "model": "sark.performance",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 02",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": null,
+      "audio": 5
+    },
+    "model": "sark.performance",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 03",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": null,
+      "audio": 6
+    },
+    "model": "sark.performance",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 04",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": null,
+      "audio": 7
+    },
+    "model": "sark.performance",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 05",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": null,
+      "audio": 8
+    },
+    "model": "sark.performance",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 06",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": null,
+      "audio": 9
+    },
+    "model": "sark.performance",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 07",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": null,
+      "audio": 10
+    },
+    "model": "sark.performance",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 08",
+      "instruments": [],
+      "performers": [],
+      "photos": [],
+      "location": null,
+      "date": null,
+      "audio": 11
+    },
+    "model": "sark.performance",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "description": "Music from the Democratic Republic of Congo, Mozambique, Rhodesia, and the Republic of Guinea",
+      "script": 1,
+      "performances": [
+        1
+      ],
+      "photos": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "host": 3,
+      "date": "1966-05-01"
+    },
+    "model": "sark.radioshow",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "description": "Music of the Tonga people of southwest Zambia",
+      "script": 2,
+      "performances": [
+        2
+      ],
+      "photos": [],
+      "host": 2,
+      "date": "1968-01-05"
+    },
+    "model": "sark.radioshow",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "description": "Traditional and popular music",
+      "script": 3,
+      "performances": [
+        3
+      ],
+      "photos": [],
+      "host": 1,
+      "date": "1989-07-16"
+    },
+    "model": "sark.radioshow",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "description": "Music of the Republic of Dahomey (now Benin)",
+      "script": 4,
+      "performances": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "photos": [],
+      "host": 2,
+      "date": "1973-10-28"
+    },
+    "model": "sark.radioshow",
+    "pk": 4
+  }
+]
