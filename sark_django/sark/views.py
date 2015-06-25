@@ -19,7 +19,7 @@ def home(request):
     # return HttpResponse(html)
 
 class Demo(ListView):
-    queryset = m.RadioShow.objects.order_by("-date").reverse()
+    queryset = m.RadioShow.objects.order_by("broadcast_date")
     # context_object_name = "radio_shows"
 
     def get_context_data(self, **kwargs):
@@ -50,7 +50,7 @@ def inventory(request):
 def program(request, year, month, day):
     selected = "demo"
 
-    show = get_object_or_404(m.RadioShow, date="{0}-{1}-{2}".format(year, month, day))
+    show = get_object_or_404(m.RadioShow, broadcast_date="{0}-{1}-{2}".format(year, month, day))
     script = show.script.plaintext_link
     performances = show.performances.all()
     photos = show.images.all()
@@ -95,7 +95,7 @@ def location(request, name, country):
 def agent(request, name):
     selected = "demo"
     agent = get_object_or_404(m.Agent, name=name)
-    shows = m.RadioShow.objects.filter(host_id=agent.pk).order_by("-date").reverse()
+    shows = m.RadioShow.objects.filter(host_id=agent.pk).order_by("broadcast_date")
     members = agent.members.all()
 
     t = get_template("person.html")

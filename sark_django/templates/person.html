@@ -6,11 +6,11 @@
         <p>Primary location of activity: <a href="{% url 'sark_django.sark.views.location' agentdata.primary_place_of_activity.name agentdata.primary_place_of_activity.country %}">{{ agentdata.primary_place_of_activity }}</a></p>
     {% endif %}
     <p>{{ agentdata.bio }}</p>
-    {% if members %}
+    {% if "Performing group" in agentdata.role.role or "Ethnic group" in agentdata.role.role%}
         <p>Known members:</p>
         <ul>
             {% for member in members %}
-                <li></li>
+                <li><a href="{% url 'sark_django.sark.views.agent' member.name %}" target="_blank">{{ member.name }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}
@@ -18,7 +18,7 @@
         <p>Shows:</p>
         <ul>
             {% for show in shows %}
-                <li><a href="{% url 'sark_django.sark.views.program' show.date|date:"Y" show.date|date:"m" show.date|date:"d" %}">{{ show.date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
+                <li><a href="{% url 'sark_django.sark.views.program' show.broadcast_date|date:"Y" show.broadcast_date|date:"m" show.broadcast_date|date:"d" %}">{{ show.broadcast_date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
             {% endfor %}
         </ul>
     {% else %}

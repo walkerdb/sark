@@ -132,7 +132,7 @@ class Performance(models.Model):
 
 
 class RadioShow(models.Model):
-    date = models.DateField(blank=True)
+    broadcast_date = models.DateField(blank=True)
     host = models.ForeignKey(Agent)
     script = models.ForeignKey(Script)
     description = models.CharField(max_length=200, blank=True)
@@ -140,7 +140,7 @@ class RadioShow(models.Model):
     images = models.ManyToManyField(Image, blank=True)
 
     def __str__(self):
-        return "MTiA: {0} ({1})".format(str(self.date), self.host.name)
+        return "MTiA: {0} ({1})".format(str(self.broadcast_date), self.host.name)
 
     class Meta:
-        ordering = ('date',)
+        ordering = ('broadcast_date',)

@@ -13,7 +13,7 @@
     <p>Example programs:</p>
     <ul>
         {% for show in object_list %}
-            <li>{{ show.host.name }}: <a href="{% url 'sark_django.sark.views.program' show.date|date:"Y" show.date|date:"m" show.date|date:"d" %}">{{ show.date|date:"Y-m-d" }}</a></li>
+            <li>{{ show.host.name }}: <a href="{% url 'sark_django.sark.views.program' show.broadcast_date|date:"Y" show.broadcast_date|date:"m" show.broadcast_date|date:"d" %}">{{ show.broadcast_date|date:"Y-m-d" }}</a></li>
         {% endfor %}
     </ul>
     <p>Hosts</p>

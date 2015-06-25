@@ -3,7 +3,8 @@ from . import models as m
 
 @admin.register(m.RadioShow)
 class RadioShowAdmin(admin.ModelAdmin):
-    date_hierarchy = 'date'
+    date_hierarchy = 'broadcast_date'
+    filter_horizontal = ('images', 'performances')
 
 
 @admin.register(m.Performance)
