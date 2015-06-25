@@ -101,20 +101,6 @@ class Script(models.Model):
         return self.plaintext_link
 
 
-class Audio(models.Model):
-    access_link = models.FilePathField(
-        path="C:/Users/dev/PycharmProjects/sark_django/sark_django/static/sarkfiles/audio",
-        match=r".*\.mp3",
-        max_length=200,
-        default=0
-    )
-
-    def __str__(self):
-        return self.access_link
-
-    class Meta:
-        verbose_name_plural = "audio"
-
 class Image(models.Model):
     file = models.ImageField(upload_to="img", height_field='image_height', width_field='image_width')
     thumb = models.ImageField(upload_to="img")
@@ -131,7 +117,7 @@ class Performance(models.Model):
     title = models.CharField(max_length=200)
     date = models.DateField(blank=True, null=True)
 
-    audio = models.ForeignKey(Audio)
+    audio = models.FileField(upload_to="audio", null=True)
     location = models.ForeignKey(Location, blank=True, null=True)
     instruments = models.ManyToManyField(Instrument, blank=True)
     genres = models.ManyToManyField(Genre, blank=True)
@@ -146,12 +132,12 @@ class Performance(models.Model):
 
 
 class RadioShow(models.Model):
-    date = models.DateField()
+    date = models.DateField(blank=True)
     host = models.ForeignKey(Agent)
     script = models.ForeignKey(Script)
-    description = models.CharField(max_length=200, null=True)
+    description = models.CharField(max_length=200, blank=True)
     performances = models.ManyToManyField(Performance)
-    photos = models.ManyToManyField(Image)
+    images = models.ManyToManyField(Image, blank=True)
 
     def __str__(self):
         return "MTiA: {0} ({1})".format(str(self.date), self.host.name)

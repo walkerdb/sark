@@ -24,11 +24,11 @@ urlpatterns = [
     url(r'^aboutus/$', views.aboutus),
     url(r'^inventory/$', views.inventory),
     url(r'^aboutmtia/$', views.aboutmtia),
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^demo/program/([0-9]{4})-([0-9]{2})-([0-9]{2})/',  'sark_django.sark.views.program'),
     url(r'^demo/location/([a-zA-Z]*)\+([a-zA-Z]*)',  'sark_django.sark.views.location'),
     url(r'^demo/agent/(.*)', 'sark_django.sark.views.agent'),
-    url(r'^test/demo',  views.Demo.as_view())
+    url(r'^test/demo',  views.Demo.as_view()),
+    url(r'^admin/', include(admin.site.urls)),
 ]
 
 admin.site.site_header = 'Sarkisian Project admin'

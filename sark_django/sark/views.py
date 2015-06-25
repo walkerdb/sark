@@ -53,7 +53,7 @@ def program(request, year, month, day):
     show = get_object_or_404(m.RadioShow, date="{0}-{1}-{2}".format(year, month, day))
     script = show.script.plaintext_link
     performances = show.performances.all()
-    photos = show.photos.all()
+    photos = show.images.all()
 
     with open(os.path.join(BASE_DIR, "sark_django/static/sarkfiles/scripts/") + script, mode="r") as f:
         text = f.read()

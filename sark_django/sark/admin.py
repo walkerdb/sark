@@ -9,14 +9,10 @@ class RadioShowAdmin(admin.ModelAdmin):
 @admin.register(m.Performance)
 class PerformanceAdmin(admin.ModelAdmin):
     date_hierarchy = 'date'
-    filter_horizontal = ('instruments',)
+    filter_horizontal = ('instruments', 'genres', 'performers', 'photos')
 
 @admin.register(m.Agent)
 class AgentAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(m.Audio)
-class AudioAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(m.CopyrightStatus)
