@@ -25,13 +25,13 @@
 {% block content %}
     <p><strong>Host:</strong> <a href="{% url 'sark_django.sark.views.agent' show.host.name %}">{{ show.host.name }}</a></p>
     <p><strong>Air-date:</strong> {{ show.broadcast_date }}</p>
-    <p><em>{{ show.description }}</em> - <span class="small"><a href="../../../admin/sark/radioshow/{{ show.pk }}">[edit show]</a></span></p>
+    <p><em>{{ show.description }}</em>  <span class="small"><a href="../../../admin/sark/radioshow/{{ show.pk }}" target="_blank">[edit show]</a></span></p>
     <hr>
     {% if photos %}
         <div class="row">
             <div class="col-md-10">
 
-                <div class="script">{{ script_text|safe }}</div>
+                <div class="script">{{ show.script|safe|linebreaks }}</div>
                 <hr>
             </div>
             <!-- image viewer (photoswipe.js) -->
@@ -50,7 +50,7 @@
             </div>
         </div>
     {% else %}
-        <div class="script">{{ script_text|safe }}</div>
+        <div class="script">{{ show.script|safe|linebreaks }}</div>
     {% endif %}
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

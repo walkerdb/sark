@@ -87,20 +87,6 @@ class Agent(models.Model):
         ordering = ('name',)
 
 
-class Script(models.Model):
-    plaintext_link = models.FilePathField(
-        path="C:/Users/dev/PycharmProjects/sark_django/sark_django/static/sarkfiles/scripts",
-        match=r".*\.txt",
-        max_length=200)
-    # tei_link = models.FilePathField(
-    #     path="C:/Users/dev/PycharmProjects/sark_django/sark_django/static/sarkfiles/scripts",
-    #     match=r".*\.tei",
-    #     max_length=200)
-
-    def __str__(self):
-        return self.plaintext_link
-
-
 class Image(models.Model):
     file = models.ImageField(upload_to="img", height_field='image_height', width_field='image_width')
     thumb = models.ImageField(upload_to="img")
@@ -134,7 +120,7 @@ class Performance(models.Model):
 class RadioShow(models.Model):
     broadcast_date = models.DateField(blank=True)
     host = models.ForeignKey(Agent)
-    script = models.ForeignKey(Script)
+    script = models.TextField(blank=True)
     description = models.CharField(max_length=200, blank=True)
     performances = models.ManyToManyField(Performance)
     images = models.ManyToManyField(Image, blank=True)

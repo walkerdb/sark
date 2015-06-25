@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3>{{ agentdata.name }} <span class="small"><a href="../../admin/sark/agent/{{ agentdata.pk }}">[edit]</a></span></h3>
+    <h3>{{ agentdata.name }} <span class="small"><a href="../../admin/sark/agent/{{ agentdata.pk }}" target="_blank">[edit]</a></span></h3>
     <hr>
         {% if agentdata.primary_place_of_activity %}
         <p>Primary location of activity: <a href="{% url 'sark_django.sark.views.location' agentdata.primary_place_of_activity.name agentdata.primary_place_of_activity.country %}">{{ agentdata.primary_place_of_activity }}</a></p>

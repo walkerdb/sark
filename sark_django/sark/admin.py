@@ -36,9 +36,6 @@ class InstrumentFamilyAdmin(admin.ModelAdmin):
 class LocationAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(m.Script)
-class ScriptAdmin(admin.ModelAdmin):
-    pass
 
 @admin.register(m.Role)
 class RoleAdmin(admin.ModelAdmin):

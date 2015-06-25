@@ -51,21 +51,12 @@ def program(request, year, month, day):
     selected = "demo"
 
     show = get_object_or_404(m.RadioShow, broadcast_date="{0}-{1}-{2}".format(year, month, day))
-    script = show.script.plaintext_link
     performances = show.performances.all()
     photos = show.images.all()
-
-    with open(os.path.join(BASE_DIR, "sark_django/static/sarkfiles/scripts/") + script, mode="r") as f:
-        text = f.read()
-
-    if "<p>" not in text:
-        text = "<p>" + text + "</p>"
-        text = text.replace("\n", "</p>\n<p>")
 
     t = get_template("program.html")
     html = t.render(Context({'selected': selected,
                              'show': show,
-                             'script_text': text,
                              'performances': performances,
                              'photos': photos}))
     return HttpResponse(html)
