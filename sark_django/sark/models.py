@@ -11,12 +11,19 @@ class Role(models.Model):
     def __str__(self):
         return self.role
 
+    class Meta:
+        ordering = ('role',)
+
 
 class Genre(models.Model):
     genre = models.CharField(max_length=50)
+    description = models.TextField(blank=True, default="")
 
     def __str__(self):
         return self.genre
+
+    class Meta:
+        ordering = ('genre',)
 
 
 class CopyrightStatus(models.Model):
@@ -39,10 +46,14 @@ class InstrumentFamily(models.Model):
 
 class Instrument(models.Model):
     name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, default="")
     family = models.ForeignKey(InstrumentFamily)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ('name',)
 
 
 class Location(models.Model):
@@ -54,6 +65,9 @@ class Location(models.Model):
 
     def __str__(self):
         return "{0}, {1}".format(self.name, self.country)
+
+    class Meta:
+        ordering = ('country', 'name')
 
 class Agent(models.Model):
     name = models.CharField(max_length=200)
@@ -68,6 +82,9 @@ class Agent(models.Model):
 
     def __str__(self):
         return "{} ({})".format(self.name, self.role.role)
+
+    class Meta:
+        ordering = ('name',)
 
 
 class Script(models.Model):
@@ -98,7 +115,7 @@ class Audio(models.Model):
     class Meta:
         verbose_name_plural = "audio"
 
-class Photo(models.Model):
+class Image(models.Model):
     file = models.ImageField(upload_to="img", height_field='image_height', width_field='image_width')
     thumb = models.ImageField(upload_to="img")
     image_height = models.PositiveIntegerField(null=True, editable=False)
@@ -112,17 +129,20 @@ class Photo(models.Model):
 
 class Performance(models.Model):
     title = models.CharField(max_length=200)
-    date = models.DateField(null=True)
+    date = models.DateField(blank=True, null=True)
 
     audio = models.ForeignKey(Audio)
-    location = models.ForeignKey(Location, null=True)
+    location = models.ForeignKey(Location, blank=True, null=True)
     instruments = models.ManyToManyField(Instrument, blank=True)
     genres = models.ManyToManyField(Genre, blank=True)
     performers = models.ManyToManyField(Agent, blank=True)
-    photos = models.ManyToManyField(Photo)
+    photos = models.ManyToManyField(Image, blank=True)
 
     def __str__(self):
         return "{0} - {1}".format(self.title, str(self.date))
+
+    class Meta:
+        ordering = ('date', 'title')
 
 
 class RadioShow(models.Model):
@@ -131,7 +151,10 @@ class RadioShow(models.Model):
     script = models.ForeignKey(Script)
     description = models.CharField(max_length=200, null=True)
     performances = models.ManyToManyField(Performance)
-    photos = models.ManyToManyField(Photo)
+    photos = models.ManyToManyField(Image)
 
     def __str__(self):
         return "MTiA: {0} ({1})".format(str(self.date), self.host.name)
+
+    class Meta:
+        ordering = ('date',)

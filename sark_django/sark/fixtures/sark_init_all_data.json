@@ -340,7 +340,7 @@
   {
     "fields": {
       "bio": "MTiA host, 1978 - 2004",
-      "birthplace": null,
+      "primary_place_of_activity": null,
       "name": "Rita Rochelle",
       "birthdate": null,
       "dates_active": "1978 - 2004",
@@ -353,7 +353,7 @@
   {
     "fields": {
       "bio": "MTiA host, 1968 - c.1978",
-      "birthplace": null,
+      "primary_place_of_activity": null,
       "name": "Susan Moran",
       "birthdate": null,
       "dates_active": "1968 - c.1978",
@@ -366,7 +366,7 @@
   {
     "fields": {
       "bio": "MTiA host, 1965 - c.1968",
-      "birthplace": null,
+      "primary_place_of_activity": null,
       "name": "Bryn Poole",
       "birthdate": null,
       "dates_active": "1965 - c.1968",
@@ -379,7 +379,7 @@
   {
     "fields": {
       "bio": "No bio on record",
-      "birthplace": 2,
+      "primary_place_of_activity": 2,
       "name": "John",
       "birthdate": null,
       "dates_active": "",
@@ -392,7 +392,7 @@
   {
     "fields": {
       "bio": "No bio on record",
-      "birthplace": 2,
+      "primary_place_of_activity": 2,
       "name": "Paul",
       "birthdate": null,
       "dates_active": "",
@@ -405,7 +405,7 @@
   {
     "fields": {
       "bio": "No bio on record",
-      "birthplace": 2,
+      "primary_place_of_activity": 2,
       "name": "Ringo",
       "birthdate": null,
       "dates_active": "",
@@ -418,7 +418,7 @@
   {
     "fields": {
       "bio": "No bio on record",
-      "birthplace": 2,
+      "primary_place_of_activity": 2,
       "name": "George",
       "birthdate": null,
       "dates_active": "",
@@ -431,7 +431,7 @@
   {
     "fields": {
       "bio": "Musicman, MTiA founder and co-host, 1965-2012",
-      "birthplace": 4,
+      "primary_place_of_activity": 4,
       "name": "Leo Sarkisian",
       "birthdate": "1921-01-04",
       "dates_active": "1965 - c.2012",
@@ -555,7 +555,7 @@
       "date": null,
       "thumb": "img/1965-05-01_1-boxfront_thumb.jpg"
     },
-    "model": "sark.photo",
+    "model": "sark.image",
     "pk": 2
   },
   {
@@ -567,7 +567,7 @@
       "date": null,
       "thumb": "img/1965-05-01_1-boxback_thumb.jpg"
     },
-    "model": "sark.photo",
+    "model": "sark.image",
     "pk": 3
   },
   {
@@ -579,7 +579,7 @@
       "date": null,
       "thumb": "img/1965-05-01_1-boxleft_thumb.jpg"
     },
-    "model": "sark.photo",
+    "model": "sark.image",
     "pk": 4
   },
   {
@@ -591,7 +591,7 @@
       "date": null,
       "thumb": "img/1965-05-01_1-reelfront_thumb.jpg"
     },
-    "model": "sark.photo",
+    "model": "sark.image",
     "pk": 5
   },
   {

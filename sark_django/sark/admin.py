@@ -9,6 +9,7 @@ class RadioShowAdmin(admin.ModelAdmin):
 @admin.register(m.Performance)
 class PerformanceAdmin(admin.ModelAdmin):
     date_hierarchy = 'date'
+    filter_horizontal = ('instruments',)
 
 @admin.register(m.Agent)
 class AgentAdmin(admin.ModelAdmin):
@@ -46,6 +47,6 @@ class ScriptAdmin(admin.ModelAdmin):
 class RoleAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(m.Photo)
-class PhotoAdmin(admin.ModelAdmin):
+@admin.register(m.Image)
+class ImageAdmin(admin.ModelAdmin):
     pass
