@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.css">
+</head>
+<body>
+<br><br><br>
+<div class="container">
+    <div class="form-group">
+        <label for="comment">Comment:</label><br>
+        <button type="button" class="btn" onclick="makeWebLink('scriptarea', '/demo/agent/')">make Agent link</button>
+        <button type="button" class="btn">Add Instrument</button>
+        <button type="button" class="btn">Add Location</button>
+        <br><br>
+        <textarea class="form-control" rows="5" id="scriptarea" contenteditable="true">There is text here</textarea>
+        <p>huh</p>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../static/js/jquery.hotkeys.js"></script>
+<script>
+    function makeWebLink(elementID, url) {
+        var textArea = $('#' + elementID);
+        var len = textArea.val().length;
+        var start = textArea[0].selectionStart;
+        var end = textArea[0].selectionEnd;
+        var selectedText = textArea.val().substring(start, end);
+        var replacement = '<a href="' + url + selectedText + '">' + selectedText + '</a>';
+        textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
+    }
+    $('#scriptarea').bind('keydown', 'alt+a', function(){
+        makeWebLink('scriptarea', '/demo/agent/');
+    });
+</script>
+</body>
+</html>

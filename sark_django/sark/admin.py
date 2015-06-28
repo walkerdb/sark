@@ -14,7 +14,7 @@ class PerformanceAdmin(admin.ModelAdmin):
 
 @admin.register(m.Agent)
 class AgentAdmin(admin.ModelAdmin):
-    pass
+    filter_horizontal = ('members',)
 
 @admin.register(m.CopyrightStatus)
 class CopyrightAdmin(admin.ModelAdmin):
