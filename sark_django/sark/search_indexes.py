@@ -13,3 +13,12 @@ class ProgramIndex(indexes.SearchIndex, indexes.Indexable):
         return self.get_model().objects
 
 
+class AgentIndex(indexes.SearchIndex, indexes.Indexable):
+    text = indexes.CharField(document=True, model_attr="name")
+
+    def get_model(self):
+        return models.Agent
+
+    def index_queryset(self, using=None):
+        return self.get_model().objects
+

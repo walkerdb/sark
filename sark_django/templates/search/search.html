@@ -15,11 +15,19 @@
             <h3>Results</h3>
             <hr>
             {% for result in page.object_list %}
-                <p>
-                    <a href="{% url 'sark_django.sark.views.program' result.object.broadcast_date|date:'Y' result.object.broadcast_date|date:'m' result.object.broadcast_date|date:'d' %}">{{ result.object.broadcast_date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query html_tag "mark" %}, host)
-                </p>
-                <p><em>{{ result.object.description }}</em></p>
-                <div class="small">{% highlight result.object.script with query html_tag "mark" %}</div>
+                {% if "radioshow" in result.model_name %}
+                    <p>
+                        MTiA <a href="{% url 'sark_django.sark.views.program' result.object.broadcast_date|date:'Y' result.object.broadcast_date|date:'m' result.object.broadcast_date|date:'d' %}">{{ result.object.broadcast_date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query html_tag "mark" %}, host)
+                    </p>
+                    <p><em>{{ result.object.description }}</em></p>
+                    <div class="small">{% highlight result.object.script with query html_tag "mark" %}</div>
+
+                {% endif %}
+                {% if "agent" in result.model_name %}
+                    <p>
+                        {{ result.object.role.role }}: <a href="{% url 'sark_django.sark.views.agent' result.object.name %}">{{ result.object.name }}</a>
+                    </p>
+                {% endif %}
                 <hr>
             {% empty %}
                 <p>No results found.</p>
