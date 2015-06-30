@@ -4,10 +4,9 @@
 
 {% block content %}
     <h2>Search</h2>
-    <form class="row form-inline center" role="search" method="get" action=".">
-        <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="Search" name="q" value="{{ query }}">
-        </div>
+    <form class="form-inline" role="search" method="get" action=".">
+                <input type="text" class="form-control input-lg" placeholder="Search" name="q" value="{{ query }}" id="search">
+
         <button type="submit" class="btn btn-lg">Submit</button>
     </form>
 

@@ -26,6 +26,16 @@ h1 {
     padding-bottom: 100px;
 }
 
+#search {
+    width: 100%;
+    display: inline;
+}
+
+form div input.search {
+    width: 100%;
+    display: inline;
+}
+
 body > .container {
   padding: 20px 15px 0;
 }
