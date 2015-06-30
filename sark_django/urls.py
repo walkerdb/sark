@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^demo/agent/(.*)', 'sark_django.sark.views.agent'),
     url(r'^test/demo',  views.Demo.as_view()),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^search/', include('haystack.urls')),
 ]
 
 admin.site.site_header = 'Sarkisian Project admin'

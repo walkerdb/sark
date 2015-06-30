@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load highlight %}
+{% load static %}
+
+{% block content %}
+    <h2>Search</h2>
+    <form class="row form-inline center" role="search" method="get" action=".">
+        <div class="form-group">
+                <input type="text" class="form-control input-lg" placeholder="Search" name="q" value="{{ query }}">
+        </div>
+        <button type="submit" class="btn btn-lg">Submit</button>
+    </form>
+
+        {% if query %}
+            <h3>Results</h3>
+            <hr>
+            {% for result in page.object_list %}
+                <p>
+                    <a href="{% url 'sark_django.sark.views.program' result.object.broadcast_date|date:'Y' result.object.broadcast_date|date:'m' result.object.broadcast_date|date:'d' %}">{{ result.object.broadcast_date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query html_tag "mark" %}, host)
+                </p>
+                <p><em>{{ result.object.description }}</em></p>
+                <div class="small">{% highlight result.object.script with query html_tag "mark" %}</div>
+                <hr>
+            {% empty %}
+                <p>No results found.</p>
+            {% endfor %}
+            </hr>
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% else %}
+            {# Show some example queries to run, maybe query syntax, something else? #}
+        {% endif %}
+    </form>
+{% endblock %}

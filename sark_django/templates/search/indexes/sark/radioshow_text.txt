@@ -1,0 +1,3 @@
+{{ object.script }}
+{{ object.host.name }}
+{{ object.description }}
