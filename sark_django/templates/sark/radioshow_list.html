@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
     <br>
-    <form class="row form-inline center" role="search">
-        <div class="form-group">
-            <input type="text" class="form-control input-lg" placeholder="Search">
+    <form class="form" role="search" method="get" action="/search">
+        <div class="input-group">
+            <input type="text" class="form-control input-lg" placeholder="What are you looking for?" name="q"  id="search">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-lg sark">Search</button>
+            </span>
         </div>
-        <button type="submit" class="btn btn-lg">Submit</button>
     </form>
     <br>
-    <p class="center">[Search not yet functional]</p>
+    <hr>
 
     <p>Example programs:</p>
     <ul>

@@ -1,11 +1,12 @@
 from __future__ import absolute_import
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView
-import os
+from haystack.views import FacetedSearchView
 
 from ..settings import BASE_DIR
 from ..sark import models as m
@@ -97,3 +98,22 @@ def agent(request, name):
                              }))
 
     return HttpResponse(html)
+
+class SarkSearch(FacetedSearchView):
+    #
+    # def __init__(self, *args, **kwargs):
+    #     super(SarkSearch, self).__init__(*args, **kwargs)
+    #     if self.request.GET.get("date_facet", ""):
+    #         print("ha!")
+
+    def extra_context(self):
+        extra = super(SarkSearch, self).extra_context()
+        try:
+            dates = extra['facets']['dates']['broadcast_date']
+            dates = [[year[:4], count] for year, count in dates.items() if year.startswith("1") and count > 0]
+            extra['facets']['dates']['broadcast_date'] = dates
+            # print(dates)
+        except KeyError:
+            dates = {"error", "No dates returned"}
+            # extra['facets']['dates'] = dates
+        return extra

@@ -31,6 +31,28 @@ h1 {
     display: inline;
 }
 
+.search_result {
+    padding: 10px 10px 20px 10px;
+}
+
+.search_result:nth-child(even) {
+    background: #f5f5f5;
+}
+
+.search-result-list {
+    border-left: 1px solid #eee;
+}
+
+.sark {
+    background-color: #efb858;
+    color: white;
+}
+
+mark, .mark {
+    background-color: rgba(239, 184, 88, 0.39);
+}
+
+
 form div input.search {
     width: 100%;
     display: inline;

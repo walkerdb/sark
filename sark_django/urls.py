@@ -14,9 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from __future__ import absolute_import
+from datetime import date
+
 from django.conf.urls import include, url
 from django.contrib import admin
+from haystack.forms import FacetedSearchForm
+from haystack.query import SearchQuerySet
+from haystack.views import FacetedSearchView
+
 from .sark import views
+
+sqs = SearchQuerySet().date_facet('broadcast_date', start_date=date(1955, 1, 1), end_date=date(2015, 1, 1), gap_by="year").facet('host')
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
@@ -29,7 +37,8 @@ urlpatterns = [
     url(r'^demo/agent/(.*)', 'sark_django.sark.views.agent'),
     url(r'^test/demo',  views.Demo.as_view()),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^search/', include('haystack.urls')),
+    # url(r'^search/', include('haystack.urls')),
+    url(r'^search/', views.SarkSearch(form_class=FacetedSearchForm, searchqueryset=sqs), name='haystack_search'),
 ]
 
 admin.site.site_header = 'Sarkisian Project admin'

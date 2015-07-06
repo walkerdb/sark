@@ -81,7 +81,7 @@ class Agent(models.Model):
     # photos = models.ManyToManyField(Photo)
 
     def __str__(self):
-        return "{} ({})".format(self.name, self.role.role)
+        return self.name
 
     class Meta:
         ordering = ('name',)
