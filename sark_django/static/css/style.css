@@ -48,6 +48,13 @@ h1 {
     color: white;
 }
 
+.image {
+    /*box-shadow: 0px 0px 1px black;*/
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
 mark, .mark {
     background-color: rgba(239, 184, 88, 0.39);
 }

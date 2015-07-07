@@ -94,9 +94,13 @@ class Image(models.Model):
     image_width = models.PositiveIntegerField(null=True, editable=False)
     description = models.CharField(blank=True, null=True, max_length=300)
     date = models.DateField(blank=True, null=True)
+    sort_order = models.IntegerField(default=2)
 
     def __str__(self):
         return self.file.name
+
+    class Meta:
+        ordering = ('date', 'sort_order',)
 
 
 class Performance(models.Model):

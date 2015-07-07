@@ -25,7 +25,7 @@
 {% block content %}
     <p><strong>Host:</strong> <a href="{% url 'sark_django.sark.views.agent' show.host.name %}">{{ show.host.name }}</a></p>
     <p><strong>Air-date:</strong> {{ show.broadcast_date }}</p>
-    <p><em>{{ show.description }}</em>  <span class="small"><a href="../../../admin/sark/radioshow/{{ show.pk }}" target="_blank">[edit show]</a></span></p>
+    <p><em>{{ show.description }}</em>  <span class="small"><a href="/admin/sark/radioshow/{{ show.pk }}" target="_blank">[edit show]</a></span></p>
     <hr>
     {% if photos %}
         <div class="row">
@@ -38,12 +38,12 @@
             <div class="col-md-2">
                 <div class="image_gallery">
                     {% for photo in photos %}
-                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" alt="{{ photo.description }}">
                             <a href="{% static 'sarkfiles/' %}{{ photo.file.name }}" itemprop="contentUrl" data-size="{{ photo.image_width }}x{{ photo.image_height }}">
-                            <img src="{% static 'sarkfiles/' %}{{ photo.thumb.name }}" itemprop="thumbnail" alt="Image description" />
+                                <img src="{% static 'sarkfiles/' %}{{ photo.thumb.name }}" itemprop="thumbnail" alt="{{ photo.description }}" class="image"/>
                             </a>
                             <br><br>
-            {#                <figcaption itemprop="caption description">Image caption</figcaption>#}
+{#                            <figcaption itemprop="caption description">{{ photo.description }}</figcaption>#}
                         </figure>
                     {% endfor %}
                 </div>
@@ -177,9 +177,6 @@
                             <div class="sm2-row">
                                 <div class="sm2-col sm2-wide">
                                     <a href="{% static 'sarkfiles/' %}{{ performance.audio.name }}">{{ performance.title }}</a>
-                                </div>
-                                <div class="sm2-col">
-                                    <a href="{% static 'sarkfiles/' %}{{ performance.audio.name }}" target="_blank" title="Download" class="sm2-icon sm2-music sm2-exclude">Download this track</a>
                                 </div>
                             </div>
                         </li>
