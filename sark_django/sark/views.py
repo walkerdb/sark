@@ -29,6 +29,7 @@ class Demo(ListView):
         context['hosts'] = m.Agent.objects.filter(role_id=2).order_by("-dates_active").reverse()
         context['performers'] = m.Agent.objects.filter(role_id=1)
         context['locations'] = m.Location.objects.all()
+        context['selected'] = "demo"
         return context
 
 def aboutus(request):

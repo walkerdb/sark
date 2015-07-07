@@ -4,6 +4,7 @@
 
 {% block content %}
     <h2>Search</h2>
+    <br>
     <form class="form" role="search" method="get" action=".">
         <div class="input-group">
             <input type="text" class="form-control input-lg" placeholder="Search" name="q" value="{{ query }}" id="search">
@@ -18,7 +19,7 @@
     {% if query %}
         <div class="row">
             <div class="col-md-2">
-                <h3>Refine search</h3>
+                <h2>Refine search</h2>
                 <dl>
                     {% if facets.dates.broadcast_date %}
                         <dt>Broadcast dates</dt>
@@ -46,7 +47,7 @@
             </div>
 
             <div class="col-md-10">
-                <h3>Results</h3>
+                <h2>Results</h2>
                 <div class="search-result-list">
                     {% for result in page.object_list %}
                         <div class="search_result">

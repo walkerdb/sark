@@ -1,563 +1,824 @@
 [
   {
+    "pk": 1,
+    "model": "sark.role",
     "fields": {
       "role": "Performer"
-    },
-    "model": "sark.role",
-    "pk": 1
+    }
   },
   {
+    "pk": 2,
+    "model": "sark.role",
     "fields": {
       "role": "Host"
-    },
-    "model": "sark.role",
-    "pk": 2
+    }
   },
   {
+    "pk": 3,
+    "model": "sark.role",
     "fields": {
       "role": "Composer"
-    },
-    "model": "sark.role",
-    "pk": 3
+    }
   },
   {
+    "pk": 4,
+    "model": "sark.role",
     "fields": {
       "role": "Recording technician"
-    },
-    "model": "sark.role",
-    "pk": 4
+    }
   },
   {
+    "pk": 5,
+    "model": "sark.role",
     "fields": {
       "role": "Performing group"
-    },
-    "model": "sark.role",
-    "pk": 5
+    }
   },
   {
+    "pk": 6,
+    "model": "sark.role",
     "fields": {
       "role": "Ethnic group"
-    },
-    "model": "sark.role",
-    "pk": 6
+    }
   },
   {
+    "pk": 1,
+    "model": "sark.instrumentfamily",
     "fields": {
       "family": "Idiophone"
-    },
-    "model": "sark.instrumentfamily",
-    "pk": 1
+    }
   },
   {
+    "pk": 2,
+    "model": "sark.instrumentfamily",
     "fields": {
       "family": "Membranophone"
-    },
-    "model": "sark.instrumentfamily",
-    "pk": 2
+    }
   },
   {
+    "pk": 3,
+    "model": "sark.instrumentfamily",
     "fields": {
       "family": "Chordophone"
-    },
-    "model": "sark.instrumentfamily",
-    "pk": 3
+    }
   },
   {
+    "pk": 4,
+    "model": "sark.instrumentfamily",
     "fields": {
       "family": "Aerophone"
-    },
-    "model": "sark.instrumentfamily",
-    "pk": 4
+    }
   },
   {
+    "pk": 1,
+    "model": "sark.instrument",
     "fields": {
       "name": "Chikere-kere",
       "description": "",
       "family": 1
-    },
-    "model": "sark.instrument",
-    "pk": 1
+    }
   },
   {
+    "pk": 2,
+    "model": "sark.instrument",
     "fields": {
       "name": "Jenje",
       "description": "",
       "family": 2
-    },
-    "model": "sark.instrument",
-    "pk": 2
+    }
   },
   {
+    "pk": 3,
+    "model": "sark.instrument",
     "fields": {
       "name": "Barakarankou",
       "description": "",
       "family": 2
-    },
-    "model": "sark.instrument",
-    "pk": 3
+    }
   },
   {
+    "pk": 4,
+    "model": "sark.instrument",
     "fields": {
       "name": "Gen",
       "description": "",
       "family": 2
-    },
-    "model": "sark.instrument",
-    "pk": 4
+    }
   },
   {
+    "pk": 5,
+    "model": "sark.instrument",
     "fields": {
       "name": "Gourou",
       "description": "",
       "family": 4
-    },
-    "model": "sark.instrument",
-    "pk": 5
+    }
   },
   {
+    "pk": 6,
+    "model": "sark.instrument",
     "fields": {
       "name": "Bou-an-rou",
       "description": "",
       "family": 1
-    },
-    "model": "sark.instrument",
-    "pk": 6
+    }
   },
   {
+    "pk": 1,
+    "model": "sark.location",
     "fields": {
-      "zoom": 10,
       "name": "Todee",
-      "latitude": 6.6328538,
       "country": "Liberia",
-      "longitude": -10.4905701
-    },
-    "model": "sark.location",
-    "pk": 1
+      "latitude": 6.6328538,
+      "longitude": -10.4905701,
+      "zoom": 10
+    }
   },
   {
+    "pk": 2,
+    "model": "sark.location",
     "fields": {
-      "zoom": 10,
       "name": "Liverpool",
-      "latitude": null,
       "country": "England",
-      "longitude": null
-    },
-    "model": "sark.location",
-    "pk": 2
+      "latitude": null,
+      "longitude": null,
+      "zoom": 10
+    }
   },
   {
+    "pk": 3,
+    "model": "sark.location",
     "fields": {
-      "zoom": 9,
       "name": "Kinshasa",
-      "latitude": null,
       "country": "Zaire",
-      "longitude": null
-    },
-    "model": "sark.location",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "zoom": 10,
-      "name": "Lawrence",
       "latitude": null,
-      "country": "MA",
-      "longitude": null
-    },
-    "model": "sark.location",
-    "pk": 4
+      "longitude": null,
+      "zoom": 9
+    }
   },
   {
+    "pk": 4,
+    "model": "sark.location",
+    "fields": {
+      "name": "Lawrence",
+      "country": "MA",
+      "latitude": null,
+      "longitude": null,
+      "zoom": 10
+    }
+  },
+  {
+    "pk": 5,
+    "model": "sark.location",
+    "fields": {
+      "name": "Monrovia",
+      "country": "Liberia",
+      "latitude": null,
+      "longitude": null,
+      "zoom": 10
+    }
+  },
+  {
+    "pk": 1,
+    "model": "sark.agent",
     "fields": {
       "name": "Rita Rochelle",
-      "bio": "MTiA host, 1978 - 2004",
-      "deathdate": null,
-      "members": [],
-      "birthdate": null,
-      "role": 2,
       "primary_place_of_activity": null,
-      "dates_active": "1978 - 2004"
-    },
-    "model": "sark.agent",
-    "pk": 1
+      "bio": "MTiA host, 1978 - 2004",
+      "birthdate": null,
+      "members": [],
+      "dates_active": "1978 - 2004",
+      "deathdate": null,
+      "role": 2
+    }
   },
   {
+    "pk": 2,
+    "model": "sark.agent",
     "fields": {
       "name": "Susan Moran",
-      "bio": "MTiA host, 1968 - c.1978",
-      "deathdate": null,
-      "members": [],
-      "birthdate": null,
-      "role": 2,
       "primary_place_of_activity": null,
-      "dates_active": "1968 - c.1978"
-    },
-    "model": "sark.agent",
-    "pk": 2
+      "bio": "MTiA host, 1968 - c.1978",
+      "birthdate": null,
+      "members": [],
+      "dates_active": "1968 - c.1978",
+      "deathdate": null,
+      "role": 2
+    }
   },
   {
+    "pk": 3,
+    "model": "sark.agent",
     "fields": {
       "name": "Bryn Poole",
-      "bio": "MTiA host, 1965 - c.1968",
-      "deathdate": null,
-      "members": [],
-      "birthdate": null,
-      "role": 2,
       "primary_place_of_activity": null,
-      "dates_active": "1965 - c.1968"
-    },
-    "model": "sark.agent",
-    "pk": 3
+      "bio": "MTiA host, 1965 - c.1968",
+      "birthdate": null,
+      "members": [],
+      "dates_active": "1965 - c.1968",
+      "deathdate": null,
+      "role": 2
+    }
   },
   {
+    "pk": 5,
+    "model": "sark.agent",
     "fields": {
       "name": "John",
-      "bio": "No bio on record",
-      "deathdate": null,
-      "members": [],
-      "birthdate": null,
-      "role": 1,
       "primary_place_of_activity": 2,
-      "dates_active": ""
-    },
-    "model": "sark.agent",
-    "pk": 5
+      "bio": "No bio on record",
+      "birthdate": null,
+      "members": [
+        11
+      ],
+      "dates_active": "",
+      "deathdate": null,
+      "role": 1
+    }
   },
   {
+    "pk": 6,
+    "model": "sark.agent",
     "fields": {
       "name": "Paul",
-      "bio": "No bio on record",
-      "deathdate": null,
-      "members": [],
-      "birthdate": null,
-      "role": 1,
       "primary_place_of_activity": 2,
-      "dates_active": ""
-    },
-    "model": "sark.agent",
-    "pk": 6
+      "bio": "No bio on record",
+      "birthdate": null,
+      "members": [
+        11
+      ],
+      "dates_active": "",
+      "deathdate": null,
+      "role": 1
+    }
   },
   {
+    "pk": 7,
+    "model": "sark.agent",
     "fields": {
       "name": "Ringo",
-      "bio": "No bio on record",
-      "deathdate": null,
-      "members": [],
-      "birthdate": null,
-      "role": 1,
       "primary_place_of_activity": 2,
-      "dates_active": ""
-    },
-    "model": "sark.agent",
-    "pk": 7
+      "bio": "No bio on record",
+      "birthdate": null,
+      "members": [
+        11
+      ],
+      "dates_active": "",
+      "deathdate": null,
+      "role": 1
+    }
   },
   {
+    "pk": 8,
+    "model": "sark.agent",
     "fields": {
       "name": "George",
-      "bio": "No bio on record",
-      "deathdate": null,
-      "members": [],
-      "birthdate": null,
-      "role": 1,
       "primary_place_of_activity": 2,
-      "dates_active": ""
-    },
-    "model": "sark.agent",
-    "pk": 8
+      "bio": "No bio on record",
+      "birthdate": null,
+      "members": [
+        11
+      ],
+      "dates_active": "",
+      "deathdate": null,
+      "role": 1
+    }
   },
   {
+    "pk": 9,
+    "model": "sark.agent",
     "fields": {
       "name": "Leo Sarkisian",
-      "bio": "Musicman, MTiA founder and co-host, 1965-2012",
-      "deathdate": null,
-      "members": [],
-      "birthdate": "1921-01-04",
-      "role": 2,
       "primary_place_of_activity": 4,
-      "dates_active": "1965 - c.2012"
-    },
+      "bio": "Musicman, MTiA founder and co-host, 1965-2012",
+      "birthdate": "1921-01-04",
+      "members": [],
+      "dates_active": "1965 - c.2012",
+      "deathdate": null,
+      "role": 2
+    }
+  },
+  {
+    "pk": 10,
     "model": "sark.agent",
-    "pk": 9
+    "fields": {
+      "name": "Miatta Fahnbulleh",
+      "primary_place_of_activity": 5,
+      "bio": "No bio on record",
+      "birthdate": null,
+      "members": [],
+      "dates_active": "",
+      "deathdate": null,
+      "role": 1
+    }
   },
   {
+    "pk": 11,
+    "model": "sark.agent",
     "fields": {
-      "plaintext_link": "no_script.txt"
-    },
-    "model": "sark.script",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "plaintext_link": "1968-01-05_script.txt"
-    },
-    "model": "sark.script",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "plaintext_link": "1989-07-16_script.txt"
-    },
-    "model": "sark.script",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "plaintext_link": "1973-10-28_script.txt"
-    },
-    "model": "sark.script",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "image_height": 2190,
-      "description": "",
-      "date": null,
-      "image_width": 2181,
-      "file": "img/1965-05-01_1-boxfront_access_xXXFcDh.jpg",
-      "thumb": "img/1965-05-01_1-boxfront_thumb.jpg"
-    },
-    "model": "sark.image",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "image_height": 2011,
-      "description": "",
-      "date": null,
-      "image_width": 2000,
-      "file": "img/1965-05-01_1-boxback_access.jpg",
-      "thumb": "img/1965-05-01_1-boxback_thumb.jpg"
-    },
-    "model": "sark.image",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "image_height": 211,
-      "description": "",
-      "date": null,
-      "image_width": 2000,
-      "file": "img/1965-05-01_1-boxleft_access.jpg",
-      "thumb": "img/1965-05-01_1-boxleft_thumb.jpg"
-    },
-    "model": "sark.image",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "image_height": 2006,
-      "description": "",
-      "date": null,
-      "image_width": 2000,
-      "file": "img/1965-05-01_1-reelfront_access.jpg",
-      "thumb": "img/1965-05-01_1-reelfront_thumb.jpg"
-    },
-    "model": "sark.image",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "audio": "audio/1965-05-01_access.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTiA 1966-05-01 - full broadcast",
-      "date": "1966-05-01",
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "audio": "audio/1968-01-05_access.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTiA 1968-01-05 - full broadcast",
-      "date": "1968-01-05",
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "audio": "audio/1989-07-16_access.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTiA 1989-07-16 - full broadcast",
-      "date": "1989-07-16",
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "audio": "audio/1973-10-28_access_01.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTIA 1973-10-28 - insert 01",
-      "date": null,
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "audio": "audio/1973-10-28_access_02.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTIA 1973-10-28 - insert 02",
-      "date": null,
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "audio": "audio/1973-10-28_access_03.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTIA 1973-10-28 - insert 03",
-      "date": null,
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "audio": "audio/1973-10-28_access_04.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTIA 1973-10-28 - insert 04",
-      "date": null,
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "audio": "audio/1973-10-28_access_05.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTIA 1973-10-28 - insert 05",
-      "date": null,
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 8
-  },
-  {
-    "fields": {
-      "audio": "audio/1973-10-28_access_06.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTIA 1973-10-28 - insert 06",
-      "date": null,
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 9
-  },
-  {
-    "fields": {
-      "audio": "audio/1973-10-28_access_07.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTIA 1973-10-28 - insert 07",
-      "date": null,
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 10
-  },
-  {
-    "fields": {
-      "audio": "audio/1973-10-28_access_08.mp3",
-      "photos": [],
-      "location": null,
-      "title": "MTIA 1973-10-28 - insert 08",
-      "date": null,
-      "performers": [],
-      "instruments": [],
-      "genres": []
-    },
-    "model": "sark.performance",
-    "pk": 11
-  },
-  {
-    "fields": {
-      "performances": [
-        1
+      "name": "The Beatles",
+      "primary_place_of_activity": 2,
+      "bio": "No bio on record",
+      "birthdate": null,
+      "members": [
+        8,
+        5,
+        6,
+        7
       ],
+      "dates_active": "",
+      "deathdate": null,
+      "role": 5
+    }
+  },
+  {
+    "pk": 2,
+    "model": "sark.image",
+    "fields": {
+      "description": "front of case",
+      "file": "img/1965-05-01_1-boxfront_access_xXXFcDh.jpg",
+      "thumb": "img/1965-05-01_1-boxfront_thumb.jpg",
+      "date": "1965-05-01",
+      "image_width": 2181,
+      "image_height": 2190,
+      "sort_order": 1
+    }
+  },
+  {
+    "pk": 3,
+    "model": "sark.image",
+    "fields": {
+      "description": "Back of case",
+      "file": "img/1965-05-01_1-boxback_access.jpg",
+      "thumb": "img/1965-05-01_1-boxback_thumb.jpg",
+      "date": "1965-05-01",
+      "image_width": 2000,
+      "image_height": 2011,
+      "sort_order": 3
+    }
+  },
+  {
+    "pk": 4,
+    "model": "sark.image",
+    "fields": {
+      "description": "Left side of case",
+      "file": "img/1965-05-01_1-boxleft_access.jpg",
+      "thumb": "img/1965-05-01_1-boxleft_thumb.jpg",
+      "date": "1965-05-01",
+      "image_width": 2000,
+      "image_height": 211,
+      "sort_order": 4
+    }
+  },
+  {
+    "pk": 5,
+    "model": "sark.image",
+    "fields": {
+      "description": "Reel-to-reel audiotape",
+      "file": "img/1965-05-01_1-reelfront_access.jpg",
+      "thumb": "img/1965-05-01_1-reelfront_thumb.jpg",
+      "date": "1965-05-01",
+      "image_width": 2000,
+      "image_height": 2006,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 6,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1973-10-28_1-accnotes.jpg",
+      "thumb": "img/1973-10-28_1-accnotes-thumb.jpg",
+      "date": null,
+      "image_width": 2673,
+      "image_height": 17364,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 7,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1973-10-28_1-boxfront.jpg",
+      "thumb": "img/1973-10-28_1-boxfront-thumb.jpg",
+      "date": null,
+      "image_width": 2184,
+      "image_height": 2184,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 8,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1973-10-28_1-boxleft.jpg",
+      "thumb": "img/1973-10-28_1-boxleft-thumb.jpg",
+      "date": null,
+      "image_width": 2182,
+      "image_height": 210,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 9,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1973-10-28_1-reelfront.jpg",
+      "thumb": "img/1973-10-28_1-reelfront-thumb.jpg",
+      "date": null,
+      "image_width": 2224,
+      "image_height": 2208,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 10,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1973-10-28_1-boxback.jpg",
+      "thumb": "img/1973-10-28_1-boxback-thumb.jpg",
+      "date": null,
+      "image_width": 2223,
+      "image_height": 2211,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 11,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1973-10-28_1-boxbottom.jpg",
+      "thumb": "img/1973-10-28_1-boxbottom-thumb.jpg",
+      "date": null,
+      "image_width": 2194,
+      "image_height": 206,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 12,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1973-10-28_1-boxright.jpg",
+      "thumb": "img/1973-10-28_1-boxright-thumb.jpg",
+      "date": null,
+      "image_width": 2184,
+      "image_height": 200,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 13,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1973-10-28_1-boxtop.jpg",
+      "thumb": "img/1973-10-28_1-boxtop-thumb.jpg",
+      "date": null,
+      "image_width": 2194,
+      "image_height": 202,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 14,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1989-07-16_1-accnotes.jpg",
+      "thumb": "img/1989-07-16_1-accnotes-thumb.jpg",
+      "date": "1989-07-16",
+      "image_width": 2806,
+      "image_height": 17720,
+      "sort_order": 7
+    }
+  },
+  {
+    "pk": 15,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1989-07-16_1-boxback.jpg",
+      "thumb": "img/1989-07-16_1-boxback-thumb.jpg",
+      "date": "1989-07-16",
+      "image_width": 2233,
+      "image_height": 2232,
+      "sort_order": 3
+    }
+  },
+  {
+    "pk": 16,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1989-07-16_1-boxbottom.jpg",
+      "thumb": "img/1989-07-16_1-boxbottom-thumb.jpg",
+      "date": "1989-07-16",
+      "image_width": 2192,
+      "image_height": 204,
+      "sort_order": 4
+    }
+  },
+  {
+    "pk": 17,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1989-07-16_1-boxfront.jpg",
+      "thumb": "img/1989-07-16_1-boxfront-thumb.jpg",
+      "date": "1989-07-16",
+      "image_width": 2181,
+      "image_height": 2209,
+      "sort_order": 1
+    }
+  },
+  {
+    "pk": 18,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1989-07-16_1-boxleft.jpg",
+      "thumb": "img/1989-07-16_1-boxleft-thumb.jpg",
+      "date": "1989-07-16",
+      "image_width": 2174,
+      "image_height": 210,
+      "sort_order": 6
+    }
+  },
+  {
+    "pk": 19,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1989-07-16_1-boxright.jpg",
+      "thumb": "img/1989-07-16_1-boxright-thumb.jpg",
+      "date": "1989-07-16",
+      "image_width": 2178,
+      "image_height": 194,
+      "sort_order": 5
+    }
+  },
+  {
+    "pk": 20,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1989-07-16_1-boxtop.jpg",
+      "thumb": "img/1989-07-16_1-boxtop-thumb.jpg",
+      "date": "1989-07-16",
+      "image_width": 2180,
+      "image_height": 198,
+      "sort_order": 4
+    }
+  },
+  {
+    "pk": 21,
+    "model": "sark.image",
+    "fields": {
+      "description": "",
+      "file": "img/1989-07-16_1-reelfront.jpg",
+      "thumb": "img/1989-07-16_1-reelfront-thumb.jpg",
+      "date": "1989-07-16",
+      "image_width": 2206,
+      "image_height": 2205,
+      "sort_order": 2
+    }
+  },
+  {
+    "pk": 1,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": "1966-05-01",
+      "audio": "audio/1965-05-01_access.mp3",
+      "genres": [],
+      "title": "MTiA 1966-05-01 - full broadcast",
+      "photos": []
+    }
+  },
+  {
+    "pk": 2,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": "1968-01-05",
+      "audio": "audio/1968-01-05_access.mp3",
+      "genres": [],
+      "title": "MTiA 1968-01-05 - full broadcast",
+      "photos": []
+    }
+  },
+  {
+    "pk": 3,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [
+        10
+      ],
+      "location": null,
+      "date": "1989-07-16",
+      "audio": "audio/1989-07-16_access.mp3",
+      "genres": [],
+      "title": "MTiA 1989-07-16 - full broadcast",
+      "photos": []
+    }
+  },
+  {
+    "pk": 4,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": null,
+      "audio": "audio/1973-10-28_access_01.mp3",
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 01",
+      "photos": []
+    }
+  },
+  {
+    "pk": 5,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": null,
+      "audio": "audio/1973-10-28_access_02.mp3",
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 02",
+      "photos": []
+    }
+  },
+  {
+    "pk": 6,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": null,
+      "audio": "audio/1973-10-28_access_03.mp3",
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 03",
+      "photos": []
+    }
+  },
+  {
+    "pk": 7,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": null,
+      "audio": "audio/1973-10-28_access_04.mp3",
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 04",
+      "photos": []
+    }
+  },
+  {
+    "pk": 8,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": null,
+      "audio": "audio/1973-10-28_access_05.mp3",
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 05",
+      "photos": []
+    }
+  },
+  {
+    "pk": 9,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": null,
+      "audio": "audio/1973-10-28_access_06.mp3",
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 06",
+      "photos": []
+    }
+  },
+  {
+    "pk": 10,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": null,
+      "audio": "audio/1973-10-28_access_07.mp3",
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 07",
+      "photos": []
+    }
+  },
+  {
+    "pk": 11,
+    "model": "sark.performance",
+    "fields": {
+      "instruments": [],
+      "performers": [],
+      "location": null,
+      "date": null,
+      "audio": "audio/1973-10-28_access_08.mp3",
+      "genres": [],
+      "title": "MTIA 1973-10-28 - insert 08",
+      "photos": []
+    }
+  },
+  {
+    "pk": 1,
+    "model": "sark.radioshow",
+    "fields": {
+      "broadcast_date": "1966-05-01",
       "description": "Music from the Democratic Republic of Congo, Mozambique, Rhodesia, and the Republic of Guinea",
-      "host": 3,
       "images": [
         2,
+        5,
         3,
-        4,
-        5
+        4
       ],
-      "date": "1966-05-01",
-      "script": 1
-    },
-    "model": "sark.radioshow",
-    "pk": 1
+      "host": 3,
+      "script": "No script available",
+      "performances": [
+        1
+      ]
+    }
   },
   {
+    "pk": 2,
+    "model": "sark.radioshow",
     "fields": {
+      "broadcast_date": "1968-01-05",
+      "description": "Music of the Tonga people of southwest Zambia",
+      "images": [],
+      "host": 2,
+      "script": "VOICE: It's Music Time in Africa:\r\n\r\nTHEME: 15 SECS, UNDER AND OUT:\r\n\r\nVOICE: Hello friends, this is Susan Moran welcoming you again to Music Time in Africa -- a program of popular and traditional African music featuring some of Africa's finest musicians and cultural groups of yesterday, today and tomorrow. For today's program I've selected some recordings from our Voice of America music library and from time to time will call our VOA Music Man Leo Sarkisian to share with us some of the fine recordings of his own personal collection. It's Music Time in Africa!\r\n\r\nTHEME: UNDER AND OUT:\r\n\r\nVOICE: Our musical journey today takes us to southwestern Zambia, the home about a hundred thousand people of the Tonga tribe. Little is known of Tonga history before the 1800s, and there seems to be no tradition of migration, and no legends concerning their arrival in what is called Tongaland. An artistic and musical people with many kinds exciting dance music, the Tonga have developed quite a variety of musical instruments. We'll begin the show today with a medley of two Mankuntu dance songs, recorded during actual public performance by a group of men and women. The Mankuntu dance is usually performed with dancers forming a large ring, and then other dancers coming out in pairs, dancing together for a while, going around the ring of dancers for a few steps, doing a rather stiff and formal little dance, and then returning to the crowd, after which another pair of dancers takes their place. The first dance begins with handclapping accompaniments, and then a drum group joins in for the second number:\r\n\r\nMUSIC: MANKUNTU DANCE MUSIC:\tCUT 1\t\t5:20\r\n\r\nVOICE: Mankuntu dance music, of the Tonga people in Zambia. The favorite instrument of the Tonga musicians the one string Kalumbo bow. In this next recording, the volt is a gourd resonator attached to it, and it's played by striking the string with a reed. The tune is a party song composed just for entertainment and fun:\r\n\r\nMUSIC: KALUMBO BOW MUSIC:\t\tCUT 2\t\t4:01\r\n\r\nVOICE: We have to more party songs here by a group of Tonga men from the Gwembe district of Tongaland, in Zambia. They sing about Anatami -- which means, in the valley-Tonga language, \"mid-season\". This time falls between May and July, and is the interval between sowing and reaping the winter crops. The second tune in the medley is still a party song, but it hardly guess it from its plaintive title: Nobody Loves Me:\r\n\r\nMUSIC:  ANATAMI AND NOBODY LOVES ME:\tCUT 3\t4:10\r\n\r\nVOICE: The Tonga in the Gwembe district have another interesting and unusual instrument they call the new CHIKERE-KERE. This is a four-note xylophone of the loose-note variety, and it's just about as simple arrangement as you can imagine. The four notes are roughly hewn pieces of wood, laid across the lap, and played by means of sticks. In this case, the player stood behind young man on whose lap the notes were lying, and leaned over his shoulders to beat the notes. The man acting as the xylophone sat on a stool, with his feet up on another stool, and standing just under his thighs, below the notes, was a large barrel-shaped resonator. This instrument is played out in the fields, when preparing the winter gardens in May. Once the planning is done, the xylophone notes are gathered up and put to a very practical use -- they're added to the firewood pile, and new notes are cut the following year. The xylophone player in this recording is Timoti Sadimbi, and he brings us a medley of four short seed-planting tunes:\r\n\r\nMUSIC: SEED-PLANTING TUNES:\t\tCUT 4\t\t3:00\r\n\r\nVOICE: That was a medley for seed-planting time, played on the Chikerekere four-note xylophone of the Tonga tribe. Living on the shores of the great Zambezi River, some of the Tonga built canoes from 20 to 30 feet long. They are called BOWATE, and are made from the Munga tree, which grows to considerable size and girth in the rich soil near the river. In this recording we hear a group of Tonga men singing for the launching of a new canoe. The owner, Kayuni Telo, was standing proudly by while the song was sung:\r\n\r\nMUSIC: CANOE LAUNCHING SONG:\tCUT 5\t\t2:50\r\n\r\nVOICE: Our final selection today, is a recording of the popular GOROROMBE dance of the Tonga. A group of young men and women sing and dance to the accompaniment of an ensemble of four drums, four end-blown flutes, and an assortment of rattles. An interesting thing about this performance is that the player of one of the drums -- the JENJE -- used his right heel to raise and lower the pitch of his instrument -- this can be heard quite clearly in the recording:\r\n\r\nMUSIC: GOROROMBE DANCE MUSIC:\tCUT 6\t\t6:30\r\n\r\nVOICE: Well friends, our time has run out, but I hope you've enjoyed listening to Music Time in Africa. Now this is Susan Moran saying goodbye and inviting you to join me again next Sunday for more traditional and popular African music on Music Time in Africa:\r\n\r\nTHEME: UP TO TIME:",
       "performances": [
         2
-      ],
-      "description": "Music of the Tonga people of southwest Zambia",
-      "host": 2,
-      "images": [],
-      "date": "1968-01-05",
-      "script": 2
-    },
-    "model": "sark.radioshow",
-    "pk": 2
+      ]
+    }
   },
   {
+    "pk": 3,
+    "model": "sark.radioshow",
     "fields": {
+      "broadcast_date": "1989-07-16",
+      "description": "Traditional and popular music",
+      "images": [
+        17,
+        21,
+        15,
+        20,
+        16,
+        19,
+        18
+      ],
+      "host": 1,
+      "script": "Music Time in Africa\t\tJuly 16, 1989\t\t\t89-20\t\t\tpage one\r\n\r\nVOICE: The following program is Music Time in Africa for broadcast on Sunday July 16, 1989 at 17 hours 30 GMT\r\n\r\nVOICE: It's Music Time in Africa:\r\n\r\nTHEME: 10 SECS, UNDER AND OUT:\r\n\r\nVOICE: Hi, I'm <a href=\"/demo/agent/Rita Rochelle\" target=\"_blank\">Rita Rochelle</a> and this is Music Time in Africa, today's first edition of our program featuring music by some of Africa's finest musicians and music groups. A very good Sunday evening and, we're happy to be with you again. As you know, my colleague <a href=\"/demo/agent/Leo Sarkisian\" target=\"_blank\">Leo Sarkisian</a>, your VOA musicman for Africa, is the one who selects and prepares all the good music we play on our programs each week. It's in this first edition that we present both popular and traditional music and Leo always manages to start things off on the upbeat side, usually something we're playing for the first time or a record we haven't played for a very long time. Well, this is new, it's by one of West Africa's really gifted and uniquely talented super stars, <a href=\"/demo/agent/Miatta Fahnbulleh\" target=\"_blank\">Miatta Fahnbulleh</a> of Monrovia, Liberia. From her album \"Just for You,\" here's track three, a song based on a Liberian folk tune: \"Goin' catch crab for my lover to eat:\"\r\n\r\nMUSIC: CUT ONE: 4:20\tmusic fades at end of cut\r\n\r\nVOICE: \"Wada wada jay, oh yeah, goin' catch grab for my lover to eat,\" a delightful Liberian folktune in a beautiful arrangement by <a href=\"/demo/agent/Miatta Fahnbulleh\" target=\"_blank\">Miatta Fahnbulleh</a>, one of West Africa's fascinating female superstars. The recording is from her album \"Just for You,\" and I'm sure you'll hear more about Miatta in the near future, right here, on Music Time in Africa:\r\n\r\nJINGLE CART #1\r\n\r\nVOICE: Music Time in Africa is coming to you on the Africa service of the voice of America and we're broadcasting from Washington, D.C., U.S.A. on the 13, 16, 19, 25, 31, 41 and 49 meter bands shortwave. We're also on mediumwave in southern Africa on 621 kilohertz. Again, I'm <a href=\"/demo/agent/Rita Rochelle\" target=\"_blank\">Rita Rochelle</a>, your regular Music Time in Africa hostess thanking you for letting us share part of your Sunday evening together. As I mentioned earlier it's in this first edition of our program that we examples of traditional music that our musicman selects and prepares for us each week at this time. We'll begin with a chorus of young voices recorded in <a href=\"/demo/location/Kinshasa+Zaire\" target=\"_blank\">Kinshasa, Zaire</a>, during a performance on stage celebrating a local music festival:\r\n\r\nMUSIC: CUT TWO: 5:00\t\tcome in full/ music fades at end of cut\r\n\r\nVOICE: A medley of folksongs by a chorus of young voices from <a href=\"/demo/location/Kinshasa+Zaire\" target=\"_blank\">Kinshasa, Zaire</a>,..... Singing that can warm the hearts of those listening, creating moods and bringing joy to our lives... Just another reason why music remains first and foremost among the arts, ...Its power knows no barriers of race, color or creed, and, it's something we all need. More music now, this another recording that Leo made in the interior of Liberia, in the heart of Vai country. Someday ....I'll have to take a little extra time to tell you the fascinating story about Leo's journey to make this recording, paddling a canoe and walking for days in the deep forests, I'm sure you'll enjoy the stories as much as the music, but for now, here's the music that begins with the sounds of the \"kongomah,\" a flat rectangular soundbox with three metal strips plucked with the fingers. Gourd rattles called \"sasa,\" are played by some of the women in the accompanying choral group:\r\n\r\nMUSIC: CUT THREE: 2:25\t\tcome in full / music fades at end of cut\r\n\r\nVOICE: Your VOA musicman for Africa, <a href=\"/demo/agent/Leo Sarkisian\" target=\"_blank\">Leo Sarkisian</a>, made that recording the village of mambo in the heart of Vai country in Liberia. The recording features the kongoma, an instrument belonging to the family of thumb-pianos, that is, usable insurance called mbira, likembe, and sanza. Well in this next recording we have another musical instrument that plays an important role: the \"silimba\" xylophone of the Lozi in Zambia. The silimba in this recording has only nine notes. Six Lozi men from Mongu in the west-central part of the country are singing a topical tune titled: \"Fulay sinali meya,\" meaning \"the airplane flies very fast:\"\r\n\r\nMUSIC: CUT FOUR: 3:00\tcome in full/ music fades at end of cut\r\n\r\nVOICE: That was music of the Lozi of Zambia, featuring the nine-note silimba xylophone. Next is recording from Burkina Faso, West Africa, the music is of the Di-ahn people, one of the many ethnic groups that make up the seven and a half million people in the country. The Diahn are a musical people and noted for their singing:\r\n\r\nMUSIC: CUT FIVE: 1:25\tcome in full/ tag ending\r\n\r\nVOICE: The call and response style of singing by a group of Diahn men and women, one of the many ethnic groups in the West African country of Burkina Faso. This last example of traditional music is from the Ivory Coast. The record was made in the central part of the country and features the music of the Baule. Characteristics of Baule music on the sounds of ironbells and small pressure drums.\r\n\r\nMUSIC: CUT SIX: 3:15\tcome in full/ tag ending\r\n\r\nVOICE: Music of the Baule from the Ivory Coast, West Africa, and reminder now that you're to this Sunday's first edition of Music Time in Africa, coming to you on the Africa service of the voice of America.\r\n\r\nJINGLE CART #3\r\n\r\nVOICE: Special programs broadcast by VOA's Africa service our Daybreak Africa, African Panorama, and Nightline Africa, your programs that keep you in touch with Africa and the rest of the world every day, seven days a week, keeping you tuned to VOA means of the latest news about political and economic developments as they take place, news about what's happening in the world of science and technology, the arts and in the world of sports. And talking about sports, well, here's the right man, Barry Maughn. Good evening Barry:\r\n\r\nCART #MTA-9\t0:40 secs\r\n\r\nVOICE: Thank you again Barry Maughn and will make sure not to miss sports journal during this week, Monday through Friday, right here on the Africa service of the voice of America.\r\n\r\nJINGLE CART #1\r\n\r\nVOICE: Here's a recording we haven't played for some time and it also happens to feature a talented musician who has been a favorite of ours for a number of years. We like the band he plays with too. From Nigeria, Prince Nico Mbarga and the famous Rokaful Jazz with one of their earlier hit recordings, \"Christiana:\"\r\n\r\nMUSIC: CUT SEVEN:\t4:20\tcome in full\r\n\r\nVOICE: Prince Nico and the Rokaful Jazz, and that's it for now, friends. This was our first edition Music Time in Africa for this Sunday evening. The second edition is at 1930 GMT, just one hour and thirty minutes from now so I hope you are planning to stay right there by your radio and I'll be right back here at exactly 1930 GMT. This is <a href=\"../../agent/Rita Rochelle\" target=\"_blank\">Rita Rochelle</a> saying so long for now and thanking you for listening to Music Time in Africa. Coming up next on the voice of America is Encounter, a discussion of the issues facing America and the whole world, right after reports of the latest news direct from VOA's newsroom in Washington. Again friends, my love to all of you:\r\n\r\nTHEME: UP TO TIME:",
       "performances": [
         3
-      ],
-      "description": "Traditional and popular music",
-      "host": 1,
-      "images": [],
-      "date": "1989-07-16",
-      "script": 3
-    },
-    "model": "sark.radioshow",
-    "pk": 3
+      ]
+    }
   },
   {
+    "pk": 4,
+    "model": "sark.radioshow",
     "fields": {
+      "broadcast_date": "1973-10-28",
+      "description": "Music of the Republic of Dahomey (now Benin)",
+      "images": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "host": 2,
+      "script": "MUSIC TIME IN AFRICA\t\tOCT 28, 1973\t\tpage 1\r\n\r\nThe following program is Music Time in Africa for broadcast on Sunday Oct. 28, 1973:\r\n\r\nFIFTEEN SECS. PAUSE\r\n\r\nVOICE: It's Music Time in Africa\r\n\r\nTHEME: 15 SECS: UNDER AND OUT:\r\n\r\nVOICE: Hello friends, welcome back to our Music Time in Africa show. I'm Sue Moran, your hostess and I'm glad you're joining me for the next half hour because today we're featuring the traditional music of the West African Republic of Dahomey. I have a number of excellent recordings here which I've selected from our Voice of America music library with some of the personal collection of Musicman Leo Sarkisian. It's going to be an interesting program so do stay tuned in for the next 30 minutes of Music Time in Africa:\r\n\r\nTHEME: 10 SECS: UNDER AND OUT:\r\n\r\nVOICE: Dahomey, a former French African colony which became independent in 1960, is one of the smallest and most densely populated countries in Africa, -- with a population of close to 3 million people. Even though the population is divided into three major tribal groupings, there are many subgroups -- each with its own language, customs, folklore, music and musical instruments. To start things off today, I've chosen the music of one of the most important peoples in the northern part of the country - the BARIBA. The Bariba music in this first recording which I'm going to play for you now, is a type of music called TEKE -- played specially for ceremonies accompanying the enthroning of a new king. It was recorded in the village of PARAKOU and the musical accompaniment is played on a small armpit pressure drum, the BARA-KARANKOU, and two large bass drums called \"GEN\":\r\n\r\nMUSIC: CUT ONE: 4:45\r\n\r\nVOICE: Traditional ceremonial music of the Bariba in northern Dahomey. The Bariba also have a type of folk music called WOUROU and the small musical groups performing this type of music are also known as WOUROU. Each group is usually composed of a flute player, the flute called GOUROU, and several men who play gourd rattles called BOU-AN-ROU. These groups are usually invited to perform in various social events in villages but best known for their music and dances for funeral ceremonies and wakes. This next recording, recorded in the village of TEME in northern Dahomey, was made during funeral ceremonies of a Bariba hunter who had become famous for his bravery and prowess. The musicians playing the gourd rattles usually form a circle and dance at the same time:\r\n\r\nMUSIC: CUT 2 3:38\r\n\r\nVOICE: The Bariba musician in northern Dahomey, also plays a type of loose-note xylophone that can be found in a number of countries in central, east and south Africa. In northern Dahomey the instrument is usually a four-note xylophone -- the musician sits on the ground with his legs stretched out and lays four pieces of wood across his lap -- he strikes the wooden notes with a small piece of stone in each hand. It's called a \"KEN-NOU\" and usually played by the men who guard the planted fields from birds and monkeys:\r\n\r\nMUSIC: CUT 3: 1:40\r\n\r\nVOICE: In the southern part of they country, the popular type of traditional musical entertainment  is the SAKARA orchestra -- much like the SAKARA groups of the Yoruba in neighbouring Nigeria. The Sakara group in this next recording comes from the town of SAKETE, just north of Cotonou, and the dominant drum in the group is the YAYLOO (yah-i-loo), a flat circular single membrane drum with which the musician can produce a variety of pitch and tone by applying pressure on the membrane with his left hand while beating the drum with a stick in his right hand. This drum, much like the YAYLOO of the Yoruba people, is called the talking drum because it can produce the tones and glides in the languages spoken in the southern part of the country. In addition to the YAYLOO drum in this particular group in the recording there is the OMELE, a smaller version of the YAYLOO, and there is also the IGBA, a half shell of a gourd which the musician plays upon with metal rings on his fingers. Another basic instrument of the SAKARA orchestra is the AGIDI-BO -- a large rectangular wooden box that has a round hole on the face of the sound board with five strips of metal attached near the hole and struck with the fingers. It is actually a giant-size MBIRA, the African hand-piano. Frequently one can also find included in the SAKARA groups the GODIE, a one-string violin. Here now is a SAKARA group of NAGO musicians from the town of SAKETE:\r\n\r\nMUSIC: CUT 4\t3:05\r\n\r\nVOICE: That was SAKARA music from southern Dahomey, performed by NAGO musicians recorded in the town of SAKETE. It is known that in the courts of the ancient kings of Abomey, music played a most important role, and one of the pupular types of musical groups was the HAN-YEH, taking its name from the HAN-YEH-GAN, a small metal gong, and the HAN-YEH-HO, gourd rattles usually played by women. This next recording was made in ABOMEY, in southern Dahomey, and its a praise song about the ancient king GHEZO - in praise of his feats as a great warrior:\r\n\r\nMUSIC: CUT 5\t\t2:40\r\n\r\nVOICE: Our next music comes from the MAHI who live in the SAVALOU region of Dahomey. The Mahi have an interesting type of music known as \"CHEN-HOO-KOO-MEN\" that is usually head during funeral wakes but frequently used for other occasions. The orchestra consists of the metal gong, the GAN-SOO, a double gong called the GAN-VIK-PAN, straw rattles, ASSANYAN, a whistle made from an animal horn, the KOO-LOO, and two water drums called TOH-HOON. The water drums are half shells of gourds floating in large pans of water, -- different tones are produced depending on how far the drummer sinks the gourd into the water. The drummer beats the top of the gourd with a stick:\r\n\r\nMUSIC: CUT 6\t3:35\r\n\r\nVOICE: We'll wind up today's program of traditional music from the West African Republic of Dahomey with a medley of two songs from the TANEKA people. The first selection is dance music performed following the animal sacrificial ceremonies for the God of harvesting. Musical instruments are two animal-horn trumpets, a double-gong called MO-LOO, and two large double-headed bass drums - GAHN-GAHN-GOO. The last part of the medley is music for planting. During the planting season one can generally hear small musical groups playing in the fields, easing the heavy work of the farmers. The groups usually consist of three transverse flutes called SA-HOORI, with rhythm accompaniment played on the GAHN-GAHN-GOO bass drum and two small metal gongs:\r\n\r\nMUSIC: CUT 7\t\t7:50\r\n\r\nVOICE: And there goes our time again, friends, bringing to a close today's program of traditional music from the West African Republic of Dahomey. I'll be looking forward to having you join me again next week at this same time - hope you have a pleasant week. This is Sue Moran, now, saying so long friends for Music Time in Africa:\r\n\r\nTHEME: UP TO TIME:",
       "performances": [
         4,
         5,
@@ -567,14 +828,7 @@
         9,
         10,
         11
-      ],
-      "description": "Music of the Republic of Dahomey (now Benin)",
-      "host": 2,
-      "images": [],
-      "date": "1973-10-28",
-      "script": 4
-    },
-    "model": "sark.radioshow",
-    "pk": 4
+      ]
+    }
   }
 ]
