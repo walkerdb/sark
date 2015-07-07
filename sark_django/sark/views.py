@@ -1,4 +1,5 @@
 from __future__ import absolute_import
+import datetime
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -110,10 +111,26 @@ class SarkSearch(FacetedSearchView):
         extra = super(SarkSearch, self).extra_context()
         try:
             dates = extra['facets']['dates']['broadcast_date']
-            dates = [[year[:4], count] for year, count in dates.items() if year.startswith("1") and count > 0]
+            dates = sorted([[year[:4], count] for year, count in dates.items() if year.startswith("1") and count > 0])
             extra['facets']['dates']['broadcast_date'] = dates
             # print(dates)
         except KeyError:
             dates = {"error", "No dates returned"}
             # extra['facets']['dates'] = dates
+
         return extra
+
+    def get_results(self):
+        if 'date_facet' in self.request.GET:
+            print("yo")
+            year = int(self.request.GET['date_facet'])
+            return self.form.search().filter(broadcast_date__lte=datetime.date(year, 12, 31)).filter(broadcast_date__gte=datetime.date(year, 1, 1))
+
+        if 'sort' in self.request.GET:
+            sort = self.request.GET['sort']
+            if "date_asc" in sort:
+                return self.form.search().order_by("broadcast_date")
+            elif "date_desc" in sort:
+                return self.form.search().order_by("-broadcast_date")
+
+        return self.form.search()

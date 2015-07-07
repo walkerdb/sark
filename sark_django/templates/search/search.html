@@ -26,6 +26,9 @@
                             <dd><a href="{{ request.get_full_path }}&amp;date_facet={{ date.0 }}">{{ date.0 }}</a> ({{ date.1 }})</dd>
                         {% endfor %}
                     {% endif %}
+                    {% if 'date_facet' in request.get_full_path %}
+                        <dd><a href="?q={{ query }}"><em>see all</em></a></dd>
+                    {% endif %}
                 </dl>
                 <dl>
                     {% if facets.fields.host %}
@@ -36,35 +39,38 @@
                             {% endif %}
                         {% endfor %}
                         {% if 'host_exact' in request.get_full_path %}
-                            <dd><a href="/search/?q={{ query }}"><em>see all</em></a></dd>
+                            <dd><a href="?q={{ query }}"><em>see all</em></a></dd>
                         {% endif %}
                     {% endif %}
                 </dl>
             </div>
+
             <div class="col-md-10">
                 <h3>Results</h3>
                 <div class="search-result-list">
                     {% for result in page.object_list %}
                         <div class="search_result">
+
                             {% if "radioshow" in result.model_name %}
                                 <p>
                                     MTiA <a href="{% url 'sark_django.sark.views.program' result.object.broadcast_date|date:'Y' result.object.broadcast_date|date:'m' result.object.broadcast_date|date:'d' %}">{{ result.object.broadcast_date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query html_tag "mark" %}, host)
                                 </p>
                                 <p><em>{{ result.object.description }}</em></p>
                                 <div class="small">{% highlight result.object.script with query html_tag "mark" %}</div>
-
                             {% endif %}
+
                             {% if "agent" in result.model_name %}
                                 <p>
                                     {{ result.object.role.role }}: <a href="{% url 'sark_django.sark.views.agent' result.object.name %}">{{ result.object.name }}</a>
                                 </p>
                             {% endif %}
-                            {#                <hr>#}
+
                         </div>
 
                     {% empty %}
                         <p>No results found.</p>
                     {% endfor %}
+
                     {% if page.has_previous or page.has_next %}
                         <div>
                             {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
@@ -72,6 +78,7 @@
                             {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
                         </div>
                     {% endif %}
+
                 </div>
             </div>
         </div>
