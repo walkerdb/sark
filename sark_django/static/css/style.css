@@ -3,7 +3,7 @@ p {
 }
 
 h1 {
-    color: #efb858;
+    /*color: #efb858;*/
     font-family: "Crimson text", "serif";
 }
 
@@ -41,7 +41,7 @@ h3 {
 }
 
 .sark-examples {
-    width: 80%;
+    width: 70%;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #eee;
@@ -50,7 +50,6 @@ h3 {
 .row-centered {
     float: none;
     margin: 0 auto;
-    margin-top: 40px;
 }
 
 #search {
@@ -85,15 +84,29 @@ h3 {
 
 .sidebar-nav {
     font-weight: 300;
-    margin-left: 20px;
+    margin-left: 40px;
+    margin-top: 45px;
+    z-index: 999;
+    background-color: white;
 }
 
 .sidebar-nav > h3:hover {
     color: #efb858;
 }
 
+.sidebar-nav h3.active {
+    color: #efb858;
+}
+
 .sidebar-nav.active {
     color: #efb858;
+}
+
+.sidebar-nav h3 a {
+    color: inherit;
+}
+.sidebar-nav h3 a:hover {
+    text-decoration: none;
 }
 
 .image {

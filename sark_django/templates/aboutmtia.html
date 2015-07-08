@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
     <div class="row" data-spy="scroll" data-target="#navbar-example" id="about-content">
         <div class="col-md-9">
-            <h1>Voice of America</h1>
+            <h1 id="VoA">Voice of America</h1>
 
             <div>
                 <p>Founded by the US government in 1942 to counter Nazi radio propaganda abroad, over the course of the
@@ -35,7 +37,7 @@
             </div>
             <br>
 
-            <h1>Leo Sarkisian & Music Time in Africa</h1>
+            <h1 id="MTiA">Leo Sarkisian & Music Time in Africa</h1>
 
             <div>
                 <p>Leo Sarkisian is a remarkable man: an Armenian-American artist and music lover from Lawrence,
@@ -71,7 +73,7 @@
                     household names across the African continent. Sarkisian continued to travel through Africa,
                     recording music and meeting fans.</p>
 
-                <h2>Behind the Tapes</h2>
+                <h1 id="Tapes">Behind the Tapes</h1>
 
                 <p>Throughout his recording career, Sarkisian followed the same basic method. Before traveling to any
                     country he researched in depth about its culture, musical styles and prominent personages. Upon
@@ -107,7 +109,7 @@
                     </li>
                     <li>
                         <cite>Fisher-Thompson, Jim. “Nigeria Gives Warm Welcome to VOA’s Music Man.” IIP Digital. 24 May
-                        2004.<a href="http://iipdigitaltest.usembassy.gov/st/english/article/2004/06/20040604163219r1ejrehsif0.21159.html#axzz34HjXT3RJ"> http://iipdigitaltest.usembassy.gov/st/english/article/2004/06/20040604163219r1ejrehsif0.21159.html#axzz34HjXT3RJ</a></cite>
+                            2004.<a href="http://iipdigitaltest.usembassy.gov/st/english/article/2004/06/20040604163219r1ejrehsif0.21159.html#axzz34HjXT3RJ"> http://iipdigitaltest.usembassy.gov/st/english/article/2004/06/20040604163219r1ejrehsif0.21159.html#axzz34HjXT3RJ</a></cite>
                     </li>
                     <li>
                         <cite>Fisher-Thompson, Jim. “Drums Beat In Time With VOA’s Music Man To Africa.” IIP Digital. 6 May 2003.<a href="http://iipdigitaltest.usembassy.gov/st/english/article/2003/05/20030506173035rehsif0.7209436.html#axzz34HjXT3RJ"> http://iipdigitaltest.usembassy.gov/st/english/article/2003/05/20030506173035rehsif0.7209436.html#axzz34HjXT3RJ</a></cite>
@@ -138,9 +140,82 @@
         </div>
         <div class="col-md-3">
             <div class="sidebar-nav affix">
-                <h3>Content</h3>
+                <h3 id="VoA-sidebar"><a href="#VoA">Voice of America</a></h3>
+                <h3 id="MTiA-sidebar"><a href="#MTiA">Music Time in Africa</a></h3>
+                <h3 id="Tapes-sidebar"><a href="#Tapes">The Tapes</a></h3>
             </div>
         </div>
     </div>
 
+    <script>
+        $(document).ready(function () {
+            var voa_waypoint = $('#VoA').waypoint({
+                handler: function () {
+                    $('#VoA-sidebar').addClass('active');
+                    $('#MTiA-sidebar').removeClass('active');
+                    $('#Tapes-sidebar').removeClass('active');
+                },
+                offset: "-5%"
+            });
+            var mtia_waypoint = $('#MTiA').waypoint({
+                handler: function() {
+                    $('#VoA-sidebar').removeClass('active');
+                    $('#MTiA-sidebar').addClass('active');
+                    $('#Tapes-sidebar').removeClass('active');
+                },
+                offset: "-5%"
+            });
+            var tapes_waypoint = $('#Tapes').waypoint({
+                handler: function() {
+                    $('#VoA-sidebar').removeClass('active');
+                    $('#MTiA-sidebar').removeClass('active');
+                    $('#Tapes-sidebar').addClass('active');
+                },
+                offset: "-5%"
+            });
+            var voa_waypoint2 = $('#VoA').waypoint({
+                handler: function () {
+                    $('#VoA-sidebar').addClass('active');
+                    $('#MTiA-sidebar').removeClass('active');
+                    $('#Tapes-sidebar').removeClass('active');
+                },
+                offset: "5%"
+            });
+            var mtia_waypoint2 = $('#MTiA').waypoint({
+                handler: function() {
+                    $('#VoA-sidebar').removeClass('active');
+                    $('#MTiA-sidebar').addClass('active');
+                    $('#Tapes-sidebar').removeClass('active');
+                },
+                offset: "5%"
+            });
+            var tapes_waypoint2 = $('#Tapes').waypoint({
+                handler: function() {
+                    $('#VoA-sidebar').removeClass('active');
+                    $('#MTiA-sidebar').removeClass('active');
+                    $('#Tapes-sidebar').addClass('active');
+                },
+                offset: "5%"
+            });
+{#            $('#VoA-sidebar').click(function(){#}
+{#                $('#VoA-sidebar').addClass('active');#}
+{#                $('#MTiA-sidebar').removeClass('active');#}
+{#                $('#Tapes-sidebar').removeClass('active');#}
+{#            });#}
+{#            $('#MTiA-sidebar').click(function(){#}
+{#                $('#VoA-sidebar').removeClass('active');#}
+{#                $('#MTiA-sidebar').addClass('active');#}
+{#                $('#Tapes-sidebar').removeClass('active');#}
+{#            });#}
+{#            $('#Tapes-sidebar').click(function(){#}
+{#                $('#VoA-sidebar').removeClass('active');#}
+{#                $('#MTiA-sidebar').removeClass('active');#}
+{#                $('#Tapes-sidebar').addClass('active');#}
+{#            });#}
+        });
+    </script>
+{% endblock %}
+
+{% block bottom-content %}
+    <script src="{% static 'js/jquery.waypoints.js' %}"></script>
 {% endblock %}
