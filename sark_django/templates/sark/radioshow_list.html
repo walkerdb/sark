@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>Leo Sarkisian <em>Music Time in Africa</em> Collection</h2>
-    <p>Welcome to the online home of </p>
-    <br>
+
     <form class="form" role="search" method="get" action="/search">
         <div class="input-group">
             <input type="text" class="form-control input-lg" placeholder="What are you looking for?" name="q"  id="search">
@@ -13,29 +11,39 @@
     </form>
     <br>
     <hr>
+    <h2>Music Time in Africa - online collections</h2>
+    <p>Welcome to the online beta of the <strong><em>Leo Sarkisian Music Time in Africa digital collection</em></strong>, featuring both MTiA radio broadcasts and original field recordings collected by Leo throughout Africa. Browse through select facets of our intended functionality below, or search for digitized content above.</p>
 
-    <p>Example programs:</p>
-    <ul>
-        {% for show in object_list %}
-            <li>{{ show.host.name }}: <a href="{% url 'sark_django.sark.views.program' show.broadcast_date|date:"Y" show.broadcast_date|date:"m" show.broadcast_date|date:"d" %}">{{ show.broadcast_date|date:"Y-m-d" }}</a></li>
-        {% endfor %}
-    </ul>
-    <p>Hosts</p>
-    <ul>
-        {% for host in hosts %}
-            <li>{{ host.dates_active }} - <a href="{% url 'sark_django.sark.views.agent' host.name %}">{{ host.name }}</a></li>
-        {% endfor %}
-    </ul>
-    <p>Performers</p>
-    <ul>
-        {% for performer in performers %}
-            <li><a href="{% url 'sark_django.sark.views.agent' performer.name %}">{{ performer.name }}</a></li>
-        {% endfor %}
-    </ul>
-    <p>Locations</p>
-    <ul>
-        {% for location in locations %}
-            <li><a href="{% url 'sark_django.sark.views.location' location.name location.country%}">{{ location.name }}, {{ location.country }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="row sark-examples row-centered">
+        <div class="col-md-6">
+            <h3>Broadcasts</h3>
+            <ul class="no-bullets">
+                {% for show in object_list %}
+                    <li>{{ show.host.name }}: <a href="{% url 'sark_django.sark.views.program' show.broadcast_date|date:"Y" show.broadcast_date|date:"m" show.broadcast_date|date:"d" %}">{{ show.broadcast_date|date:"Y-m-d" }}</a></li>
+                {% endfor %}
+            </ul>
+            <h3>Performers</h3>
+            <ul class="no-bullets">
+                {% for performer in performers %}
+                    <li><a href="{% url 'sark_django.sark.views.agent' performer.name %}">{{ performer.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Hosts</h3>
+            <ul class="no-bullets">
+                {% for host in hosts %}
+                    <li>{{ host.dates_active }} - <a href="{% url 'sark_django.sark.views.agent' host.name %}">{{ host.name }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <h3>Locations</h3>
+            <ul class="no-bullets">
+                {% for location in locations %}
+                    <li><a href="{% url 'sark_django.sark.views.location' location.name location.country%}">{{ location.name }}, {{ location.country }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}
