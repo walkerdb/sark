@@ -83,6 +83,19 @@ h3 {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
+.sidebar-nav {
+    font-weight: 300;
+    margin-left: 20px;
+}
+
+.sidebar-nav > h3:hover {
+    color: #efb858;
+}
+
+.sidebar-nav.active {
+    color: #efb858;
+}
+
 .image {
     box-shadow: 1px 5px 10px #999999;
     width: 100%;
