@@ -41,4 +41,6 @@ urlpatterns = [
     url(r'^search/', views.SarkSearch(form_class=FacetedSearchForm, searchqueryset=sqs), name='haystack_search'),
 ]
 
+
+handler404 = 'sark_django.sark.views.error404'
 admin.site.site_header = 'Sarkisian Project admin'

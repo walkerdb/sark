@@ -68,7 +68,6 @@ def location(request, name, country):
     selected = "demo"
     location = get_object_or_404(m.Location, name=name, country=country)
     people = m.Agent.objects.filter(primary_place_of_activity_id=location.pk)
-    print(people)
 
     if location.longitude and location.latitude:
         google_web_api_string = "https://www.google.com/maps/embed/v1/place?zoom={0}&center={1}%2C{2}&q={3}+{4}&key=AIzaSyDzDeB74FnjIvGAQhApW_8HVfrJSNq-nrE"
@@ -123,7 +122,6 @@ class SarkSearch(FacetedSearchView):
 
     def get_results(self):
         if 'date_facet' in self.request.GET:
-            print("yo")
             year = int(self.request.GET['date_facet'])
             return self.form.search().filter(broadcast_date__lte=datetime.date(year, 12, 31)).filter(broadcast_date__gte=datetime.date(year, 1, 1))
 
@@ -135,3 +133,6 @@ class SarkSearch(FacetedSearchView):
                 return self.form.search().order_by("-broadcast_date")
 
         return self.form.search()
+
+def error404(request):
+    return render(request, '404.html')
