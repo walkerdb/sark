@@ -1,10 +1,51 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-<h1>About us</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac sem mollis, pulvinar elit ut, dictum mauris. Fusce malesuada purus at libero sagittis, et tincidunt magna dictum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisi. Fusce fermentum eu elit nec pellentesque. Etiam ut elit volutpat, euismod dolor in, hendrerit purus. Donec libero felis, aliquam non dui at, pretium laoreet nunc. Phasellus rhoncus imperdiet lectus, eget eleifend diam bibendum vitae. Nullam facilisis ex id libero auctor tristique. Maecenas faucibus enim vitae orci posuere tincidunt. Donec scelerisque faucibus leo, eu venenatis nisi dictum quis. Pellentesque facilisis, turpis ac bibendum hendrerit, nisi purus semper erat, mattis sodales sem velit eu nulla. Aenean dignissim, sapien nec viverra convallis, risus turpis dapibus ante, eget tempus magna massa vel est. Nam nec turpis mauris. Aliquam consectetur efficitur ipsum at sagittis. Praesent blandit eu ipsum quis vestibulum.</p>
-<p>Aenean efficitur nisl commodo tortor varius, sit amet consectetur enim lacinia. Proin nulla sem, viverra vel feugiat nec, consequat at mauris. Sed malesuada at lorem at commodo. Donec aliquet ligula sit amet mauris consequat, a tempor mauris feugiat. Curabitur nec posuere mi, eget consequat dui. Sed nec metus posuere, tristique magna nec, dapibus enim. Suspendisse tempor tincidunt nulla, vitae ullamcorper nisi fringilla nec. Proin urna lorem, semper volutpat lectus eu, laoreet pretium eros. Phasellus sed viverra neque. Suspendisse ullamcorper lacus ac nisl porta, a sollicitudin purus porta. Donec at bibendum orci, pulvinar bibendum augue.</p>
-<p>Proin sed lectus eu ante hendrerit auctor. Nullam non nibh nisi. Sed dictum massa urna, ut mollis mi gravida a. Mauris ex diam, semper et leo sed, rhoncus pulvinar diam. Mauris vestibulum, nisi vitae cursus lacinia, arcu magna ultrices mi, et luctus augue nisl viverra nunc. Vestibulum vitae augue magna. Aliquam cursus magna non tortor ultricies dapibus vitae at elit. Sed odio metus, rhoncus non enim ut, molestie tempor est. Nunc egestas sit amet erat ut ullamcorper. Nullam mattis mi nec mauris aliquet, vitae cursus mi convallis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vel sapien nec est placerat pretium.</p>
-<p>Ut quis urna sit amet erat laoreet commodo vel et sem. Ut ut mi vitae purus rhoncus faucibus vel eget quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquet orci eget purus convallis dignissim. Sed lobortis porttitor ipsum blandit sodales. Ut finibus ut tellus vel mollis. Maecenas tellus urna, vehicula ut hendrerit non, faucibus ut ipsum. Praesent varius nunc ac aliquet fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sit amet enim turpis. Aenean porta diam ut augue semper facilisis. Sed malesuada blandit nulla eu tristique.</p>
-<p>Nunc bibendum, dolor in tristique commodo, lacus dui finibus erat, at sagittis arcu lorem quis velit. Vestibulum efficitur, dolor at ultricies convallis, libero turpis congue nisi, non sodales erat odio ac ligula. Fusce sodales eget ante ut volutpat. Donec ut est ac ipsum tristique mollis in fermentum leo. Morbi sodales mi eget nibh luctus dignissim nec id velit. Sed id mi feugiat, bibendum magna non, porta mauris. Duis augue velit, maximus non scelerisque vel, fringilla accumsan odio. Nunc luctus ac felis eget pellentesque. Vivamus et orci a odio condimentum venenatis.</p>
+    <div class="row">
+        <div class="col-md-10">
+            <h1>About us</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac sem mollis, pulvinar elit ut, dictum mauris. Fusce malesuada purus at libero sagittis, et tincidunt magna dictum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisi. Fusce fermentum eu elit nec pellentesque. Etiam ut elit volutpat, euismod dolor in, hendrerit purus. Donec libero felis, aliquam non dui at, pretium laoreet nunc. Phasellus rhoncus imperdiet lectus, eget eleifend diam bibendum vitae. Nullam facilisis ex id libero auctor tristique. Maecenas faucibus enim vitae orci posuere tincidunt. Donec scelerisque faucibus leo, eu venenatis nisi dictum quis. Pellentesque facilisis, turpis ac bibendum hendrerit, nisi purus semper erat, mattis sodales sem velit eu nulla. Aenean dignissim, sapien nec viverra convallis, risus turpis dapibus ante, eget tempus magna massa vel est. Nam nec turpis mauris. Aliquam consectetur efficitur ipsum at sagittis. Praesent blandit eu ipsum quis vestibulum.</p>
+            <h1>Principal investigators</h1>
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="media-heading">Paul Conway</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac sem mollis, pulvinar elit ut, dictum mauris. Fusce malesuada purus at libero sagittis, et tincidunt magna dictum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
 
+                <div class="media-right">
+                    <div class="user-profile-image media-object" style="background-image:url('{% static 'sarkfiles/img/profile_conway.jpg' %}')"></div>
+                </div>
+
+            </div>
+            <div class="media">
+
+                <div class="media-left">
+                    <div class="user-profile-image media-object" style="background-image:url('{% static 'sarkfiles/img/profile_askew.jpg' %}')"></div>
+                </div>
+
+                <div class="media-body">
+                    <h3 class="media-heading">Kelly Askew</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac sem mollis, pulvinar elit ut, dictum mauris. Fusce malesuada purus at libero sagittis, et tincidunt magna dictum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                </div>
+            </div>
+            <div class="media">
+
+                <div class="media-body">
+                    <h3 class="media-heading">David Wallace</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac sem mollis, pulvinar elit ut, dictum mauris. Fusce malesuada purus at libero sagittis, et tincidunt magna dictum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                </div>
+                <div class="media-right">
+                    <div class="user-profile-image media-object" style="background-image:url('{% static 'sarkfiles/img/profile_wallace.jpg' %}')"></div>
+                </div>
+
+            </div>
+            <br>
+            <hr>
+            <p>Aenean efficitur nisl commodo tortor varius, sit amet consectetur enim lacinia. Proin nulla sem, viverra vel feugiat nec, consequat at mauris. Sed malesuada at lorem at commodo. Donec aliquet ligula sit amet mauris consequat, a tempor mauris feugiat. Curabitur nec posuere mi, eget consequat dui. Sed nec metus posuere, tristique magna nec, dapibus enim. Suspendisse tempor tincidunt nulla, vitae ullamcorper nisi fringilla nec. Proin urna lorem, semper volutpat lectus eu, laoreet pretium eros. Phasellus sed viverra neque. Suspendisse ullamcorper lacus ac nisl porta, a sollicitudin purus porta. Donec at bibendum orci, pulvinar bibendum augue.</p>
+            <p>Proin sed lectus eu ante hendrerit auctor. Nullam non nibh nisi. Sed dictum massa urna, ut mollis mi gravida a. Mauris ex diam, semper et leo sed, rhoncus pulvinar diam. Mauris vestibulum, nisi vitae cursus lacinia, arcu magna ultrices mi, et luctus augue nisl viverra nunc. Vestibulum vitae augue magna. Aliquam cursus magna non tortor ultricies dapibus vitae at elit. Sed odio metus, rhoncus non enim ut, molestie tempor est. Nunc egestas sit amet erat ut ullamcorper. Nullam mattis mi nec mauris aliquet, vitae cursus mi convallis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vel sapien nec est placerat pretium.</p>
+            <p>Ut quis urna sit amet erat laoreet commodo vel et sem. Ut ut mi vitae purus rhoncus faucibus vel eget quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquet orci eget purus convallis dignissim. Sed lobortis porttitor ipsum blandit sodales. Ut finibus ut tellus vel mollis. Maecenas tellus urna, vehicula ut hendrerit non, faucibus ut ipsum. Praesent varius nunc ac aliquet fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sit amet enim turpis. Aenean porta diam ut augue semper facilisis. Sed malesuada blandit nulla eu tristique.</p>
+            <p>Nunc bibendum, dolor in tristique commodo, lacus dui finibus erat, at sagittis arcu lorem quis velit. Vestibulum efficitur, dolor at ultricies convallis, libero turpis congue nisi, non sodales erat odio ac ligula. Fusce sodales eget ante ut volutpat. Donec ut est ac ipsum tristique mollis in fermentum leo. Morbi sodales mi eget nibh luctus dignissim nec id velit. Sed id mi feugiat, bibendum magna non, porta mauris. Duis augue velit, maximus non scelerisque vel, fringilla accumsan odio. Nunc luctus ac felis eget pellentesque. Vivamus et orci a odio condimentum venenatis.</p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 {% endblock %}

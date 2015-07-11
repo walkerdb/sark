@@ -121,6 +121,19 @@ h3 {
     border-right: 0px;
 }
 
+.user-profile-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: no-repeat center center;
+    background-size: cover;
+    /*padding-right: 100px*/
+}
+
+.media-body {
+    padding-top: 15px;
+}
+
 mark, .mark {
     background-color: rgba(239, 184, 88, 0.39);
 }
