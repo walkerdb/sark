@@ -90,12 +90,11 @@ def location(request, name, country):
         google_web_api_string = "https://www.google.com/maps/embed/v1/place?zoom={0}&q={1}+{2}&key=AIzaSyDzDeB74FnjIvGAQhApW_8HVfrJSNq-nrE"
         google_web_api_string = google_web_api_string.format(location.zoom, location.name, location.country)
 
-    name_string = location.name + ", " + location.country
     t = get_template("location.html")
 
     html = t.render(Context({'selected': selected,
                              'google_maps_api_link': google_web_api_string,
-                             'location_name': name_string,
+                             'location': location,
                              'people': people}))
     return HttpResponse(html)
 

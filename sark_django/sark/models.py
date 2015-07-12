@@ -53,14 +53,17 @@ class Instrument(models.Model):
 
 
 class Location(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, blank=True)
     country = models.CharField(max_length=50)
     longitude = models.FloatField(null=True, blank=True)
     latitude = models.FloatField(null=True, blank=True)
     zoom = models.IntegerField(default=10)
 
     def __str__(self):
-        return "{0}, {1}".format(self.name, self.country)
+        if self.name:
+            return "{0}, {1}".format(self.name, self.country)
+        else:
+            return self.country
 
     class Meta:
         ordering = ('country', 'name')

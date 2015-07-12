@@ -40,7 +40,7 @@
             <h3>Locations</h3>
             <ul class="no-bullets">
                 {% for location in locations %}
-                    <li><a href="{% url 'sark_django.sark.views.location' location.name location.country%}">{{ location.name }}, {{ location.country }}</a></li>
+                        <li><a href="{% url 'sark_django.sark.views.location' location.name location.country%}">{{ location }}</a></li>
                 {% endfor %}
             </ul>
         <br>

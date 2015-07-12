@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3>{{ location_name }}</h3>
+    <h3>{{ location }}</h3>
     <hr>
 <iframe
         width=100%
@@ -11,7 +11,7 @@
         allowfullscreen></iframe>
 
     <br><br>
-    <p>People and groups from {{ location_name }}:</p>
+    <p>People and groups from {{ location }}:</p>
     <ul>
         {% for person in people %}
             <li><a href="{% url 'sark_django.sark.views.agent' person.name %}">{{ person.name }}</a></li>
