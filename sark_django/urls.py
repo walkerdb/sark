@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^aboutmtia/$', views.aboutmtia),
     url(r'^demo/broadcast/([0-9]{4})-([0-9]{2})-([0-9]{2})/', 'sark_django.sark.views.broadcast'),
     url(r'^demo/fieldrecording/(\d*)', 'sark_django.sark.views.field_recording'),
-    url(r'^demo/location/([a-zA-Z]*)\+([a-zA-Z]*)',  'sark_django.sark.views.location'),
+    url(r'^demo/location/([a-zA-Z ]*)\+([a-zA-Z ]*)',  'sark_django.sark.views.location'),
     url(r'^demo/agent/(.*)', 'sark_django.sark.views.agent'),
     url(r'^test/demo',  views.Demo.as_view()),
     url(r'^admin/', include(admin.site.urls)),
