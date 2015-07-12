@@ -1,3 +1,5 @@
+mutagen
+PIL
 django==1.8.2
 django-bootstrap3==5.4.0
 django-admin-bootstrapped==2.5.1
