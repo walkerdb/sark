@@ -50,18 +50,32 @@ def inventory(request):
     html = t.render(Context({'selected': selected}))
     return HttpResponse(html)
 
-def program(request, year, month, day):
+def broadcast(request, year, month, day):
     selected = "demo"
 
     show = get_object_or_404(m.RadioShow, broadcast_date="{0}-{1}-{2}".format(year, month, day))
     performances = show.performances.all()
     photos = show.images.all()
 
-    t = get_template("program.html")
+    t = get_template("broadcast.html")
     html = t.render(Context({'selected': selected,
                              'show': show,
                              'performances': performances,
                              'photos': photos}))
+    return HttpResponse(html)
+
+def field_recording(request, unique_id):
+    selected = "demo"
+
+    recording = get_object_or_404(m.FieldRecording, unique_id=unique_id)
+    performances = recording.performances.all()
+    images = recording.images.all()
+
+    t = get_template("fieldrecording.html")
+    html = t.render(Context({'selected': selected,
+                             'recording': recording,
+                             'performances': performances,
+                             'images': images}))
     return HttpResponse(html)
 
 def location(request, name, country):

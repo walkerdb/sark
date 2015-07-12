@@ -1,10 +1,6 @@
 from django.db import models
 
-# Create your models here.
-# class Reel(models.Model):
-#     pass
-#
-#
+
 class Role(models.Model):
     role = models.CharField(max_length=200)
 
@@ -69,24 +65,6 @@ class Location(models.Model):
     class Meta:
         ordering = ('country', 'name')
 
-class Agent(models.Model):
-    name = models.CharField(max_length=200)
-    primary_place_of_activity = models.ForeignKey(Location, null=True, blank=True)
-    birthdate = models.DateField(blank=True, null=True)
-    deathdate = models.DateField(blank=True, null=True)
-    dates_active = models.CharField(blank=True, null=True, max_length=20)
-    bio = models.CharField(default="No bio on record", max_length=2000)
-    role = models.ForeignKey(Role, default=0)
-    members = models.ManyToManyField("self", blank=True)
-    # photos = models.ManyToManyField(Photo)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        ordering = ('name',)
-
-
 class Image(models.Model):
     file = models.ImageField(upload_to="img", height_field='image_height', width_field='image_width')
     thumb = models.ImageField(upload_to="img")
@@ -101,6 +79,24 @@ class Image(models.Model):
 
     class Meta:
         ordering = ('date', 'sort_order',)
+
+
+class Agent(models.Model):
+    name = models.CharField(max_length=200)
+    primary_place_of_activity = models.ForeignKey(Location, null=True, blank=True)
+    birthdate = models.DateField(blank=True, null=True)
+    deathdate = models.DateField(blank=True, null=True)
+    dates_active = models.CharField(blank=True, null=True, max_length=20)
+    bio = models.CharField(default="No bio on record", max_length=2000)
+    role = models.ForeignKey(Role, default=0)
+    members = models.ManyToManyField("self", blank=True)
+    photos = models.ManyToManyField(Image, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ('name',)
 
 
 class Performance(models.Model):
@@ -120,17 +116,28 @@ class Performance(models.Model):
     class Meta:
         ordering = ('date', 'title')
 
-
-class RadioShow(models.Model):
-    broadcast_date = models.DateField(blank=True)
-    host = models.ForeignKey(Agent)
-    script = models.TextField(blank=True)
+class Reel(models.Model):
+    title = models.CharField(max_length=200)
     description = models.CharField(max_length=200, blank=True)
     performances = models.ManyToManyField(Performance)
     images = models.ManyToManyField(Image, blank=True)
 
     def __str__(self):
-        return "MTiA: {0} ({1})".format(str(self.broadcast_date), self.host.name)
+        return self.title
+
+    class Meta:
+        abstract = True
+
+class RadioShow(Reel):
+    broadcast_date = models.DateField(blank=True)
+    host = models.ForeignKey(Agent)
+    script = models.TextField(blank=True)
 
     class Meta:
         ordering = ('broadcast_date',)
+
+class FieldRecording(Reel):
+    unique_id = models.BigIntegerField()
+    recording_engineer = models.ForeignKey(Agent, blank=True)
+    location = models.ForeignKey(Location, blank=True)
+    date_recorded = models.DateField(blank=True)

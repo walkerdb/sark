@@ -74,13 +74,36 @@
                     {% for result in page.object_list %}
                         <div class="search_result">
 
+                            {% if "fieldrecording" in result.model_name %}
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h3 class="search-header">Field recording: <a href="{% url 'sark_django.sark.views.field_recording' result.object.unique_id %}">{{ result.object.title }}</a></h3>
+                                        <p class="search-description"><em>{{ result.object.description }}</em></p>
+{#                                        <div class="small search-script"><strong style="color: #4e4e4e">Script excerpt:</strong><br>{% highlight result.object.script with query %}</div>#}
+                                        <br>
+                                    </div>
+                                    {% if result.object.images.all.0 %}
+                                        <div class="search-image-well image_gallery ">
+                                            {% for image in result.object.images.all %}
+                                                <figure class="search-result-image-figure media-middle">
+                                                    <a href="{% static 'sarkfiles/' %}{{ image.file.name }}" data-size="{{ image.image_width }}x{{ image.image_height }}">
+                                                        <img src="{% static 'sarkfiles/' %}{{ image.thumb.name }}" alt="{{ image.description }}" class="search-result-image"/>
+                                                    </a>
+                                                    <br><br>
+                                                </figure>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+
                             {% if "radioshow" in result.model_name %}
                                 <div class="media">
 
                                     <div class="media-body">
-                                        <h3 class="search-header">MTiA <a href="{% url 'sark_django.sark.views.program' result.object.broadcast_date|date:'Y' result.object.broadcast_date|date:'m' result.object.broadcast_date|date:'d' %}">{{ result.object.broadcast_date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query html_tag "mark" %}, host)</h3>
+                                        <h3 class="search-header">MTiA <a href="{% url 'sark_django.sark.views.broadcast' result.object.broadcast_date|date:'Y' result.object.broadcast_date|date:'m' result.object.broadcast_date|date:'d' %}">{{ result.object.broadcast_date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query html_tag "mark" %}, host)</h3>
                                         <p class="search-description"><em>{{ result.object.description }}</em></p>
-                                        <div class="small search-script"><strong style="color: #4e4e4e">Script excerpt:</strong><br>{% highlight result.object.script with query html_tag "mark" %}</div>
+                                        <div class="small search-script"><strong style="color: #4e4e4e">Script excerpt:</strong><br>{% highlight result.object.script with query %}</div>
                                         <br>
                                     </div>
                                     {% if result.object.images.all.0 %}

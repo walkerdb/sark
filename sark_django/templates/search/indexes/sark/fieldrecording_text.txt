@@ -1,6 +1,6 @@
-{{ object.script }}
-{{ object.host.name }}
+{{ object.title }}
 {{ object.description }}
+{{ object.recording_engineer.name }}
 {% for performance in object.performances.all %}
     {% for instrument in performance.instruments.all %}
        {{ instrument.name }}

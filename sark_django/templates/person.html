@@ -18,7 +18,7 @@
         <p>Shows:</p>
         <ul>
             {% for show in shows %}
-                <li><a href="{% url 'sark_django.sark.views.program' show.broadcast_date|date:"Y" show.broadcast_date|date:"m" show.broadcast_date|date:"d" %}">{{ show.broadcast_date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
+                <li><a href="{% url 'sark_django.sark.views.broadcast' show.broadcast_date|date:"Y" show.broadcast_date|date:"m" show.broadcast_date|date:"d" %}">{{ show.broadcast_date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
             {% endfor %}
         </ul>
     {% else %}

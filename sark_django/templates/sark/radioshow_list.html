@@ -19,7 +19,7 @@
             <h3>Broadcasts</h3>
             <ul class="no-bullets">
                 {% for show in object_list %}
-                    <li>{{ show.host.name }}: <a href="{% url 'sark_django.sark.views.program' show.broadcast_date|date:"Y" show.broadcast_date|date:"m" show.broadcast_date|date:"d" %}">{{ show.broadcast_date|date:"Y-m-d" }}</a></li>
+                    <li>{{ show.host.name }}: <a href="{% url 'sark_django.sark.views.broadcast' show.broadcast_date|date:"Y" show.broadcast_date|date:"m" show.broadcast_date|date:"d" %}">{{ show.broadcast_date|date:"Y-m-d" }}</a></li>
                 {% endfor %}
             </ul>
             <h3>Performers</h3>
