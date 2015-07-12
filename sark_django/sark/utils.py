@@ -54,15 +54,17 @@ def get_audio_metadata(filepath):
         return Metadata(title=barcode, album=album_name, comments=capture_notes, year=year)
 
 
-def make_thumbnail(input_filepath):
+def make_thumbnail(input_filepath, output_dir="", barcode=""):
     size = 200, 200
     try:
         print(input_filepath)
-        outfile = os.path.splitext(input_filepath)[0] + ".jpg"
+        path_, filename = os.path.split(input_filepath)
+        filename = filename.split(".")[0]
+        outfile = "{0}-{1}.jpg".format(os.path.join(output_dir, barcode), filename)
         im = Image.open(input_filepath)
-        im.save(outfile, "JPEG")
+        im.save(outfile, "JPEG", quality=90)
 
-        outfile = os.path.splitext(input_filepath)[0] + "-thumb.jpg"
+        outfile = "{0}-{1}-thumb.jpg".format(os.path.join(output_dir, barcode), filename)
         im.thumbnail(size, Image.ANTIALIAS)
         im.save(outfile, "JPEG")
 
@@ -71,15 +73,18 @@ def make_thumbnail(input_filepath):
 
 
 if __name__ == "__main__":
-    input_dir = r"H:\Sarkisian - TBray digitization\All digitized files, by barcode\39015090284871"
+    input_dir = r"H:\Sarkisian - TBray digitization\All digitized files, by barcode"
+    output_dir = r"H:\Sark output\img"
 
-    image_files = [file for file in os.listdir(input_dir) if file.endswith(".tiff") or file.endswith(".tif")]
-    for image in image_files:
-        path = os.path.join(input_dir, image)
-        make_thumbnail(path)
+    for folder in os.listdir(input_dir):
 
-    audio_files = [file for file in os.listdir(input_dir) if file.endswith(".wav") and file.startswith("pm")]
-    for wav in audio_files:
-        audio_path = os.path.join(input_dir, wav)
-        notes_path = os.path.join(input_dir, "notes.txt")
-        convert_wav_to_mp3(audio_path, notes_path)
+        image_files = [file for file in os.listdir(os.path.join(input_dir, folder)) if file.endswith(".tiff") or file.endswith(".tif")]
+        for image in image_files:
+            path = os.path.join(os.path.join(input_dir, folder), image)
+            make_thumbnail(path, output_dir=output_dir, barcode=folder)
+
+    # audio_files = [file for file in os.listdir(input_dir) if file.endswith(".wav") and file.startswith("pm")]
+    # for wav in audio_files:
+    #     audio_path = os.path.join(input_dir, wav)
+    #     notes_path = os.path.join(input_dir, "notes.txt")
+    #     convert_wav_to_mp3(audio_path, notes_path)
