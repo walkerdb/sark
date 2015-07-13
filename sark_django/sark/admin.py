@@ -3,13 +3,13 @@ from . import models as m
 
 @admin.register(m.RadioShow)
 class RadioShowAdmin(admin.ModelAdmin):
-    fields = ('title', 'description', 'host', 'broadcast_date', 'script', 'performances', 'images')
-    date_hierarchy = 'broadcast_date'
+    fields = ('title', 'description', 'host', 'date', 'script', 'performances', 'images')
+    date_hierarchy = 'date'
     filter_horizontal = ('images', 'performances')
 
 @admin.register(m.FieldRecording)
 class FieldRecordingAdmin(admin.ModelAdmin):
-    fields = ('title', 'description', 'unique_id', 'location', 'recording_engineer', 'date_recorded', 'performances', 'images')
+    fields = ('title', 'description', 'unique_id', 'location', 'recording_engineer', 'date', 'performances', 'images')
     filter_horizontal = ('images', 'performances')
 
 @admin.register(m.Performance)

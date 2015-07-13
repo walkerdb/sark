@@ -24,7 +24,7 @@
 
 {% block content %}
     <p><strong>Host:</strong> <a href="{% url 'sark_django.sark.views.agent' show.host.name %}">{{ show.host.name }}</a></p>
-    <p><strong>Air-date:</strong> {{ show.broadcast_date }}</p>
+    <p><strong>Air-date:</strong> {{ show.date }}</p>
     <p><em>{{ show.description }}</em>  <span class="small"><a href="/admin/sark/radioshow/{{ show.pk }}" target="_blank">[edit show]</a></span></p>
     <hr>
     {% if photos %}

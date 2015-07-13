@@ -43,9 +43,9 @@
             <div class="col-md-2">
                 <h2>Refine search</h2>
                 <dl>
-                    {% if facets.dates.broadcast_date %}
+                    {% if facets.dates.date %}
                         <dt>Broadcast dates</dt>
-                        {% for date in facets.dates.broadcast_date %}
+                        {% for date in facets.dates.date %}
                             <dd><a href="{{ request.get_full_path }}&amp;date_facet={{ date.0 }}">{{ date.0 }}</a> ({{ date.1 }})</dd>
                         {% endfor %}
                     {% endif %}
@@ -101,7 +101,7 @@
                                 <div class="media">
 
                                     <div class="media-body">
-                                        <h3 class="search-header">MTiA <a href="{% url 'sark_django.sark.views.broadcast' result.object.broadcast_date|date:'Y' result.object.broadcast_date|date:'m' result.object.broadcast_date|date:'d' %}">{{ result.object.broadcast_date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query html_tag "mark" %}, host)</h3>
+                                        <h3 class="search-header">MTiA <a href="{% url 'sark_django.sark.views.broadcast' result.object.date|date:'Y' result.object.date|date:'m' result.object.date|date:'d' %}">{{ result.object.date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query html_tag "mark" %}, host)</h3>
                                         <p class="search-description"><em>{{ result.object.description }}</em></p>
                                         <div class="small search-script"><strong style="color: #4e4e4e">Script excerpt:</strong><br>{% highlight result.object.script with query %}</div>
                                         <br>

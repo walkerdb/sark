@@ -4,7 +4,7 @@ from . import models
 
 class ProgramIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
-    broadcast_date = indexes.DateField(model_attr="broadcast_date")
+    date = indexes.DateField(model_attr="date")
     host = indexes.CharField(model_attr="host", faceted=True)
     # performers = indexes.MultiValueField(faceted=True)
     # instruments = indexes.MultiValueField(faceted=True)
@@ -23,7 +23,7 @@ class ProgramIndex(indexes.SearchIndex, indexes.Indexable):
 
 class FieldRecordingIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
-    date_recorded = indexes.DateField(model_attr="date_recorded")
+    date = indexes.DateField(model_attr="date")
     performers = indexes.MultiValueField(faceted=True)
     instruments = indexes.MultiValueField(faceted=True)
 

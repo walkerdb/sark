@@ -21,7 +21,7 @@ def home(request):
     # return HttpResponse(html)
 
 class Demo(ListView):
-    queryset = m.RadioShow.objects.order_by("broadcast_date")
+    queryset = m.RadioShow.objects.order_by("date")
     # context_object_name = "radio_shows"
 
     def get_context_data(self, **kwargs):
@@ -53,7 +53,7 @@ def inventory(request):
 def broadcast(request, year, month, day):
     selected = "demo"
 
-    show = get_object_or_404(m.RadioShow, broadcast_date="{0}-{1}-{2}".format(year, month, day))
+    show = get_object_or_404(m.RadioShow, date="{0}-{1}-{2}".format(year, month, day))
     performances = show.performances.all()
     photos = show.images.all()
 
@@ -101,7 +101,7 @@ def location(request, name, country):
 def agent(request, name):
     selected = "demo"
     agent = get_object_or_404(m.Agent, name=name)
-    shows = m.RadioShow.objects.filter(host_id=agent.pk).order_by("broadcast_date")
+    shows = m.RadioShow.objects.filter(host_id=agent.pk).order_by("date")
     members = agent.members.all()
 
     t = get_template("person.html")
@@ -123,9 +123,9 @@ class SarkSearch(FacetedSearchView):
     def extra_context(self):
         extra = super(SarkSearch, self).extra_context()
         try:
-            dates = extra['facets']['dates']['broadcast_date']
+            dates = extra['facets']['dates']['date']
             dates = sorted([[year[:4], count] for year, count in dates.items() if year.startswith("1") and count > 0])
-            extra['facets']['dates']['broadcast_date'] = dates
+            extra['facets']['dates']['date'] = dates
             # print(dates)
         except KeyError:
             dates = {"error", "No dates returned"}
@@ -136,14 +136,14 @@ class SarkSearch(FacetedSearchView):
     def get_results(self):
         if 'date_facet' in self.request.GET:
             year = int(self.request.GET['date_facet'])
-            return self.form.search().filter(broadcast_date__lte=datetime.date(year, 12, 31)).filter(broadcast_date__gte=datetime.date(year, 1, 1))
+            return self.form.search().filter(date__lte=datetime.date(year, 12, 31)).filter(date__gte=datetime.date(year, 1, 1))
 
         if 'sort' in self.request.GET:
             sort = self.request.GET['sort']
             if "date_asc" in sort:
-                return self.form.search().order_by("broadcast_date")
+                return self.form.search().order_by("date")
             elif "date_desc" in sort:
-                return self.form.search().order_by("-broadcast_date")
+                return self.form.search().order_by("-date")
 
         return self.form.search()
 

@@ -122,6 +122,7 @@ class Performance(models.Model):
 class Reel(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=200, blank=True)
+    date = models.DateField(blank=True)
     performances = models.ManyToManyField(Performance)
     images = models.ManyToManyField(Image, blank=True)
 
@@ -132,15 +133,13 @@ class Reel(models.Model):
         abstract = True
 
 class RadioShow(Reel):
-    broadcast_date = models.DateField(blank=True)
     host = models.ForeignKey(Agent)
     script = models.TextField(blank=True)
 
     class Meta:
-        ordering = ('broadcast_date',)
+        ordering = ('date',)
 
 class FieldRecording(Reel):
     unique_id = models.BigIntegerField()
     recording_engineer = models.ForeignKey(Agent, blank=True)
     location = models.ForeignKey(Location, blank=True)
-    date_recorded = models.DateField(blank=True)

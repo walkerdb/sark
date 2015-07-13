@@ -28,7 +28,7 @@
     <div class="recording-metadata">
         <p><strong>Location:</strong> <a href="{% url 'sark_django.sark.views.location' recording.location.name recording.location.country%}">{{ recording.location.name }}, {{ recording.location.country }}</a></p>
         <p><strong>Engineer:</strong> <a href="{% url 'sark_django.sark.views.agent' recording.recording_engineer.name %}">{{ recording.recording_engineer.name }}</a></p>
-        <p><strong>Recording date:</strong> {{ recording.date_recorded }}</p>
+        <p><strong>Recording date:</strong> {{ recording.date }}</p>
     </div>
     <hr>
     {% if photos %}
