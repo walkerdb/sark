@@ -82,6 +82,7 @@ def location(request, name, country):
     selected = "demo"
     location = get_object_or_404(m.Location, name=name, country=country)
     people = m.Agent.objects.filter(primary_place_of_activity_id=location.pk)
+    recordings = m.FieldRecording.objects.filter(location=location.pk)
 
     if location.longitude and location.latitude:
         google_web_api_string = "https://www.google.com/maps/embed/v1/place?zoom={0}&center={1}%2C{2}&q={3}+{4}&key=AIzaSyDzDeB74FnjIvGAQhApW_8HVfrJSNq-nrE"
@@ -95,7 +96,8 @@ def location(request, name, country):
     html = t.render(Context({'selected': selected,
                              'google_maps_api_link': google_web_api_string,
                              'location': location,
-                             'people': people}))
+                             'people': people,
+                             'recordings': recordings}))
     return HttpResponse(html)
 
 def agent(request, name):
@@ -130,6 +132,10 @@ class SarkSearch(FacetedSearchView):
         except KeyError:
             dates = {"error", "No dates returned"}
             # extra['facets']['dates'] = dates
+
+        for field in extra['facets']['fields']:
+            if not any([int(count) > 0 for facet, count in extra['facets']['fields'][field]]):
+                extra['facets']['fields'][field] = ""
 
         return extra
 

@@ -28,7 +28,7 @@ sqs = SearchQuerySet().date_facet('date', start_date=date(1955, 1, 1), end_date=
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    url(r'^demo/$', views.Demo.as_view()),
+    url(r'^demo/$', views.Demo.as_view(template_name="home.html")),
     url(r'^aboutus/$', views.aboutus),
     url(r'^inventory/$', views.inventory),
     url(r'^aboutmtia/$', views.aboutmtia),

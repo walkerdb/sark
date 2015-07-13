@@ -1,20 +1,60 @@
 {% extends "base.html" %}
+{% load static %}
+{% block header_material %}
+    <script src="{% static 'js/sortable.min.js' %}"></script>
+{% endblock %}
 {% block content %}
     <h3>{{ location }}</h3>
     <hr>
-<iframe
-        width=100%
-        height="600"
-        frameborder="0"
-        style="border:0"
-        src="{{ google_maps_api_link }}"
-        allowfullscreen></iframe>
+    <iframe
+            width=100%
+            height="600"
+            frameborder="0"
+            style="border:0"
+            src="{{ google_maps_api_link }}"
+            allowfullscreen>
+    </iframe>
 
     <br><br>
-    <p>People and groups from {{ location }}:</p>
-    <ul>
-        {% for person in people %}
-            <li><a href="{% url 'sark_django.sark.views.agent' person.name %}">{{ person.name }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="col-md-6">
+        <div class="list-group">
+            <a href="#" class="list-group-item active">
+                People and groups from {{ location }}
+            </a>
+            {% for person in people %}
+                <a href="{% url 'sark_django.sark.views.agent' person.name %}" class="list-group-item">{{ person.name }}</a>
+            {% empty %}
+                <a href="#" class="list-group-item" id="noresults">No people or groups from this location</a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="list-group">
+            <a href="#" class="list-group-item active">
+                Recordings made in {{ location }}
+            </a>
+            {% for recording in recordings %}
+                <a href="{% url 'sark_django.sark.views.agent' recording.unique_id %}" class="list-group-item">{{ recording.title }}</a>
+            {% empty %}
+                <a href="#" class="list-group-item" id="noresults">No recordings from this location</a>
+            {% endfor %}
+        </div>
+    </div>
+        <table class="table table-striped table-hover" data-toggle="table">
+        <thead>
+        <tr>
+            <th class="sortable">People and groups from {{ location }}</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for person in people %}
+                <tr><td><a href="{% url 'sark_django.sark.views.agent' person.name %}">{{ person.name }}</a></td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {#    <ul>#}
+    {#        {% for person in people %}#}
+    {#            <li><a href="{% url 'sark_django.sark.views.agent' person.name %}">{{ person.name }}</a></li>#}
+    {#        {% endfor %}#}
+    {#    </ul>#}
 {% endblock %}

@@ -69,6 +69,25 @@ h3 {
     color: #787878;
 }
 
+a.list-group-item {
+    color: #337ab7;
+}
+
+.list-group-item.active {
+    background-color: #efb858;
+    border-color: #efb858;
+    font-size: 1.2em;
+}
+
+.list-group-item.active:hover {
+    background-color: #efb858;
+    border-color: #efb858;
+}
+
+#noresults {
+    color: black;
+}
+
 #search {
     width: 100%;
     display: inline;

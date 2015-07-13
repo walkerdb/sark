@@ -24,7 +24,7 @@
             </ul>
             <h3>Performers</h3>
             <ul class="no-bullets">
-                {% for performer in performers %}
+                {% for performer in performers|slice:":5" %}
                     <li><a href="{% url 'sark_django.sark.views.agent' performer.name %}">{{ performer.name }}</a></li>
                 {% endfor %}
             </ul>
@@ -32,18 +32,21 @@
         <div class="col-md-6">
             <h3>Hosts</h3>
             <ul class="no-bullets">
-                {% for host in hosts %}
+                {% for host in hosts|slice:':5' %}
                     <li>{{ host.dates_active }} - <a href="{% url 'sark_django.sark.views.agent' host.name %}">{{ host.name }}</a></li>
                 {% endfor %}
             </ul>
 
             <h3>Locations</h3>
             <ul class="no-bullets">
-                {% for location in locations %}
-                        <li><a href="{% url 'sark_django.sark.views.location' location.name location.country%}">{{ location }}</a></li>
-                {% endfor %}
+                <li><a href="{% url 'sark_django.sark.views.location' '' 'Liberia' %}">Liberia</a></li>
+                <li><a href="{% url 'sark_django.sark.views.location' '' 'Nigeria' %}">Nigeria</a></li>
+                <li><a href="{% url 'sark_django.sark.views.location' 'Zanzibar' 'Tanzania' %}">Zanzibar, Tanzania</a></li>
+                <li><a href="{% url 'sark_django.sark.views.location' '' 'Gambia' %}">Gambia</a></li>
+                <li><a href="{% url 'sark_django.sark.views.location' '' 'Cameroon' %}">Cameroon</a></li>
+
             </ul>
-        <br>
+            <br>
         </div>
     </div>
 {% endblock %}
