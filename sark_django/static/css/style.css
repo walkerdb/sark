@@ -84,6 +84,26 @@ a.list-group-item {
     border-color: #efb858;
 }
 
+th {
+    background-color: #efb858;
+    border-color: #efb858;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: white;
+}
+
+.panel-default {
+    border: 0px solid #efb858;
+}
+
+.table>thead>tr>th {
+   border-bottom: 0px solid #ddd;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+   border-top: 0px solid #ddd;
+}
+
 #noresults {
     color: black;
 }
