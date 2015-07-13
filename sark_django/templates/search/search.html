@@ -83,7 +83,9 @@
                     {% if facets.fields.instruments %}
                         <dt>Instrument</dt>
                         {% for instrument in facets.fields.instruments %}
+                            {% if instrument.1 > 0 %}
                             <dd><a href="{{ request.get_full_path }}&amp;selected_facets=instruments_exact:{{ instrument.0 }}">{{ instrument.0 }}</a> ({{ instrument.1 }})</dd>
+                            {% endif %}
                         {% endfor %}
                         {% if 'instruments_exact' in request.get_full_path %}
                             <dd><a href="?q={{ query }}"><em>see all</em></a></dd>
@@ -92,9 +94,12 @@
                 </dl>
                 <dl>
                     {% if facets.fields.performers %}
+{#                        {{ facets }}#}
                         <dt>Performer</dt>
                         {% for performer in facets.fields.performers %}
+                            {% if performer.1 > 0 %}
                             <dd><a href="{{ request.get_full_path }}&amp;selected_facets=performers_exact:{{ performer.0 }}">{{ performer.0 }}</a> ({{ performer.1 }})</dd>
+                            {% endif %}
                         {% endfor %}
                         {% if 'performers_exact' in request.get_full_path %}
                             <dd><a href="?q={{ query }}"><em>see all</em></a></dd>
@@ -136,7 +141,7 @@
                                 <div class="media">
 
                                     <div class="media-body">
-                                        <h3 class="search-header">MTiA <a href="{% url 'sark_django.sark.views.broadcast' result.object.date|date:'Y' result.object.date|date:'m' result.object.date|date:'d' %}">{{ result.object.date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query html_tag "mark" %}, host)</h3>
+                                        <h3 class="search-header">MTiA <a href="{% url 'sark_django.sark.views.broadcast' result.object.date|date:'Y' result.object.date|date:'m' result.object.date|date:'d' %}">{{ result.object.date|date:"Y-m-d" }}</a> ({% highlight result.object.host.name with query %}, host)</h3>
                                         <p class="search-description"><em>{{ result.object.description }}</em></p>
                                         <div class="small search-script"><strong style="color: #4e4e4e">Script excerpt:</strong><br>{% highlight result.object.script with query %}</div>
                                         <br>
