@@ -36,6 +36,7 @@ urlpatterns = [
     url(r'^demo/fieldrecording/(\d*)', 'sark_django.sark.views.field_recording'),
     url(r'^demo/location/([a-zA-Z ]*)\+([a-zA-Z ]*)',  'sark_django.sark.views.location'),
     url(r'^demo/agent/(.*)', 'sark_django.sark.views.agent'),
+    url(r'^demo/list/(.*)', 'sark_django.sark.views.location_list'),
     url(r'^test/demo',  views.Demo.as_view()),
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^search/', include('haystack.urls')),

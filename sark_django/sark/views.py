@@ -153,5 +153,14 @@ class SarkSearch(FacetedSearchView):
 
         return self.form.search()
 
+def location_list(request, model):
+    objects = m.Location.objects.all()
+
+    t = get_template('model_list.html')
+    html = t.render(Context({
+        'model_objects': objects
+    }))
+    return HttpResponse(html)
+
 def error404(request):
     return render(request, '404.html')
