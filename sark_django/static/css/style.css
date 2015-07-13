@@ -21,6 +21,10 @@ h3 {
     color: #efb858;
 }
 
+.about-content p {
+    color: #474747;
+}
+
 .recording-metadata p{
     font-size: 1.1em;
     margin: 0 0 2px
@@ -76,7 +80,7 @@ h3 {
 }
 
 .search_result:nth-child(even) {
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
 }
 
 .search-result-list {
