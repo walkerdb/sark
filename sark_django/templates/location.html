@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
-                <table class="table table-striped table-hover" data-toggle="table">
+                <table class="table table-striped table-hover" data-sortable>
                     <thead>
                     <tr>
                         <th>People and groups from {{ location }}</th>
@@ -45,7 +45,7 @@
 {#                {% endfor %}#}
 {#            </div>#}
             <div class="panel panel-default">
-                <table class="table table-striped table-hover" data-toggle="table">
+                <table class="table table-striped table-hover" data-sortable>
                     <thead>
                     <tr>
                         <th>Recordings made in {{ location }}</th>
@@ -55,7 +55,7 @@
                     <tbody>
                     {% for recording in recordings %}
                         <tr>
-                            <td><a href="{% url 'sark_django.sark.views.agent' recording.unique_id %}">{{ recording.title }}</a></td>
+                            <td><a href="{% url 'sark_django.sark.views.field_recording' recording.unique_id %}">{{ recording.title }}</a></td>
                             <td>{{ recording.date|date:"Y" }}</td>
                         </tr>
                     {% empty %}

@@ -67,6 +67,7 @@ h3 {
 
 .description {
     color: #787878;
+    font-weight: 300;
 }
 
 a.list-group-item {
@@ -224,10 +225,10 @@ th {
 }
 
 .image {
-    box-shadow: 1px 5px 10px #999999;
-    width: 100%;
-    max-width: 200px;
-    height: auto;
+    box-shadow: 1px 5px 8px #999999;
+    max-width: 160px;
+    max-height: 160px;
+
 }
 
 .tableauPlaceholder {

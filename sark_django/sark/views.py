@@ -68,7 +68,7 @@ def field_recording(request, unique_id):
     selected = "demo"
 
     recording = get_object_or_404(m.FieldRecording, unique_id=unique_id)
-    performances = recording.performances.all()
+    performances = recording.performances.all().order_by('audio')
     images = recording.images.all()
 
     t = get_template("fieldrecording.html")
