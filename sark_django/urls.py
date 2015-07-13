@@ -24,7 +24,7 @@ from haystack.views import FacetedSearchView
 
 from .sark import views
 
-sqs = SearchQuerySet().date_facet('date', start_date=date(1955, 1, 1), end_date=date(2015, 1, 1), gap_by="year").facet('host')
+sqs = SearchQuerySet().date_facet('date', start_date=date(1955, 1, 1), end_date=date(2015, 1, 1), gap_by="year").facet('host').facet('performers').facet('instruments').facet('faceted_model_type')
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),

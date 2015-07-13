@@ -6,8 +6,8 @@
 
     <!-- css -->
     <!-- audio player (soundmanager2) -->
-{#    <link type="text/css" rel="stylesheet" href="{% static 'js/soundmanager2/bar-ui/css/bar-ui.css' %}"/>#}
-{#    <link type="text/css" rel="stylesheet" href="{% static 'css/sm2-bar-ui.css' %}"/>#}
+    {#    <link type="text/css" rel="stylesheet" href="{% static 'js/soundmanager2/bar-ui/css/bar-ui.css' %}"/>#}
+    {#    <link type="text/css" rel="stylesheet" href="{% static 'css/sm2-bar-ui.css' %}"/>#}
 
     <!-- image viewer (photoswipe) -->
     <link rel="stylesheet" href="{% static 'css/photoswipe.css' %}">
@@ -15,8 +15,8 @@
 
     <!-- js -->
     <!-- audio player (soundmanager2) -->
-{#    <script src="{% static 'js/soundmanager2/soundmanager2.js' %}"></script>#}
-{#    <script src="{% static 'js/soundmanager2/bar-ui/script/bar-ui.js' %}"></script>#}
+    {#    <script src="{% static 'js/soundmanager2/soundmanager2.js' %}"></script>#}
+    {#    <script src="{% static 'js/soundmanager2/bar-ui/script/bar-ui.js' %}"></script>#}
 
     <!-- image viewer (photoswipe) -->
     <script src="{% static 'js/photoswipe/photoswipe.js' %}"></script>
@@ -43,8 +43,21 @@
             <div class="col-md-2">
                 <h2>Refine search</h2>
                 <dl>
+                    {% if facets.fields.faceted_model_type %}
+                        <dt>Type</dt>
+                        {% for model_type in facets.fields.faceted_model_type %}
+                            {% if model_type.1 > 0 %}
+                                <dd><a href="{{ request.get_full_path }}&amp;selected_facets=faceted_model_type_exact:{{ model_type.0 }}">{{ model_type.0 }}</a> ({{ model_type.1 }})</dd>
+                            {% endif %}
+                        {% endfor %}
+                        {% if 'faceted_model_type_exact' in request.get_full_path %}
+                            <dd><a href="?q={{ query }}"><em>see all</em></a></dd>
+                        {% endif %}
+                    {% endif %}
+                </dl>
+                <dl>
                     {% if facets.dates.date %}
-                        <dt>Broadcast dates</dt>
+                        <dt>Year</dt>
                         {% for date in facets.dates.date %}
                             <dd><a href="{{ request.get_full_path }}&amp;date_facet={{ date.0 }}">{{ date.0 }}</a> ({{ date.1 }})</dd>
                         {% endfor %}
@@ -55,13 +68,35 @@
                 </dl>
                 <dl>
                     {% if facets.fields.host %}
-                        <dt>Hosts</dt>
+                        <dt>Host</dt>
                         {% for host in facets.fields.host %}
                             {% if host.1 > 0 %}
                                 <dd><a href="{{ request.get_full_path }}&amp;selected_facets=host_exact:{{ host.0 }}">{{ host.0 }}</a> ({{ host.1 }})</dd>
                             {% endif %}
                         {% endfor %}
                         {% if 'host_exact' in request.get_full_path %}
+                            <dd><a href="?q={{ query }}"><em>see all</em></a></dd>
+                        {% endif %}
+                    {% endif %}
+                </dl>
+                <dl>
+                    {% if facets.fields.instruments %}
+                        <dt>Instrument</dt>
+                        {% for instrument in facets.fields.instruments %}
+                            <dd><a href="{{ request.get_full_path }}&amp;selected_facets=instruments_exact:{{ instrument.0 }}">{{ instrument.0 }}</a> ({{ instrument.1 }})</dd>
+                        {% endfor %}
+                        {% if 'instruments_exact' in request.get_full_path %}
+                            <dd><a href="?q={{ query }}"><em>see all</em></a></dd>
+                        {% endif %}
+                    {% endif %}
+                </dl>
+                <dl>
+                    {% if facets.fields.performers %}
+                        <dt>Performer</dt>
+                        {% for performer in facets.fields.performers %}
+                            <dd><a href="{{ request.get_full_path }}&amp;selected_facets=performers_exact:{{ performer.0 }}">{{ performer.0 }}</a> ({{ performer.1 }})</dd>
+                        {% endfor %}
+                        {% if 'performers_exact' in request.get_full_path %}
                             <dd><a href="?q={{ query }}"><em>see all</em></a></dd>
                         {% endif %}
                     {% endif %}
@@ -79,7 +114,7 @@
                                     <div class="media-body">
                                         <h3 class="search-header">Field recording: <a href="{% url 'sark_django.sark.views.field_recording' result.object.unique_id %}">{{ result.object.title }}</a></h3>
                                         <p class="search-description"><em>{{ result.object.description }}</em></p>
-{#                                        <div class="small search-script"><strong style="color: #4e4e4e">Script excerpt:</strong><br>{% highlight result.object.script with query %}</div>#}
+                                        {#                                        <div class="small search-script"><strong style="color: #4e4e4e">Script excerpt:</strong><br>{% highlight result.object.script with query %}</div>#}
                                         <br>
                                     </div>
                                     {% if result.object.images.all.0 %}
@@ -117,7 +152,7 @@
                                                     {#                            <figcaption itemprop="caption description">{{ image.description }}</figcaption>#}
                                                 </figure>
 
-{#                                                <img src="{% static 'sarkfiles/' %}{{ image.thumb.name }}" itemprop="thumbnail" alt="{{ image.description }}" class="search-result-image"/>#}
+                                                {#                                                <img src="{% static 'sarkfiles/' %}{{ image.thumb.name }}" itemprop="thumbnail" alt="{{ image.description }}" class="search-result-image"/>#}
 
                                             {% endfor %}
                                         </div>
@@ -207,211 +242,211 @@
         {# Show some example queries to run, maybe query syntax, something else? #}
     {% endif %}
 
-      <script>
-var initPhotoSwipeFromDOM = function(gallerySelector) {
+    <script>
+        var initPhotoSwipeFromDOM = function(gallerySelector) {
 
-    // parse slide data (url, title, size ...) from DOM elements
-    // (children of gallerySelector)
-    var parseThumbnailElements = function(el) {
-        var thumbElements = el.childNodes,
-            numNodes = thumbElements.length,
-            items = [],
-            figureEl,
-            linkEl,
-            size,
-            item;
+            // parse slide data (url, title, size ...) from DOM elements
+            // (children of gallerySelector)
+            var parseThumbnailElements = function(el) {
+                var thumbElements = el.childNodes,
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        item;
 
-        for(var i = 0; i < numNodes; i++) {
+                for(var i = 0; i < numNodes; i++) {
 
-            figureEl = thumbElements[i]; // <figure> element
+                    figureEl = thumbElements[i]; // <figure> element
 
-            // include only element nodes
-            if(figureEl.nodeType !== 1) {
-                continue;
-            }
+                    // include only element nodes
+                    if(figureEl.nodeType !== 1) {
+                        continue;
+                    }
 
-            linkEl = figureEl.children[0]; // <a> element
+                    linkEl = figureEl.children[0]; // <a> element
 
-            size = linkEl.getAttribute('data-size').split('x');
+                    size = linkEl.getAttribute('data-size').split('x');
 
-            // create slide object
-            item = {
-                src: linkEl.getAttribute('href'),
-                w: parseInt(size[0], 10),
-                h: parseInt(size[1], 10)
+                    // create slide object
+                    item = {
+                        src: linkEl.getAttribute('href'),
+                        w: parseInt(size[0], 10),
+                        h: parseInt(size[1], 10)
+                    };
+
+
+
+                    if(figureEl.children.length > 1) {
+                        // <figcaption> content
+                        item.title = figureEl.children[1].innerHTML;
+                    }
+
+                    if(linkEl.children.length > 0) {
+                        // <img> thumbnail element, retrieving thumbnail url
+                        item.msrc = linkEl.children[0].getAttribute('src');
+                    }
+
+                    item.el = figureEl; // save link to element for getThumbBoundsFn
+                    items.push(item);
+                }
+
+                return items;
             };
 
+            // find nearest parent element
+            var closest = function closest(el, fn) {
+                return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+            };
 
+            // triggers when user clicks on thumbnail
+            var onThumbnailsClick = function(e) {
+                e = e || window.event;
+                e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
-            if(figureEl.children.length > 1) {
-                // <figcaption> content
-                item.title = figureEl.children[1].innerHTML;
-            }
+                var eTarget = e.target || e.srcElement;
 
-            if(linkEl.children.length > 0) {
-                // <img> thumbnail element, retrieving thumbnail url
-                item.msrc = linkEl.children[0].getAttribute('src');
-            }
+                // find root element of slide
+                var clickedListItem = closest(eTarget, function(el) {
+                    return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                });
 
-            item.el = figureEl; // save link to element for getThumbBoundsFn
-            items.push(item);
-        }
+                if(!clickedListItem) {
+                    return;
+                }
 
-        return items;
-    };
+                // find index of clicked item by looping through all child nodes
+                // alternatively, you may define index via data- attribute
+                var clickedGallery = clickedListItem.parentNode,
+                        childNodes = clickedListItem.parentNode.childNodes,
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
 
-    // find nearest parent element
-    var closest = function closest(el, fn) {
-        return el && ( fn(el) ? el : closest(el.parentNode, fn) );
-    };
+                for (var i = 0; i < numChildNodes; i++) {
+                    if(childNodes[i].nodeType !== 1) {
+                        continue;
+                    }
 
-    // triggers when user clicks on thumbnail
-    var onThumbnailsClick = function(e) {
-        e = e || window.event;
-        e.preventDefault ? e.preventDefault() : e.returnValue = false;
-
-        var eTarget = e.target || e.srcElement;
-
-        // find root element of slide
-        var clickedListItem = closest(eTarget, function(el) {
-            return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
-        });
-
-        if(!clickedListItem) {
-            return;
-        }
-
-        // find index of clicked item by looping through all child nodes
-        // alternatively, you may define index via data- attribute
-        var clickedGallery = clickedListItem.parentNode,
-            childNodes = clickedListItem.parentNode.childNodes,
-            numChildNodes = childNodes.length,
-            nodeIndex = 0,
-            index;
-
-        for (var i = 0; i < numChildNodes; i++) {
-            if(childNodes[i].nodeType !== 1) {
-                continue;
-            }
-
-            if(childNodes[i] === clickedListItem) {
-                index = nodeIndex;
-                break;
-            }
-            nodeIndex++;
-        }
-
-
-
-        if(index >= 0) {
-            // open PhotoSwipe if valid index found
-            openPhotoSwipe( index, clickedGallery );
-        }
-        return false;
-    };
-
-    // parse picture index and gallery index from URL (#&pid=1&gid=2)
-    var photoswipeParseHash = function() {
-        var hash = window.location.hash.substring(1),
-        params = {};
-
-        if(hash.length < 5) {
-            return params;
-        }
-
-        var vars = hash.split('&');
-        for (var i = 0; i < vars.length; i++) {
-            if(!vars[i]) {
-                continue;
-            }
-            var pair = vars[i].split('=');
-            if(pair.length < 2) {
-                continue;
-            }
-            params[pair[0]] = pair[1];
-        }
-
-        if(params.gid) {
-            params.gid = parseInt(params.gid, 10);
-        }
-
-        return params;
-    };
-
-    var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
-        var pswpElement = document.querySelectorAll('.pswp')[0],
-            gallery,
-            options,
-            items;
-
-        items = parseThumbnailElements(galleryElement);
-
-        // define options (if needed)
-        options = {
-
-            // define gallery index (for URL)
-            galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-
-            getThumbBoundsFn: function(index) {
-                // See Options -> getThumbBoundsFn section of documentation for more info
-                var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
-                    pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                    rect = thumbnail.getBoundingClientRect();
-
-                return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
-            }
-
-        };
-
-        // PhotoSwipe opened from URL
-        if(fromURL) {
-            if(options.galleryPIDs) {
-                // parse real index when custom PIDs are used
-                // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
-                for(var j = 0; j < items.length; j++) {
-                    if(items[j].pid == index) {
-                        options.index = j;
+                    if(childNodes[i] === clickedListItem) {
+                        index = nodeIndex;
                         break;
                     }
+                    nodeIndex++;
                 }
-            } else {
-                // in URL indexes start from 1
-                options.index = parseInt(index, 10) - 1;
+
+
+
+                if(index >= 0) {
+                    // open PhotoSwipe if valid index found
+                    openPhotoSwipe( index, clickedGallery );
+                }
+                return false;
+            };
+
+            // parse picture index and gallery index from URL (#&pid=1&gid=2)
+            var photoswipeParseHash = function() {
+                var hash = window.location.hash.substring(1),
+                        params = {};
+
+                if(hash.length < 5) {
+                    return params;
+                }
+
+                var vars = hash.split('&');
+                for (var i = 0; i < vars.length; i++) {
+                    if(!vars[i]) {
+                        continue;
+                    }
+                    var pair = vars[i].split('=');
+                    if(pair.length < 2) {
+                        continue;
+                    }
+                    params[pair[0]] = pair[1];
+                }
+
+                if(params.gid) {
+                    params.gid = parseInt(params.gid, 10);
+                }
+
+                return params;
+            };
+
+            var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                items = parseThumbnailElements(galleryElement);
+
+                // define options (if needed)
+                options = {
+
+                    // define gallery index (for URL)
+                    galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                    getThumbBoundsFn: function(index) {
+                        // See Options -> getThumbBoundsFn section of documentation for more info
+                        var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                        return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+                    }
+
+                };
+
+                // PhotoSwipe opened from URL
+                if(fromURL) {
+                    if(options.galleryPIDs) {
+                        // parse real index when custom PIDs are used
+                        // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                        for(var j = 0; j < items.length; j++) {
+                            if(items[j].pid == index) {
+                                options.index = j;
+                                break;
+                            }
+                        }
+                    } else {
+                        // in URL indexes start from 1
+                        options.index = parseInt(index, 10) - 1;
+                    }
+                } else {
+                    options.index = parseInt(index, 10);
+                }
+
+                // exit if index not found
+                if( isNaN(options.index) ) {
+                    return;
+                }
+
+                if(disableAnimation) {
+                    options.showAnimationDuration = 0;
+                }
+
+                // Pass data to PhotoSwipe and initialize it
+                gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+                gallery.init();
+            };
+
+            // loop through all gallery elements and bind events
+            var galleryElements = document.querySelectorAll( gallerySelector );
+
+            for(var i = 0, l = galleryElements.length; i < l; i++) {
+                galleryElements[i].setAttribute('data-pswp-uid', i+1);
+                galleryElements[i].onclick = onThumbnailsClick;
             }
-        } else {
-            options.index = parseInt(index, 10);
-        }
 
-        // exit if index not found
-        if( isNaN(options.index) ) {
-            return;
-        }
+            // Parse URL and open gallery if it contains #&pid=3&gid=1
+            var hashData = photoswipeParseHash();
+            if(hashData.pid && hashData.gid) {
+                openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+            }
+        };
 
-        if(disableAnimation) {
-            options.showAnimationDuration = 0;
-        }
-
-        // Pass data to PhotoSwipe and initialize it
-        gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-        gallery.init();
-    };
-
-    // loop through all gallery elements and bind events
-    var galleryElements = document.querySelectorAll( gallerySelector );
-
-    for(var i = 0, l = galleryElements.length; i < l; i++) {
-        galleryElements[i].setAttribute('data-pswp-uid', i+1);
-        galleryElements[i].onclick = onThumbnailsClick;
-    }
-
-    // Parse URL and open gallery if it contains #&pid=3&gid=1
-    var hashData = photoswipeParseHash();
-    if(hashData.pid && hashData.gid) {
-        openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
-    }
-};
-
-// execute above function
-initPhotoSwipeFromDOM('.image_gallery');
+        // execute above function
+        initPhotoSwipeFromDOM('.image_gallery');
     </script>
 {% endblock %}
