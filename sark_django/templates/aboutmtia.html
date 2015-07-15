@@ -57,6 +57,9 @@
                     Fela Kuti and Louis Armstrong (on an international tour) to village musicians who had never before been recorded.</p>
                 <br>
 
+                <!-- map hosted on tableau public. Source can be viewed here:
+                https://public.tableau.com/profile/walker5434#!/vizhome/sark_distribution/Sheet1 -->
+
                 <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
                 <div id="map" class='tableauPlaceholder'>
                     <noscript>
@@ -173,6 +176,9 @@
     </div>
 
     <script>
+        // Code for scroll-position-based sidebar highlighting, using the jquery.waypoints.js library.
+        // Requires two waypoints for every location: both + and - 5%.
+
         $(document).ready(function () {
             var voa_waypoint = $('#VoA').waypoint({
                 handler: function () {

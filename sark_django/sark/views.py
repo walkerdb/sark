@@ -138,9 +138,12 @@ class SarkSearch(FacetedSearchView):
             dates = {"error", "No dates returned"}
             # extra['facets']['dates'] = dates
 
-        for field in extra['facets']['fields']:
-            if not any([int(count) > 0 for facet, count in extra['facets']['fields'][field]]):
-                extra['facets']['fields'][field] = ""
+        try:
+            for field in extra['facets']['fields']:
+                if not any([int(count) > 0 for facet, count in extra['facets']['fields'][field]]):
+                    extra['facets']['fields'][field] = ""
+        except KeyError:
+            pass
 
         return extra
 

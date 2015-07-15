@@ -98,11 +98,11 @@ th {
 }
 
 .table>thead>tr>th {
-   border-bottom: 0px solid #ddd;
+    border-bottom: 0px solid #ddd;
 }
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-   border-top: 0px solid #ddd;
+    border-top: 0px solid #ddd;
 }
 
 #noresults {
@@ -112,6 +112,37 @@ th {
 #search {
     width: 100%;
     display: inline;
+}
+
+#search-icon {
+    width: 15px;
+    margin-bottom: 1px;
+    color: white;
+}
+
+#search-icon-background {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-right: 0px solid #eee;
+    border-radius: 8px 0 0 8px;
+}
+
+#search-navbar {
+    border-left: 0px solid #ccc;
+    padding-left: 0;
+    width: 100%;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.form-control.input-md #search-navbar:focus {
+    border-color: black;
+    outline: 0;
+    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,.075),0 0 0 rgba(102,175,233,.6);
+    box-shadow: inset 0 0 0 rgba(0,0,0,.075),0 0 0 rgba(102,175,233,.6);
 }
 
 .search_result {
@@ -239,7 +270,7 @@ th {
     vertical-align: middle;
 }
 
-.input-group > .form-control {
+#searchbar {
     border-right: 0px;
 }
 
@@ -274,20 +305,26 @@ li {
     font-size: 1.2em;
 }
 
+.navbar {
+    background-color: white;
+}
+
 .navbar-brand{
     font-family: "Crimson text", "serif";
     color: #efb858;
     font-size: 2.0em;
 }
 
-.navbar {
-    background-color: white;
-}
 
 .navbar-nav {
     font-size: 1.3em;
     font-weight: 300;
 }
+
+/*.navbar-search {*/
+/*padding-top: 5px;*/
+/*}*/
+
 
 body {
     font-family: "Open sans", "sans-serif";
