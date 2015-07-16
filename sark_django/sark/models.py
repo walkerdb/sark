@@ -1,4 +1,14 @@
+import datetime
+
 from django.db import models
+
+
+class TimestampedModel(models.Model):
+    date_added = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
 
 
 class Role(models.Model):
@@ -52,7 +62,7 @@ class Instrument(models.Model):
         ordering = ('name',)
 
 
-class Location(models.Model):
+class Location(TimestampedModel):
     name = models.CharField(max_length=50, blank=True)
     country = models.CharField(max_length=50)
     longitude = models.FloatField(null=True, blank=True)
@@ -68,7 +78,7 @@ class Location(models.Model):
     class Meta:
         ordering = ('country', 'name')
 
-class Image(models.Model):
+class Image(TimestampedModel):
     file = models.ImageField(upload_to="img", height_field='image_height', width_field='image_width')
     thumb = models.ImageField(upload_to="img")
     image_height = models.PositiveIntegerField(null=True, editable=False)
@@ -84,7 +94,7 @@ class Image(models.Model):
         ordering = ('date', 'sort_order',)
 
 
-class Agent(models.Model):
+class Agent(TimestampedModel):
     name = models.CharField(max_length=200)
     primary_place_of_activity = models.ForeignKey(Location, null=True, blank=True)
     birthdate = models.DateField(blank=True, null=True)
@@ -102,7 +112,7 @@ class Agent(models.Model):
         ordering = ('name',)
 
 
-class Performance(models.Model):
+class Performance(TimestampedModel):
     title = models.CharField(max_length=200)
     date = models.DateField(blank=True, null=True)
 
@@ -119,7 +129,7 @@ class Performance(models.Model):
     class Meta:
         ordering = ('date', 'title')
 
-class Reel(models.Model):
+class Reel(TimestampedModel):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=200, blank=True)
     date = models.DateField(blank=True)
