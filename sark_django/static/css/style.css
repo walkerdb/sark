@@ -1,3 +1,8 @@
+body {
+    font-family: "Open sans", "sans-serif";
+    min-height: 100%;
+}
+
 p {
     font-size: 1.3em;
 }
@@ -17,6 +22,18 @@ h3 {
     font-weight: 300;
 }
 
+mark, .mark {
+    background-color: rgba(239, 184, 88, 0.39);
+}
+
+body > .container {
+    padding: 0px 15px 0;
+}
+
+li {
+    font-size: 1.2em;
+}
+
 #MTiA-branding {
     color: #efb858;
 }
@@ -28,6 +45,24 @@ h3 {
 .recording-metadata p{
     font-size: 1.1em;
     margin: 0 0 2px
+}
+
+.description {
+    color: #787878;
+    font-weight: 300;
+}
+
+.sark {
+    background-color: #efb858;
+    color: white;
+    /*font-weight: 300;*/
+}
+
+.sark:hover {
+    background-color: #eaac5e;
+    color: white;
+    border-left: 0px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
 .script{
@@ -65,25 +100,8 @@ h3 {
     margin: 0 auto;
 }
 
-.description {
-    color: #787878;
-    font-weight: 300;
-}
 
-a.list-group-item {
-    color: #337ab7;
-}
-
-.list-group-item.active {
-    background-color: #efb858;
-    border-color: #efb858;
-    font-size: 1.2em;
-}
-
-.list-group-item.active:hover {
-    background-color: #efb858;
-    border-color: #efb858;
-}
+/* custom table styling */
 
 th {
     background-color: #efb858;
@@ -91,6 +109,7 @@ th {
     font-size: 1.2em;
     font-weight: 400;
     color: white;
+    cursor: pointer;
 }
 
 .panel-default {
@@ -105,6 +124,14 @@ th {
     border-top: 0px solid #ddd;
 }
 
+
+/* Search and search-bar styling */
+
+form div input.search {
+    width: 100%;
+    display: inline;
+}
+
 #noresults {
     color: black;
 }
@@ -114,35 +141,75 @@ th {
     display: inline;
 }
 
-#search-icon {
-    width: 15px;
-    margin-bottom: 1px;
-    color: white;
-}
-
-#search-icon-background {
-    background-color: white;
-    border: 1px solid #ccc;
-    border-right: 0px solid #eee;
-    border-radius: 8px 0 0 8px;
-}
-
 #search-navbar {
-    border-left: 0px solid #ccc;
-    padding-left: 0;
+    margin-top: 2px;
+    border: none;
+    height: 3rem;
+    border-radius: 3rem;
     width: 100%;
-    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
-    box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    padding: 1rem 1.5rem;
+    text-indent: 1.6rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background .2s ease-out, width .2s ease-out, color .2s ease-out;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color:white;
 }
 
-.form-control.input-md #search-navbar:focus {
-    border-color: black;
-    outline: 0;
-    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,.075),0 0 0 rgba(102,175,233,.6);
-    box-shadow: inset 0 0 0 rgba(0,0,0,.075),0 0 0 rgba(102,175,233,.6);
+#search-navbar::-webkit-input-placeholder { /* WebKit browsers */
+    color: white;
+    transition: color .2s ease-out;
+}
+#search-navbar:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+    transition: color .2s ease-out;
+}
+#search-navbar::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+    transition: color .2s ease-out;
+}
+#search-navbar:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: white;
+    transition: color .2s ease-out;
+}
+
+#search-navbar:focus::-webkit-input-placeholder, #search-navbar:hover::-webkit-input-placeholder { /* WebKit browsers */
+    color: #929292;
+}
+#search-navbar:focus:-moz-placeholder, #search-navbar:hover:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #929292;
+}
+#search-navbar:focus::-moz-placeholder, #search-navbar:hover::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #929292;
+}
+#search-navbar:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #929292;
+}
+
+#search-navbar:hover, #search-navbar:focus {
+    color: black;
+    background-color: whitesmoke;
+}
+
+#search-navbar:focus {
+    color: black;
+    outline: none;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    cursor: text;
+}
+
+.search-icon {
+    position:absolute;
+    z-index: 999;
+    margin:.65rem .75rem;
+    color: #787878;
+    font-size: 1.3em;
+
 }
 
 .search_result {
@@ -204,28 +271,16 @@ th {
     margin-right: 15px;
 }
 
+#searchbar {
+    border-right: 0px;
+}
+
 .highlighted {
     color: #e18948;
-    /*color: #2180ca;*/
-
     font-weight: 600;
-    /*padding-right: 2px;*/
-    /*padding-left: 2px;*/
-    /*text-shadow: 1px 1px 2px #ffffff;*/
 }
 
-.sark {
-    background-color: #efb858;
-    color: white;
-    /*font-weight: 300;*/
-}
-
-.sark:hover {
-    background-color: #eaac5e;
-    color: white;
-    border-left: 0px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-}
+/* sidebar styling */
 
 .sidebar-nav {
     font-weight: 300;
@@ -255,11 +310,13 @@ th {
     text-decoration: none;
 }
 
+
+/* Utility */
+
 .image {
     box-shadow: 1px 5px 8px #999999;
     max-width: 160px;
     max-height: 160px;
-
 }
 
 .tableauPlaceholder {
@@ -268,10 +325,6 @@ th {
 
 .vertical-center {
     vertical-align: middle;
-}
-
-#searchbar {
-    border-right: 0px;
 }
 
 .user-profile-image {
@@ -287,23 +340,14 @@ th {
     padding-top: 15px;
 }
 
-mark, .mark {
-    background-color: rgba(239, 184, 88, 0.39);
+.center {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
 }
 
 
-form div input.search {
-    width: 100%;
-    display: inline;
-}
-
-body > .container {
-    padding: 0px 15px 0;
-}
-
-li {
-    font-size: 1.2em;
-}
+/* Navbar overrides */
 
 .navbar {
     background-color: white;
@@ -315,26 +359,9 @@ li {
     font-size: 2.0em;
 }
 
-
 .navbar-nav {
     font-size: 1.3em;
     font-weight: 300;
-}
-
-/*.navbar-search {*/
-/*padding-top: 5px;*/
-/*}*/
-
-
-body {
-    font-family: "Open sans", "sans-serif";
-    min-height: 100%;
-}
-
-.center {
-    float: none;
-    margin: 0 auto;
-    text-align: center;
 }
 
 .navbar-default {
@@ -385,6 +412,12 @@ body {
 
 .navbar-collapse > ul > #selected > a {
     color: #efb858;
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+   .navbar-collapse .collapse {
+       display: none !important;
+   }
 }
 
 @media (max-width: 767px) {
