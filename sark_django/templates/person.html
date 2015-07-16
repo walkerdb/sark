@@ -29,7 +29,7 @@
                     <th>Reel name</th>
                     <th>Description</th>
                     <th>Recorded in</th>
-                    <th>Date</th>
+                    <th style="width:90px">Date</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,12 +37,12 @@
                     <tr>
                         <td>
                             {% if recording.unique_id %}
-                                <a href="{% url 'sark_django.sark.views.field_recording' recording.unique_id %}">{{ recording.date|date:"Y-m-d" }}</a>
+                                <a href="{% url 'sark_django.sark.views.field_recording' recording.unique_id %}">{{ recording.title }}</a>
                             {% else %}
                                 <a href="{% url 'sark_django.sark.views.broadcast' recording.date|date:"Y" recording.date|date:"m" recording.date|date:"d" %}"> {{ recording.title }}</a>
                             {% endif %}
                         </td>
-                        <td>{{ recording.description }}</td>
+                        <td><em>{{ recording.description }}</em></td>
                         <td>{% if recording.location %}
                                 {{ recording.location }}
                             {% else %}
