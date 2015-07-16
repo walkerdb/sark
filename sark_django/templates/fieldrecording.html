@@ -378,6 +378,7 @@
                 // Pass data to PhotoSwipe and initialize it
                 gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
                 gallery.init();
+                gallery.options.closeOnScroll = false;
             };
 
             // loop through all gallery elements and bind events
