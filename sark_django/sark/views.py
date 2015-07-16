@@ -108,12 +108,14 @@ def location(request, name, country):
 def agent(request, name):
     selected = "demo"
     agent = get_object_or_404(m.Agent, name=name)
-    shows = m.RadioShow.objects.filter(host_id=agent.pk).order_by("date")
+    radio_shows = m.RadioShow.objects.filter(host_id=agent.pk).order_by("date")
+    field_recordings = m.FieldRecording.objects.filter(performances__performers__id=agent.pk).order_by("date")
+    recordings = list(radio_shows) + list(field_recordings)
     members = agent.members.all()
 
     t = get_template("person.html")
     html = t.render(Context({'agentdata': agent,
-                             'shows': shows,
+                             'recordings': recordings,
                              'selected': selected,
                              'members': members
                              }))

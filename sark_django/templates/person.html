@@ -1,8 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block header_material %}
+    <script src="{% static 'js/sortable.min.js' %}"></script>
+{% endblock %}
+
 {% block content %}
     <h3>{{ agentdata.name }} <span class="small"><a href="../../admin/sark/agent/{{ agentdata.pk }}" target="_blank">[edit]</a></span></h3>
     <hr>
-        {% if agentdata.primary_place_of_activity %}
+    {% if agentdata.primary_place_of_activity %}
         <p>Primary location of activity: <a href="{% url 'sark_django.sark.views.location' agentdata.primary_place_of_activity.name agentdata.primary_place_of_activity.country %}">{{ agentdata.primary_place_of_activity }}</a></p>
     {% endif %}
     <p>{{ agentdata.bio }}</p>
@@ -14,14 +20,46 @@
             {% endfor %}
         </ul>
     {% endif %}
-    {% if shows %}
-        <p>Shows:</p>
-        <ul>
-            {% for show in shows %}
-                <li><a href="{% url 'sark_django.sark.views.broadcast' show.date|date:"Y" show.date|date:"m" show.date|date:"d" %}">{{ show.date|date:"Y-m-d" }}</a>: {{ show.description }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No performances on record</p>
-    {% endif %}
+    <br>
+    <p class="description"><em>Recordings featuring {{ agentdata.name }}</em></p>
+        <div class="panel panel-default">
+            <table class="table table-striped table-hover" data-sortable>
+                <thead>
+                <tr>
+                    <th>Reel name</th>
+                    <th>Description</th>
+                    <th>Recorded in</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for recording in recordings %}
+                    <tr>
+                        <td>
+                            {% if recording.unique_id %}
+                                <a href="{% url 'sark_django.sark.views.field_recording' recording.unique_id %}">{{ recording.date|date:"Y-m-d" }}</a>
+                            {% else %}
+                                <a href="{% url 'sark_django.sark.views.broadcast' recording.date|date:"Y" recording.date|date:"m" recording.date|date:"d" %}"> {{ recording.title }}</a>
+                            {% endif %}
+                        </td>
+                        <td>{{ recording.description }}</td>
+                        <td>{% if recording.location %}
+                                {{ recording.location }}
+                            {% else %}
+                                [not listed]
+                            {% endif %}</td>
+                        <td>{{ recording.date|date:"Y-m-d" }} {{ recording.model_name }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td>No known recordings</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
 {% endblock %}
