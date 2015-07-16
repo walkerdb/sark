@@ -19,7 +19,7 @@ class PerformanceAdmin(admin.ModelAdmin):
 
 @admin.register(m.Agent)
 class AgentAdmin(admin.ModelAdmin):
-    filter_horizontal = ('members',)
+    filter_horizontal = ('members', 'photos')
 
 @admin.register(m.CopyrightStatus)
 class CopyrightAdmin(admin.ModelAdmin):
