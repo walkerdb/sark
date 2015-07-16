@@ -6,11 +6,16 @@ import subprocess
 from mutagen.easyid3 import EasyID3
 from PIL import Image
 
-input_directory = "H:\\Sarkisian - TBray digitization\\All digitized files, by barcode"
-output_directory = "D:/Sark output/take 3"
-
 
 def convert_wav_to_mp3(filepath, notes=""):
+    '''
+    Given the path to a preservation .wav file, creates a derivative high-quality variable bit-rate .mp3
+    Optionally takes a filepath to a file containing metadata, in Tom Bray's line-delineated format, adding that
+    data to the mp3 file
+    :param filepath:
+    :param notes:
+    :return:
+    '''
     metadata = ""
     if notes:
         metadata = get_audio_metadata(notes)
@@ -36,6 +41,11 @@ def convert_wav_to_mp3(filepath, notes=""):
 
 
 def get_audio_metadata(filepath):
+    '''
+    Given a specifically-formatted metadata file, returns a namedtuple containing the title, album, comments, and year
+    :param filepath:
+    :return:
+    '''
     Metadata = namedtuple("Metadata", ["title", "album", "comments", "year"])
     year_regex = r"19[56789]\d|'[56789]\d"
     with open(filepath, mode="r") as f:
@@ -55,6 +65,13 @@ def get_audio_metadata(filepath):
 
 
 def make_thumbnail(input_filepath, output_dir="", barcode=""):
+    '''
+    Given an input image, creates a 200x200 px thumbnail for web purposes
+    :param input_filepath: path to the image from which to make the thumbnail
+    :param output_dir: where to save the derived files to
+    :param barcode: will be prefixed to the input file-name
+    '''
+
     size = 200, 200
     try:
         print(input_filepath)
@@ -78,13 +95,13 @@ if __name__ == "__main__":
 
     for folder in os.listdir(input_dir):
 
-        image_files = [file for file in os.listdir(os.path.join(input_dir, folder)) if file.endswith(".tiff") or file.endswith(".tif")]
+        image_files = [image_file for image_file in os.listdir(os.path.join(input_dir, folder)) if image_file.endswith(".tiff") or image_file.endswith(".tif")]
         for image in image_files:
             path = os.path.join(os.path.join(input_dir, folder), image)
             make_thumbnail(path, output_dir=output_dir, barcode=folder)
 
-    # audio_files = [file for file in os.listdir(input_dir) if file.endswith(".wav") and file.startswith("pm")]
-    # for wav in audio_files:
-    #     audio_path = os.path.join(input_dir, wav)
-    #     notes_path = os.path.join(input_dir, "notes.txt")
-    #     convert_wav_to_mp3(audio_path, notes_path)
+        audio_files = [audio_file for audio_file in os.listdir(os.path.join(input_dir, folder)) if audio_file.endswith(".wav") and audio_file.startswith("pm")]
+        for wav in audio_files:
+            audio_path = os.path.join(input_dir, wav)
+            notes_path = os.path.join(input_dir, "notes.txt")
+            convert_wav_to_mp3(audio_path, notes_path)
