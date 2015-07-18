@@ -7,19 +7,14 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import get_object_or_404
-from django.views.generic import ListView, DetailView, UpdateView
+from django.views.generic import ListView
 from haystack.views import FacetedSearchView
 
-from ..settings import BASE_DIR
 from ..sark import models as m
 
-# Create your views here.
+
 def home(request):
     return redirect("/demo")
-    # selected = "index"
-    # t = get_template("index.html")
-    # html = t.render(Context({'selected': selected}))
-    # return HttpResponse(html)
 
 class Demo(ListView):
     queryset = m.RadioShow.objects.order_by("date")
@@ -124,11 +119,6 @@ def agent(request, name):
     return HttpResponse(html)
 
 class SarkSearch(FacetedSearchView):
-    #
-    # def __init__(self, *args, **kwargs):
-    #     super(SarkSearch, self).__init__(*args, **kwargs)
-    #     if self.request.GET.get("date_facet", ""):
-    #         print("ha!")
 
     def extra_context(self):
         extra = super(SarkSearch, self).extra_context()
