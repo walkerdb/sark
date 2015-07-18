@@ -3,7 +3,7 @@ from . import models as m
 
 @admin.register(m.RadioShow)
 class RadioShowAdmin(admin.ModelAdmin):
-    fields = ('title', 'description', 'host', 'date', 'script', 'performances', 'images')
+    fields = ('title', 'type', 'description', 'host', 'date', 'script', 'performances', 'images')
     date_hierarchy = 'date'
     filter_horizontal = ('images', 'performances')
 

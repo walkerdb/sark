@@ -146,6 +146,15 @@ class RadioShow(Reel):
     host = models.ForeignKey(Agent)
     script = models.TextField(blank=True)
 
+    INSERT = 0
+    BROADCAST = 1
+    REEL_TYPE_CHOICES = (
+        (INSERT, 'Insert'),
+        (BROADCAST, 'Broadcast')
+    )
+
+    type = models.BooleanField(choices=REEL_TYPE_CHOICES, blank=False, default=1)
+
     class Meta:
         ordering = ('date',)
 
