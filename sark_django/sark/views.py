@@ -171,14 +171,29 @@ def model_list(request, model):
         data = []
         for location in objects:
             try:
-                cell_1_data = [reverse('sark_django.sark.views.location', kwargs={'country': location.country, 'name': location.name}),  location.country]
-                cell_2_data = [reverse('sark_django.sark.views.location', kwargs={'country': location.country, 'name': location.name}), location.name]
+                url = reverse('sark_django.sark.views.location', kwargs={'country': location.country, 'name': location.name})
+                cell_1_data = [url,  location.country]
+                cell_2_data = [url, location.name]
                 data.append([cell_1_data, cell_2_data])
             except:
                 print("womp")
 
     elif "broadcast" in model:
-        pass
+        objects = m.RadioShow.objects.all()
+        headers = ["Show", "Host", "Date"]
+        data = []
+        for show in objects:
+            # try:
+                year, day, month = str(show.date).split("-")
+                broadcast_url = reverse('sark_django.sark.views.broadcast', kwargs={'year': year, 'month': month, 'day': day})
+                host_url = reverse('sark_django.sark.views.agent', args=(show.host.name, ))
+
+                cell_1_data = [broadcast_url,  show.title]
+                cell_2_data = [host_url, show.host.name]
+                cell_3_data = ["", str(show.date)]
+                data.append([cell_1_data, cell_2_data, cell_3_data])
+            # except:
+            #     print("womp")
     elif "fieldrecording" in model:
         pass
     elif "performance" in model:

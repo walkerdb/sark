@@ -22,7 +22,11 @@
                     {% for object in data %}
                         <tr>
                             {% for item in object %}
-                                <td><a href="{{  item.0 }}">{{ item.1 }}</a></td>
+                                {% if item.0 %}
+                                    <td><a href="{{  item.0 }}">{{ item.1 }}</a></td>
+                                {% else %}
+                                    <td>{{ item.1 }}</td>
+                                {% endif %}
                             {% endfor %}
                         </tr>
                     {% empty %}
