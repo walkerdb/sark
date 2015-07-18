@@ -13,15 +13,17 @@
                 <table class="table table-striped table-hover" data-sortable>
                     <thead>
                     <tr>
-                        <th>Country</th>
-                        <th>City / Region</th>
+                        {% for header in headers %}
+                            <th>{{ header }}</th>
+                        {% endfor %}
                     </tr>
                     </thead>
                     <tbody>
-                    {% for thing in model_objects %}
+                    {% for object in data %}
                         <tr>
-                            <td><a href="{% url 'sark_django.sark.views.location' thing.name thing.country %}">{{ thing.country }}</a></td>
-                            <td><a href="{% url 'sark_django.sark.views.location' thing.name thing.country %}">{{ thing.name }}</a></td>
+                            {% for item in object %}
+                                <td><a href="{{  item.0 }}">{{ item.1 }}</a></td>
+                            {% endfor %}
                         </tr>
                     {% empty %}
                         <tr><td>Nothing here!</td></tr>

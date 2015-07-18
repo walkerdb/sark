@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 import datetime
 
+from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template.loader import get_template
@@ -163,12 +164,32 @@ class SarkSearch(FacetedSearchView):
 
         return self.form.search()
 
-def location_list(request, model):
-    objects = m.Location.objects.all()
+def model_list(request, model):
+    if "location" in model:
+        objects = m.Location.objects.all()
+        headers = ["Country", "City / Area"]
+        data = []
+        for location in objects:
+            try:
+                cell_1_data = [reverse('sark_django.sark.views.location', kwargs={'country': location.country, 'name': location.name}),  location.country]
+                cell_2_data = [reverse('sark_django.sark.views.location', kwargs={'country': location.country, 'name': location.name}), location.name]
+                data.append([cell_1_data, cell_2_data])
+            except:
+                print("womp")
+
+    elif "broadcast" in model:
+        pass
+    elif "fieldrecording" in model:
+        pass
+    elif "performance" in model:
+        pass
+    elif "agent" in model:
+        pass
 
     t = get_template('model_list.html')
     html = t.render(Context({
-        'model_objects': objects
+        'headers': headers,
+        'data': data
     }))
     return HttpResponse(html)
 
