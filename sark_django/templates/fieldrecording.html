@@ -13,12 +13,12 @@
 
     <!-- js -->
     <!-- audio player (soundmanager2) -->
-    <script src="{% static 'js/soundmanager2/soundmanager2.js' %}"></script>
-    <script src="{% static 'js/soundmanager2/bar-ui/script/bar-ui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/soundmanager2/soundmanager2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/soundmanager2/bar-ui/script/bar-ui.js' %}"></script>
 
     <!-- image viewer (photoswipe) -->
-    <script src="{% static 'js/photoswipe/photoswipe.js' %}"></script>
-    <script src="{% static 'js/photoswipe/photoswipe-ui-default.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/photoswipe/photoswipe.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/photoswipe/photoswipe-ui-default.js' %}"></script>
 
 {% endblock %}
 
@@ -57,7 +57,7 @@
         <div class="script">{{ recording.script|safe|linebreaks }}</div>
     {% endif %}
 
-   <!-- Photoswipe! -->
+    <!-- Photoswipe! -->
     {% include "sark/includes/photoswipe_boilerplate.html" %}
 
 
@@ -136,8 +136,18 @@
 
                 </ul>
             </div>
+            <div class="sm2-extra-controls">
+                <div class="bd">
+                    <div class="sm2-inline-element sm2-button-element">
+                        <a class="sm2-inline-button previous" title="Previous" href="#prev">< previous</a>
+                    </div>
+                    <div class="sm2-inline-element sm2-button-element">
+                        <a class="sm2-inline-button next" title="Next" href="#next">> next</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="{% static 'js/photoswipe/sark_photoswipe_init.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/photoswipe/sark_photoswipe_init.js' %}"></script>
 {% endblock %}
