@@ -165,7 +165,7 @@ class SarkSearch(FacetedSearchView):
         return self.form.search()
 
 def model_list(request, model):
-    if "location" in model:
+    if "locations" in model:
         objects = m.Location.objects.all()
         headers = ["Country", "City / Area"]
         data = []
@@ -178,12 +178,12 @@ def model_list(request, model):
             except:
                 print("womp")
 
-    elif "broadcast" in model:
+    elif "broadcasts" in model:
         objects = m.RadioShow.objects.all()
         headers = ["Show", "Host", "Date"]
         data = []
         for show in objects:
-            # try:
+            try:
                 year, day, month = str(show.date).split("-")
                 broadcast_url = reverse('sark_django.sark.views.broadcast', kwargs={'year': year, 'month': month, 'day': day})
                 host_url = reverse('sark_django.sark.views.agent', args=(show.host.name, ))
@@ -192,10 +192,25 @@ def model_list(request, model):
                 cell_2_data = [host_url, show.host.name]
                 cell_3_data = ["", str(show.date)]
                 data.append([cell_1_data, cell_2_data, cell_3_data])
-            # except:
-            #     print("womp")
-    elif "fieldrecording" in model:
-        pass
+            except:
+                print("womp")
+    elif "fieldrecordings" in model:
+        objects = m.FieldRecording.objects.all()
+        headers = ["Title", "Location", "Date"]
+        data = []
+        for recording in objects:
+            try:
+                date = str(recording.date)
+                recording_url = reverse('sark_django.sark.views.field_recording', args=(recording.unique_id, ))
+                location_url = reverse('sark_django.sark.views.location', kwargs={'country': recording.location.country, 'name': recording.location.name})
+
+                cell_1_data = [recording_url,  recording.title]
+                cell_2_data = [location_url, recording.location]
+                cell_3_data = ["", date]
+                data.append([cell_1_data, cell_2_data, cell_3_data])
+            except:
+                print("womp")
+
     elif "performance" in model:
         pass
     elif "agent" in model:
