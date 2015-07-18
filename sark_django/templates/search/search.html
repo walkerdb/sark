@@ -71,6 +71,17 @@
                     {% endif %}
                 </dl>
                 <dl>
+                    {% if facets.fields.location %}
+                        <dt>Location</dt>
+                        {% for location in facets.fields.location %}
+                            <dd><a href="{{ request.get_full_path }}&amp;selected_facets=location_exact:{{ location.0 }}">{{ location.0 }}</a> ({{ location.1 }})</dd>
+                        {% endfor %}
+                    {% endif %}
+                    {% if 'location_exact' in request.get_full_path %}
+                        <dd><a href="?q={{ query }}"><em>see all</em></a></dd>
+                    {% endif %}
+                </dl>
+                <dl>
                     {% if facets.fields.host %}
                         <dt>Host</dt>
                         {% for host in facets.fields.host %}

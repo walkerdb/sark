@@ -39,6 +39,7 @@ class ProgramIndex(indexes.SearchIndex, indexes.Indexable):
 class FieldRecordingIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     date = indexes.DateField(model_attr="date")
+    location = indexes.CharField(model_attr="location", faceted=True)
     performers = indexes.MultiValueField(faceted=True)
     instruments = indexes.MultiValueField(faceted=True)
     faceted_model_type = indexes.CharField(faceted=True)
@@ -62,6 +63,9 @@ class FieldRecordingIndex(indexes.SearchIndex, indexes.Indexable):
                 instruments.append(instrument.name)
         return instruments
 
+    # def prepare_location(self, obj):
+    #     return '' if not obj.location else obj.location
+
     def prepare_faceted_model_type(self, obj):
         return 'Field recording'
 
@@ -81,4 +85,3 @@ class AgentIndex(indexes.SearchIndex, indexes.Indexable):
 
     def index_queryset(self, using=None):
         return self.get_model().objects
-
