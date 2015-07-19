@@ -563,7 +563,7 @@
         // update selected offset, too.
         offset = findOffsetFromItem(item);
 
-        data.selectedIndex = offset;
+        // data.selectedIndex = offset;
 
       }
 
