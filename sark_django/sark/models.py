@@ -11,6 +11,13 @@ class TimestampedModel(models.Model):
         abstract = True
 
 
+class DateApproximationLevel(models.Model):
+    approximation = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.approximation
+
+
 class Role(models.Model):
     role = models.CharField(max_length=200)
 
@@ -132,6 +139,8 @@ class Performance(TimestampedModel):
 class Reel(TimestampedModel):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=200, blank=True)
+    date_text = models.CharField(max_length=25, blank=True, null=True)
+    date_accuracy = models.ForeignKey(DateApproximationLevel, blank=True, null=True)
     date = models.DateField(blank=True)
     performances = models.ManyToManyField(Performance)
     images = models.ManyToManyField(Image, blank=True)

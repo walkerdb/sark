@@ -31,7 +31,7 @@ def convert_wav_to_mp3(filepath, notes=""):
     print(barcode)
     output_filename = "{0}-{1}.mp3".format(barcode, filename)
 
-    subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', filepath, '-ar', '48000', '-vn', '-aq', '0', '-f', 'mp3', os.path.join(path_, output_filename)])
+    subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', filepath, '-ar', '44100', '-vn', '-aq', '0', '-f', 'mp3', os.path.join(path_, output_filename)])
 
     id3 = EasyID3(os.path.join(path_, output_filename))
     id3["title"] = metadata.title + "-" + filename
@@ -90,18 +90,26 @@ def make_thumbnail(input_filepath, output_dir="", barcode=""):
 
 
 if __name__ == "__main__":
-    input_dir = r"H:\Sarkisian - TBray digitization\All digitized files, by barcode"
+    input_dir = r"H:\Sarkisian - TBray digitization\All digitized files, by barcode\39015087085315"
     output_dir = r"H:\Sark output\img"
 
-    for folder in os.listdir(input_dir):
+    # for folder in os.listdir(input_dir):
 
-        image_files = [image_file for image_file in os.listdir(os.path.join(input_dir, folder)) if image_file.endswith(".tiff") or image_file.endswith(".tif")]
-        for image in image_files:
-            path = os.path.join(os.path.join(input_dir, folder), image)
-            make_thumbnail(path, output_dir=output_dir, barcode=folder)
+        # image_files = [image_file for image_file in os.listdir(os.path.join(input_dir, folder)) if image_file.endswith(".tiff") or image_file.endswith(".tif")]
+        # for image in image_files:
+        #     path = os.path.join(os.path.join(input_dir, folder), image)
+        #     make_thumbnail(path, output_dir=output_dir, barcode=folder)
 
-        audio_files = [audio_file for audio_file in os.listdir(os.path.join(input_dir, folder)) if audio_file.endswith(".wav") and audio_file.startswith("pm")]
-        for wav in audio_files:
-            audio_path = os.path.join(input_dir, wav)
-            notes_path = os.path.join(input_dir, "notes.txt")
-            convert_wav_to_mp3(audio_path, notes_path)
+    # audio_files = [audio_file for audio_file in os.listdir(input_dir) if audio_file.endswith(".wav") and audio_file.startswith("pm")]
+    # for wav in audio_files:
+    #     audio_path = os.path.join(input_dir, wav)
+    #     notes_path = os.path.join(input_dir, "notes.txt")
+    #     convert_wav_to_mp3(audio_path, notes_path)
+
+    import sark_django.sark.models as m
+
+    d = m.DateApproximationLevel(approximation="Exact date")
+    d.save()
+
+    e = m.DateApproximationLevel(approximation="Approximate year")
+    e.save()

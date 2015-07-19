@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#####'  # redacted
+SECRET_KEY = 'dev_key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,7 +85,16 @@ WSGI_APPLICATION = 'sark_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = ''  # redacted
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'sarkisian2',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
+    }
+}
 
 
 # Internationalization

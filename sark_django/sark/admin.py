@@ -1,5 +1,23 @@
+import re
+
 from django.contrib import admin
+from django import forms
 from . import models as m
+
+
+class ApproximateDateForm(forms.ModelForm):
+    class Meta:
+        model = m.FieldRecording
+        fields = ('title', 'description', 'unique_id', 'location', 'recording_engineer', 'date_text', 'date_accuracy', 'performances', 'images')
+
+    def clean(self):
+        format_regex = r'[12][90]\d\d\-[01]\d\-[0-3]\d|[12][90]\d\d\-[01]\d|[12][90]\d\d'
+        alpha_regex = r'[a-z][A-Z]'
+        date_text = self.cleaned_data.get('date_text')
+        if not re.match(format_regex, date_text) or re.match(alpha_regex, date_text) or date_text.endswith("-"):
+            raise forms.ValidationError("Please enter date text in the format 'yyyy-mm-dd', up to the point of highest certainty (eg '1965', '1965-02', or '1965-02-24')")
+        return self.cleaned_data
+
 
 @admin.register(m.RadioShow)
 class RadioShowAdmin(admin.ModelAdmin):
@@ -9,7 +27,7 @@ class RadioShowAdmin(admin.ModelAdmin):
 
 @admin.register(m.FieldRecording)
 class FieldRecordingAdmin(admin.ModelAdmin):
-    fields = ('title', 'description', 'unique_id', 'location', 'recording_engineer', 'date', 'performances', 'images')
+    form = ApproximateDateForm
     filter_horizontal = ('images', 'performances')
 
 @admin.register(m.Performance)
@@ -41,11 +59,14 @@ class InstrumentFamilyAdmin(admin.ModelAdmin):
 class LocationAdmin(admin.ModelAdmin):
     pass
 
-
 @admin.register(m.Role)
 class RoleAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(m.Image)
 class ImageAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(m.DateApproximationLevel)
+class DateApproximationAdmin(admin.ModelAdmin):
     pass
