@@ -28,6 +28,7 @@ class RadioShowAdmin(admin.ModelAdmin):
 @admin.register(m.FieldRecording)
 class FieldRecordingAdmin(admin.ModelAdmin):
     form = ApproximateDateForm
+    date_hierarchy = 'date'
     filter_horizontal = ('images', 'performances')
 
 @admin.register(m.Performance)
