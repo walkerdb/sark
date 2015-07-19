@@ -223,7 +223,7 @@ form div input.search {
 }
 
 .search_result:hover {
-    background-color: whitesmoke;
+    background-color: #fbfbfb;
 }
 
 /*.search_result:nth-child(even) {*/
