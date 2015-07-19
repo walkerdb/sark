@@ -16,15 +16,14 @@
         {% endif %}
 
             <div class="panel panel-default" id="filter-table">
-
-            <br>
+                <input class="search form-control" placeholder="Filter list"/>
+                <br>
                 <table class="table table-striped table-hover" data-sortable>
                     <thead>
                     <tr>
                         {% for header in headers %}
                             <th class="column{{ forloop.counter }}">{{ header }}</th>
                         {% endfor %}
-                        <th><input class="search form-control" placeholder="Filter"/></th>
                     </tr>
                     </thead>
                     <tbody class="list">
@@ -37,10 +36,9 @@
                                     <td class="column{{ forloop.counter }}">{{ item.1 }}</td>
                                 {% endif %}
                             {% endfor %}
-                        <td></td>
                         </tr>
                     {% empty %}
-                        <tr><td>Nothing here!</td><td></td></tr>
+                        <tr><td>Nothing here!</td></tr>
                     {% endfor %}
 
                     </tbody>
