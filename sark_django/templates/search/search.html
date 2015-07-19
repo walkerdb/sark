@@ -42,6 +42,10 @@
     <br>
     <hr>
 
+
+    <a href="{{ request.get_full_path }}&amp;sort=date_asc">Date descending</a>
+
+
     {% if query %}
         <div class="row">
             <div class="col-md-2">
@@ -125,6 +129,15 @@
 
             <div class="col-md-10">
                 <h2>Results</h2>
+{#                <form class="pull-right" style="width:150px">#}
+{#                    <select class="form-control" id="sort">#}
+{#                        <option>Sort options</option>#}
+{#                        <option>Recording date, newest first</option>#}
+{#                        <option>Recording date, oldest first</option>#}
+{#                        <option>Date added to site, newest first</option>#}
+{#                        <option>Date added to site, oldest first</option>#}
+{#                    </select>#}
+{#                </form>#}
                 <div class="search-result-list">
                     {% for result in page.object_list %}
                         <div class="search_result">
