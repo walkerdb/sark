@@ -26,9 +26,27 @@
     <h3>{{ recording.title }} <span class="small"><a href="/admin/sark/fieldrecording/{{ recording.pk }}" target="_blank">[edit entry]</a></span></h3>
     <p class="description"><em>{{ recording.description }}</em></p>
     <div class="recording-metadata">
-        <p><strong>Location:</strong> <a href="{% url 'sark_django.sark.views.location' recording.location.name recording.location.country%}">{{ recording.location.name }}, {{ recording.location.country }}</a></p>
-        <p><strong>Engineer:</strong> <a href="{% url 'sark_django.sark.views.agent' recording.recording_engineer.name %}">{{ recording.recording_engineer.name }}</a></p>
-        <p><strong>Recording date:</strong> {{ recording.date }}</p>
+        <p><strong>Location:</strong> <a href="{% url 'sark_django.sark.views.location' recording.location.name recording.location.country%}">
+            {% if recording.location.name %}
+                {{ recording.location.name }}, {{ recording.location.country }}
+            {% else %}
+                {{ recording.location.country }}
+            {% endif %}
+        </a></p>
+        <p><strong>Engineer:</strong>
+            {% if recording.recording_engineer %}
+                <a href="{% url 'sark_django.sark.views.agent' recording.recording_engineer.name %}">{{ recording.recording_engineer.name }}</a>
+            {% else %}
+                Unknown
+            {% endif %}
+        </p>
+        <p><strong>Recording date:</strong>
+            {% if recording.date_text %}
+                {{ recording.date_text }}
+            {% else %}
+                Undated
+            {% endif %}
+        </p>
     </div>
     <hr>
     {% if images %}
