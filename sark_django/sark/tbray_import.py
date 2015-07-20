@@ -112,7 +112,7 @@ def import_performances(reel_data):
                 for i, track in enumerate(tracks):
                     track_number, track_title, duration, performer_1, performer_2, city, country, date_text = track
                     if not track_title:
-                        track_title = "Track {0}".format(i)
+                        track_title = "Track {0}".format(i + 1)
                     p = m.Performance.objects.create(title=track_title, audio="audio/{0}".format(reel_audio_files[i]))
 
                     if performer_1:
@@ -145,11 +145,18 @@ def import_performances(reel_data):
             for track in added_tracks:
                 r.performances.add(track)
 
+            order = ['accnotes_01', 'accnotes_02', 'accnotes_03', 'boxfront', 'reelfront', 'reelback', 'boxback', 'boxleft', 'boxtop', 'boxright', 'boxbottom']
             for img in reel_image_files:
                 try:
                     thumb_path = "img/{0}-thumb.jpg".format(img.split(".")[0])
                     path = "img/{0}".format(img)
-                    i = m.Image.objects.create(file=path, thumb=thumb_path)
+                    sort_order = 15
+                    for i, element in enumerate(order):
+                        if element in path:
+                            sort_order = i
+                            break
+
+                    i = m.Image.objects.create(file=path, thumb=thumb_path, sort_order=sort_order)
                     r.images.add(i)
                 except:
                     print("image add failure")
@@ -259,15 +266,17 @@ if __name__ == "__main__":
     import django
     django.setup()
 
-    csv_location = r'C:\Users\dev\Downloads\field_recording_data.csv'
-    performers, locations = get_perf_loc(csv_location)
+    # csv_location = r'C:\Users\dev\Downloads\field_recording_data.csv'
+    # performers, locations = get_perf_loc(csv_location)
+    #
+    # reel_data = get_reel_data(csv_location)
+    #
+    # for location in locations:
+    #     import_location(location)
+    #
+    # for performer in performers:
+    #     import_performer(performer)
+    #
+    # import_performances(reel_data)
 
-    reel_data = get_reel_data(csv_location)
-
-    for location in locations:
-        import_location(location)
-
-    for performer in performers:
-        import_performer(performer)
-
-    import_performances(reel_data)
+    m.Performance.filter(title="Track 0").update(title="Track 1")
