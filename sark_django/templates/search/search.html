@@ -66,7 +66,7 @@
                 <dl>
                     {% if facets.dates.date %}
                         <dt>Year</dt>
-                        {% for date in facets.dates.date %}
+                        {% for date in facets.dates.date|slice:':10' %}
                             <dd><a href="{{ request.get_full_path }}&amp;date_facet={{ date.0 }}">{{ date.0 }}</a> ({{ date.1 }})</dd>
                         {% endfor %}
                     {% endif %}
@@ -77,8 +77,10 @@
                 <dl>
                     {% if facets.fields.location %}
                         <dt>Location</dt>
-                        {% for location in facets.fields.location %}
+                        {% for location in facets.fields.location|slice:':10' %}
+                            {% if location.1 > 0 %}
                             <dd><a href="{{ request.get_full_path }}&amp;selected_facets=location_exact:{{ location.0 }}">{{ location.0 }}</a> ({{ location.1 }})</dd>
+                            {% endif %}
                         {% endfor %}
                     {% endif %}
                     {% if 'location_exact' in request.get_full_path %}
@@ -101,7 +103,7 @@
                 <dl>
                     {% if facets.fields.instruments %}
                         <dt>Instrument</dt>
-                        {% for instrument in facets.fields.instruments %}
+                        {% for instrument in facets.fields.instruments|slice:':10' %}
                             {% if instrument.1 > 0 %}
                                 <dd><a href="{{ request.get_full_path }}&amp;selected_facets=instruments_exact:{{ instrument.0 }}">{{ instrument.0 }}</a> ({{ instrument.1 }})</dd>
                             {% endif %}
@@ -115,7 +117,7 @@
                     {% if facets.fields.performers %}
                         {#                        {{ facets }}#}
                         <dt>Performer</dt>
-                        {% for performer in facets.fields.performers %}
+                        {% for performer in facets.fields.performers|slice:':10' %}
                             {% if performer.1 > 0 %}
                                 <dd><a href="{{ request.get_full_path }}&amp;selected_facets=performers_exact:{{ performer.0 }}">{{ performer.0 }}</a> ({{ performer.1 }})</dd>
                             {% endif %}
