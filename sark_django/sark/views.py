@@ -124,7 +124,7 @@ class SarkSearch(FacetedSearchView):
         extra = super(SarkSearch, self).extra_context()
         try:
             dates = extra['facets']['dates']['date']
-            dates = sorted([[year[:4], count] for year, count in dates.items() if year.startswith("1") and count > 0])
+            dates = sorted([[year[:4], count] for year, count in dates.items() if year.startswith("1") and count > 0], key=lambda x: -x[1])
             extra['facets']['dates']['date'] = dates
             # print(dates)
         except KeyError:

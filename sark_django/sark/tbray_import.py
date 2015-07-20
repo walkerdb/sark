@@ -266,10 +266,10 @@ if __name__ == "__main__":
     import django
     django.setup()
 
-    # csv_location = r'C:\Users\dev\Downloads\field_recording_data.csv'
-    # performers, locations = get_perf_loc(csv_location)
-    #
-    # reel_data = get_reel_data(csv_location)
+    csv_location = r'C:\Users\dev\Downloads\field_recording_data.csv'
+    performers, locations = get_perf_loc(csv_location)
+
+    reel_data = get_reel_data(csv_location)
     #
     # for location in locations:
     #     import_location(location)
@@ -277,6 +277,4 @@ if __name__ == "__main__":
     # for performer in performers:
     #     import_performer(performer)
     #
-    # import_performances(reel_data)
-
-    m.Performance.filter(title="Track 0").update(title="Track 1")
+    import_performances(reel_data)
