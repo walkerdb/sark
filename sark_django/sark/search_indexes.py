@@ -38,8 +38,8 @@ class ProgramIndex(indexes.SearchIndex, indexes.Indexable):
 
 class FieldRecordingIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
-    date = indexes.DateField(model_attr="date")
-    location = indexes.CharField(model_attr="location", faceted=True)
+    date = indexes.DateField(model_attr="date", null=True)
+    location = indexes.CharField(model_attr="location", faceted=True, null=True)
     performers = indexes.MultiValueField(faceted=True)
     instruments = indexes.MultiValueField(faceted=True)
     faceted_model_type = indexes.CharField(faceted=True)

@@ -122,6 +122,8 @@ class Agent(TimestampedModel):
 class Performance(TimestampedModel):
     title = models.CharField(max_length=200)
     date = models.DateField(blank=True, null=True)
+    date_text = models.CharField(max_length=25, blank=True, null=True)
+    date_accuracy = models.ForeignKey(DateApproximationLevel, blank=True, null=True)
 
     audio = models.FileField(upload_to="audio", null=True)
     location = models.ForeignKey(Location, blank=True, null=True)
@@ -137,12 +139,12 @@ class Performance(TimestampedModel):
         ordering = ('date', 'title')
 
 class Reel(TimestampedModel):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=300)
     description = models.CharField(max_length=200, blank=True)
     date_text = models.CharField(max_length=25, blank=True, null=True)
     date_accuracy = models.ForeignKey(DateApproximationLevel, blank=True, null=True)
-    date = models.DateField(blank=True)
-    performances = models.ManyToManyField(Performance)
+    date = models.DateField(blank=True, null=True)
+    performances = models.ManyToManyField(Performance, blank=True)
     images = models.ManyToManyField(Image, blank=True)
 
     def __str__(self):
@@ -169,5 +171,5 @@ class RadioShow(Reel):
 
 class FieldRecording(Reel):
     unique_id = models.BigIntegerField()
-    recording_engineer = models.ForeignKey(Agent, blank=True)
-    location = models.ForeignKey(Location, blank=True)
+    recording_engineer = models.ForeignKey(Agent, blank=True, null=True)
+    location = models.ForeignKey(Location, blank=True, null=True)
