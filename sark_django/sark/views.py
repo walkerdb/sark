@@ -106,10 +106,11 @@ def agent(request, name):
     agent = get_object_or_404(m.Agent, name=name)
     radio_shows = m.RadioShow.objects.filter(host_id=agent.pk).order_by("date")
     field_recordings = m.FieldRecording.objects.filter(performances__performers__id=agent.pk).distinct().order_by("date")
-    recordings = list(radio_shows) + list(field_recordings)
+    recorded = m.FieldRecording.objects.filter(recording_engineer__id=agent.pk)
+    recordings = list(radio_shows) + list(field_recordings) + list(recorded)
     members = agent.members.all()
 
-    t = get_template("person.html")
+    t = get_template("agent.html")
     html = t.render(Context({'agentdata': agent,
                              'recordings': recordings,
                              'selected': selected,
