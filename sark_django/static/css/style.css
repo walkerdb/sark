@@ -124,6 +124,33 @@ th {
     border-top: 0px solid #ddd;
 }
 
+/* Performance list (field recording view) */
+
+.performance-list-item {
+    height: 75px;
+    background-color: rgba(16, 25, 255, 0.01);
+    font-weight: 100;
+}
+
+.performance-list-play {
+    position: relative;
+    width:75px;
+    height: 75px;
+    background-color: rgba(239, 184, 88, 0.31);
+}
+
+.performance-list-play:hover {
+    background-color: rgba(239, 184, 88, 0.85);
+}
+
+.play-link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    z-index: 1;
+}
 
 /* Search and search-bar styling */
 
@@ -327,7 +354,7 @@ form div input.search {
 /* Utility */
 
 .image {
-    box-shadow: 1px 5px 8px #999999;
+    /*box-shadow: 1px 5px 8px #999999;*/
     max-width: 160px;
     max-height: 160px;
 }

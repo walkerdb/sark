@@ -23,10 +23,11 @@
 {% endblock %}
 
 {% block content %}
+
     <h3>{{ recording.title }} <span class="small"><a href="/admin/sark/fieldrecording/{{ recording.pk }}" target="_blank">[edit entry]</a></span></h3>
     <p class="description"><em>{{ recording.description }}</em></p>
     <div class="recording-metadata">
-        <p><strong>Location:</strong> <a href="{% url 'sark_django.sark.views.location' recording.location.name recording.location.country%}">
+        <p><strong>Location:</strong> <a href="{% url 'sark_django.sark.views.location' recording.location.name recording.location.country%}" target="_blank">
             {% if recording.location.name %}
                 {{ recording.location.name }}, {{ recording.location.country }}
             {% else %}
@@ -35,7 +36,7 @@
         </a></p>
         <p><strong>Engineer:</strong>
             {% if recording.recording_engineer %}
-                <a href="{% url 'sark_django.sark.views.agent' recording.recording_engineer.name %}">{{ recording.recording_engineer.name }}</a>
+                <a href="{% url 'sark_django.sark.views.agent' recording.recording_engineer.name %}" target="_blank">{{ recording.recording_engineer.name }}</a>
             {% else %}
                 Unknown
             {% endif %}
@@ -52,8 +53,19 @@
     {% if images %}
         <div class="row">
             <div class="col-md-10">
+                {% for performance in performances %}
+                    <div class="media performance-list-item">
 
-                <div class="script">{{ recording.script|safe|linebreaks }}</div>
+                    <div class="media-left">
+                        <div class="performance-list-play play-pause">
+                            <a href="#play"><span class="play-link"></span></a>
+                        </div>
+                    </div>
+                    <div class="media-body media-middle">{{ performance.title }}</div>
+                </div>
+
+                {% endfor %}
+
                 <hr>
             </div>
             <!-- image viewer (photoswipe.js) -->
@@ -72,7 +84,6 @@
             </div>
         </div>
     {% else %}
-        <div class="script">{{ recording.script|safe|linebreaks }}</div>
     {% endif %}
 
     <!-- Photoswipe! -->
