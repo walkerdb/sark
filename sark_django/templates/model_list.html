@@ -33,7 +33,7 @@
                                 {% if item.0 %}
                                     <td ><a href="{{ item.0 }}"><span class="column{{ forloop.counter }}">{{ item.1 }}</span></a></td>
                                 {% else %}
-                                    <td class="column{{ forloop.counter }}">{{ item.1 }}</td>
+                                    <td class="column{{ forloop.counter }}" {% if forloop.last %}style='min-width:100px'{% endif %}>{{ item.1 }}</td>
                                 {% endif %}
                             {% endfor %}
                         </tr>
