@@ -61,7 +61,21 @@
                             <a href="#play"><span class="play-link"></span></a>
                         </div>
                     </div>
-                    <div class="media-body media-middle">{{ performance.title }}</div>
+                    <div class="media-body media-middle">
+                        <div class="row">
+                            <div class="col-md-4">{{ performance.title }}</div>
+                            <div class="col-md-4">
+                                {% for performer in performance.performers.all %}
+                                    {% if forloop.last %}
+                                        <a href="{% url 'sark_django.sark.views.agent' performer.name %}" target="_blank">{{ performer.name }}</a>
+                                    {% else %}
+                                        <a href="{% url 'sark_django.sark.views.agent' performer.name %}" target="_blank">{{ performer.name }}</a><br>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                    </div>
                 </div>
 
                 {% endfor %}
