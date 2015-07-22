@@ -1,15 +1,18 @@
 body {
     font-family: "Open sans", "sans-serif";
     min-height: 100%;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 p {
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
 
 h1 {
     /*color: #efb858;*/
-    font-family: "Crimson text", "serif";
+    font-family: "Open sans", "serif";
+    font-size: 2.2em;
+    font-weight: 900;
 }
 
 h2 {
@@ -17,7 +20,7 @@ h2 {
 }
 
 h3 {
-    font-family: "open sans", "sans-serif";
+    font-family: "Open sans", "sans-serif";
     font-size: 1.6em;
     font-weight: 300;
 }
@@ -34,12 +37,25 @@ li {
     font-size: 1.2em;
 }
 
+.source-list {
+    font-family: "Crimson text", "serif";
+    font-weight: 100;
+}
+
 #MTiA-branding {
     color: #efb858;
 }
 
 .about-content p {
-    color: #474747;
+    font-family: "Crimson text", "serif";
+    font-size: 1.6em;
+}
+
+p.img-caption {
+    font-family: "Open sans", "sans-serif";
+    font-size: 1.1em;
+    font-weight: 100;
+
 }
 
 .recording-metadata p{
@@ -76,7 +92,27 @@ li {
 }
 
 .footer {
+    font-weight: 100;
     font-size: 0.7em;
+    height: 70px;
+}
+
+.footer-content {
+    display: inline-block;
+}
+
+.footer-item {
+    display: inline-block;
+}
+
+.footer-img {
+    margin-top: 18px;
+    max-height: 30px;
+    opacity: .8;
+}
+
+.footer-img:hover {
+    opacity: 1;
 }
 
 .faux-header {
@@ -169,7 +205,8 @@ form div input.search {
 }
 
 #search-navbar {
-    margin-top: 2px;
+    margin-top: 3px;
+    margin-left: 12px;
     border: none;
     height: 3rem;
     border-radius: 3rem;
@@ -233,7 +270,7 @@ form div input.search {
 .search-icon {
     position:absolute;
     z-index: 999;
-    margin:.65rem .75rem;
+    margin:.8rem 1.9rem;
     color: #787878;
     font-size: 1.3em;
     left:0
@@ -402,6 +439,8 @@ form div input.search {
 .navbar-nav {
     font-size: 1.3em;
     font-weight: 300;
+    font-family: "Open sans", "sans-serif";
+    padding-top:1px;
 }
 
 .navbar-default {

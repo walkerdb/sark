@@ -59,12 +59,6 @@
                         <input type="text" class="form-control input-md" placeholder="Search MTiA" name="q"  id="search-navbar">
                     </div>
                 </form>
-{#                <form class="navbar-form navbar-right" role="search">#}
-{#                    <div class="form-group">#}
-{#                        <input type="text" class="form-control" placeholder="Search">#}
-{#                    </div>#}
-{#                    <button type="submit" class="btn bt-lg">Submit</button>#}
-{#                </form>#}
             {% endblock %}
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -80,7 +74,17 @@
 <!-- footer -->
 <footer class="footer">
     <div class="container">
-        <p class="text-muted pull-right">University of Michigan</p>
+        <div class="row">
+            <div class="col-md-4">
+                <p class="text-muted">a University of Michigan initiative</p>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <a href="//github.com/walkerdb/sark" target="_blank" class="footer-item pull-right">
+                    <img src="{% static 'sarkfiles/img/github-logo.png' %}" class="footer-img" title="Github repository" alt="github repository"/>
+                </a>
+            </div>
+        </div>
     </div>
 </footer>
 
