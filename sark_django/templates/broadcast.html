@@ -29,10 +29,10 @@
     <p><strong>Host:</strong> <a href="{% url 'sark_django.sark.views.agent' show.host.name %}" target="_blank">{{ show.host.name }}</a></p>
     <p><strong>Air-date:</strong> {{ show.date }}</p>
     </div>
-    <hr>
     {% if photos %}
         <div class="row">
             <div class="col-md-10">
+                    <hr>
 
                 <div class="script">{{ show.script|safe|linebreaks }}</div>
                 <hr>
@@ -138,5 +138,6 @@
         </div>
     </div>
 
+    {% block footer %}{% endblock %}
     <script src="{% static 'js/photoswipe/sark_photoswipe_init.js' %}"></script>
 {% endblock %}
