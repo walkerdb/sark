@@ -18,7 +18,7 @@
     <script src="{% static 'js/soundmanager2/bar-ui/script/bar-ui.js' %}"></script>
 
     <!-- image viewer (photoswipe) -->
-    <script src="{% static 'js/photoswipe/photoswipe.js' %}"></script>
+    <script src="{% static 'js/photoswipe/photoswipe.min.js' %}"></script>
     <script src="{% static 'js/photoswipe/photoswipe-ui-default.js' %}"></script>
 
 {% endblock %}
@@ -53,7 +53,9 @@
             </div>
         </div>
     {% else %}
+        <hr>
         <div class="script">{{ show.script|render_template|linebreaks }}</div>
+        <hr>
     {% endif %}
 
     <!-- Photoswipe! -->
