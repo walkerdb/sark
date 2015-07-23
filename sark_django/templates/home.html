@@ -15,42 +15,64 @@
     </form>
     <br>
     <hr>
-    <h2>Music Time in Africa - online collections</h2>
-    <p>Welcome to the online beta of the <strong><em>Leo Sarkisian Music Time in Africa digital collection</em></strong>, featuring both MTiA radio broadcasts and original field recordings collected by Leo throughout Africa. Browse through select facets of our intended functionality below, or search for digitized content above.</p>
+    {#    <h2>Music Time in Africa - online collections</h2>#}
+    <p class="site-description">Welcome to the online beta of the <strong><em>Leo Sarkisian Music Time in Africa digital collection</em></strong>, featuring both MTiA radio broadcasts and original field recordings collected by Leo throughout Africa. Browse through select facets of our intended functionality below, or search for digitized content above.</p>
     <br><br>
-    <div class="row sark-examples row-centered">
-        <div class="col-md-6">
-            <h3>Broadcasts</h3>
-            <ul class="no-bullets">
-                {% for show in object_list %}
-                    <li>{{ show.host.name }}: <a href="{% url 'sark_django.sark.views.broadcast' show.date|date:"Y" show.date|date:"m" show.date|date:"d" %}">{{ show.date|date:"Y-m-d" }}</a></li>
-                {% endfor %}
-            </ul>
-            <h3>Performers</h3>
-            <ul class="no-bullets">
-                {% for performer in performers|slice:":5" %}
-                    <li><a href="{% url 'sark_django.sark.views.agent' performer.name %}">{{ performer.name }}</a></li>
-                {% endfor %}
-            </ul>
+    <div class="sark-examples row-centered">
+        <div class="row row-centered">
+            <div class="col-md-6">
+                <h3>Broadcasts</h3>
+                <ul class="no-bullets">
+                    {% for show in object_list %}
+                        <li>{{ show.host.name }}: <a href="{% url 'sark_django.sark.views.broadcast' show.date|date:"Y" show.date|date:"m" show.date|date:"d" %}">{{ show.date|date:"Y-m-d" }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Leo's recordings</h3>
+                <ul class="no-bullets">
+                    <li><a href="{% url 'sark_django.sark.views.field_recording' 39015090284202 %}">Kolahun, Liberia, 1965</a></li>
+                    <li><a href="{% url 'sark_django.sark.views.field_recording' 39015090284632 %}">Fela Kuti in Nigeria, 1965</a></li>
+                    <li><a href="{% url 'sark_django.sark.views.field_recording' 39015090284616 %}">Dacca Music Festival, 1955</a></li>
+                    <li><a href="{% url 'sark_django.sark.views.field_recording' 39015087086255 %}">"Old Man of Herat", 1954</a></li>
+                    <li><a href="{% url 'sark_django.sark.views.field_recording' 39015087086404 %}">Louis Armstrong in Tunis, 1967</a></li>
+
+                </ul>
+            </div>
         </div>
-        <div class="col-md-6">
-            <h3>Hosts</h3>
-            <ul class="no-bullets">
-                {% for host in hosts|slice:':5' %}
-                    <li>{{ host.dates_active }} - <a href="{% url 'sark_django.sark.views.agent' host.name %}">{{ host.name }}</a></li>
-                {% endfor %}
-            </ul>
+        <div class="row row-centered">
+            <div class="col-md-6">
+                <h3>Performers</h3>
+                <ul class="no-bullets">
+                    {% for performer in performers|slice:":5" %}
+                        <li><a href="{% url 'sark_django.sark.views.agent' performer.name %}">{{ performer.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Hosts</h3>
+                <ul class="no-bullets">
+                    {% for host in hosts|slice:':5' %}
+                        <li>{{ host.dates_active }} - <a href="{% url 'sark_django.sark.views.agent' host.name %}">{{ host.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row row-centered">
+            <div class="col-md-6">
+                <h3>Locations</h3>
+                <ul class="no-bullets">
+                    <li><a href="{% url 'sark_django.sark.views.location' '' 'Liberia' %}">Liberia</a></li>
+                    <li><a href="{% url 'sark_django.sark.views.location' '' 'Nigeria' %}">Nigeria</a></li>
+                    <li><a href="{% url 'sark_django.sark.views.location' 'Zanzibar' 'Tanzania' %}">Zanzibar, Tanzania</a></li>
+                    <li><a href="{% url 'sark_django.sark.views.location' '' 'Gambia' %}">Gambia</a></li>
+                    <li><a href="{% url 'sark_django.sark.views.location' '' 'Cameroon' %}">Cameroon</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
 
-            <h3>Locations</h3>
-            <ul class="no-bullets">
-                <li><a href="{% url 'sark_django.sark.views.location' '' 'Liberia' %}">Liberia</a></li>
-                <li><a href="{% url 'sark_django.sark.views.location' '' 'Nigeria' %}">Nigeria</a></li>
-                <li><a href="{% url 'sark_django.sark.views.location' 'Zanzibar' 'Tanzania' %}">Zanzibar, Tanzania</a></li>
-                <li><a href="{% url 'sark_django.sark.views.location' '' 'Gambia' %}">Gambia</a></li>
-                <li><a href="{% url 'sark_django.sark.views.location' '' 'Cameroon' %}">Cameroon</a></li>
-
-            </ul>
-            <br>
+            </div>
         </div>
     </div>
+    <br>
 {% endblock %}
