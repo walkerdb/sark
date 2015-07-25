@@ -79,10 +79,10 @@ def location(request, name, country):
     location = get_object_or_404(m.Location, name=name, country=country)
 
     if name:
-        people = m.Agent.objects.filter(primary_place_of_activity_id=location.pk).order_by('title')
+        people = m.Agent.objects.filter(primary_place_of_activity_id=location.pk).order_by('name')
         recordings = m.FieldRecording.objects.filter(location=location.pk).order_by('title')
     else:
-        people = m.Agent.objects.filter(primary_place_of_activity__country=country).order_by('title')
+        people = m.Agent.objects.filter(primary_place_of_activity__country=country).order_by('name')
         recordings = m.FieldRecording.objects.filter(location__country=country).order_by('title')
 
     if location.longitude and location.latitude:
