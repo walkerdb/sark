@@ -79,11 +79,11 @@ def location(request, name, country):
     location = get_object_or_404(m.Location, name=name, country=country)
 
     if name:
-        people = m.Agent.objects.filter(primary_place_of_activity_id=location.pk)
-        recordings = m.FieldRecording.objects.filter(location=location.pk)
+        people = m.Agent.objects.filter(primary_place_of_activity_id=location.pk).order_by('title')
+        recordings = m.FieldRecording.objects.filter(location=location.pk).order_by('title')
     else:
-        people = m.Agent.objects.filter(primary_place_of_activity__country=country)
-        recordings = m.FieldRecording.objects.filter(location__country=country)
+        people = m.Agent.objects.filter(primary_place_of_activity__country=country).order_by('title')
+        recordings = m.FieldRecording.objects.filter(location__country=country).order_by('title')
 
     if location.longitude and location.latitude:
         google_web_api_string = "https://www.google.com/maps/embed/v1/place?zoom={0}&center={1}%2C{2}&q={3}+{4}&key=AIzaSyDzDeB74FnjIvGAQhApW_8HVfrJSNq-nrE"
