@@ -152,7 +152,7 @@ class Reel(TimestampedModel):
 
     def save(self, *args, **kwargs):
         if self.date_text:
-            normalized_date = self.date_text + "01-01"
+            normalized_date = self.date_text + "-01-01"
             normalized_date = normalized_date[:10]
             year, month, day = normalized_date.split("-")
 
