@@ -56,18 +56,18 @@
 
             <div class="media-left">
                 <div class="performance-list-play play-pause">
-                    <a href="#play"><span class="play-link"></span></a>
+                    <a href="#play"><span class="play-link" id="audio{{ forloop.counter0 }}"></span></a>
                 </div>
             </div>
             <div class="media-body media-middle">
                 <div class="row">
-                    <div class="col-md-4">{{ performance.title }}</div>
+                    <div class="col-md-4"><span class="performance-list-item-title">{{ performance.title }}</span></div>
                     <div class="col-md-4">
                         {% for performer in performance.performers.all %}
                             {% if forloop.last %}
-                                <a href="{% url 'sark_django.sark.views.agent' performer.name %}" target="_blank">{{ performer.name }}</a>
+                                <span class="performance-list-item-performer"><a href="{% url 'sark_django.sark.views.agent' performer.name %}" target="_blank">{{ performer.name }}</a></span>
                             {% else %}
-                                <a href="{% url 'sark_django.sark.views.agent' performer.name %}" target="_blank">{{ performer.name }}</a><br>
+                                <span class="performance-list-item-performer"><a href="{% url 'sark_django.sark.views.agent' performer.name %}" target="_blank">{{ performer.name }}</a></span><br>
                             {% endif %}
                         {% endfor %}
                     </div>
@@ -195,4 +195,13 @@
     </div>
 
     <script type="text/javascript" src="{% static 'js/photoswipe/sark_photoswipe_init.js' %}"></script>
+    <script>
+        {% for performance in performances %}
+            $('#audio{{ forloop.counter0 }}').click(function(){
+                window.sm2BarPlayers[0].actions.play({{ forloop.counter0 }});
+                $('.performance-list-play').removeClass('performance-list-pause');
+                $('#audio{{ forloop.counter }}').addClass('performance-list-pause');
+            });
+        {% endfor %}
+    </script>
 {% endblock %}

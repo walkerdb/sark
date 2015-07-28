@@ -199,6 +199,14 @@ th {
     font-weight: 300;
 }
 
+.performance-list-item-title {
+    padding-left:10px;
+}
+
+.performance-list-item-performer {
+    padding-left:10px;
+}
+
 .performance-list-play {
     position: relative;
     width:75px;
