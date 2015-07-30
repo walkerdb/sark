@@ -48,7 +48,7 @@
                             {% else %}
                                 [not listed]
                             {% endif %}</td>
-                        <td>{{ recording.date|date:"Y-m-d" }} {{ recording.model_name }}</td>
+                        <td>{{ recording.date_text }}</td>
                     </tr>
                 {% empty %}
                     <tr>
