@@ -28,15 +28,9 @@ class Demo(ListView):
         context['selected'] = "demo"
         return context
 
-def aboutus(request):
-    selected = "aboutus"
-    t = get_template("aboutus.html")
-    html = t.render(Context({'selected': selected}))
-    return HttpResponse(html)
-
-def aboutmtia(request):
-    selected = "aboutmtia"
-    t = get_template("aboutmtia.html")
+def about(request):
+    selected = "about"
+    t = get_template("about.html")
     html = t.render(Context({'selected': selected}))
     return HttpResponse(html)
 

@@ -29,9 +29,10 @@ sqs = SearchQuerySet().date_facet('date', start_date=date(1955, 1, 1), end_date=
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^demo/$', views.Demo.as_view(template_name="home.html")),
-    url(r'^aboutus/$', views.aboutus),
+    # url(r'^aboutus/$', views.aboutus),
     url(r'^inventory/$', views.inventory),
-    url(r'^aboutmtia/$', views.aboutmtia),
+    # url(r'^aboutmtia/$', views.aboutmtia),
+    url(r'^about/$', views.about),
     url(r'^demo/broadcast/(?P<year>[0-9]{4})-(?P<month>[0-9]{2})-(?P<day>[0-9]{2})/', 'sark_django.sark.views.broadcast'),
     url(r'^demo/fieldrecording/(\d*)', 'sark_django.sark.views.field_recording'),
     url(r'^demo/location/(?P<name>[a-zA-Z \-]*)\+(?P<country>[a-zA-Z \-]*)',  'sark_django.sark.views.location'),

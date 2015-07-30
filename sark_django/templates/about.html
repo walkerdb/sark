@@ -1,0 +1,296 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="row about-content" data-spy="scroll" data-target="#navbar-example" id="about-content">
+        <div class="col-md-9">
+            <h1 id="Project">The Project</h1>
+            <div>
+                <p>This two-year project (2016-18) will provide for the first time online access to US audiences and the wider world a set of 900 Music Time in Africa radio broadcasts (covering 1965-1989), along with hundreds of hours of original field recordings representing a wide variety of traditional and popular African music recorded for the radio programs by musicologist Leo Sarkisian.  An innovative, open-source online interface will permit exploration of the digital collection and the juxtaposition of audio streaming and script texts.</p>
+                <p>In conjunction with the Voice of America’s listener outreach programs, the project will identify and engage with performer communities concerning the release of field recordings and tracks included in the radio broadcasts. The primary outcomes of the project are a model for culturally sensitive online / web-based distribution of digitized musical recordings and a demonstration of the power of community engagement in providing access to scholarly resources on musical heritage. </p>
+            </div>
+
+            <h1 id="MTiA">Music Time in Africa</h1>
+            <div>
+                <p><em>Music Time in Africa</em> is the oldest and longest-running radio program broadcast by the Voice of America (VoA), the official broadcast agency of the US government. Ethnomusicologist Leo Sarkisian created the weekly program in the 1965 at the invitation of the famed journalist and then-head of VoA Edward R. Murrow, and led the program for nearly 40 years before his official retirement in 2012, at the age of 91.</p>
+                <p>Beginning in the early 1960s, Leo (as he is universally and affectionately known) recorded hundreds of hours of original field recordings in over thirty-eight newly decolonized African nations (see map below). The Music Time in Africa program, first broadcast in May 1965, gave Leo an outlet through which to share the music he had collected: for each program he personally selected tracks from his enormous and unique collection of field recordings and commercial releases for weekly (and later twice-weekly) thirty-minute broadcasts. Sarkisian hand-picked every musical excerpt, and scripted the broadcasts based on his first-hand knowledge of musical genres and cultures of the African continent. Although Leo wrote the programs, he did not host them, instead having his scripts read by a series of talented and popular radio announcers, who performed the scripts while inserting the designated music wherever Leo's script specified. Many of the hosts, who included Bryn Poole (1965-68), Susan Moran (1969-78), Rita Rochelle (1978-2005), Matthew Lavoie (2005-2012), and Heather Maxwell (2012-present) became household names all across the continent.</p>
+
+                <!-- map hosted on tableau public. Source can be viewed here:
+                https://public.tableau.com/profile/walker5434#!/vizhome/sark_distribution/Sheet1 -->
+
+                <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
+                <div id="map" class='tableauPlaceholder'>
+                    <noscript>
+                        <a href='#'>
+                            <img alt='Sheet 1 ' src='https://public.tableau.com/static/images/sa/sark_distribution/Sheet1/1_rss.png' style='border: none' />
+                        </a>
+                    </noscript>
+                    <object class='tableauViz' width='98%' height='742' style='display:none;'>
+                        <param name='host_url' value='https//public.tableau.com/' />
+                        <param name='site_root' value='' />
+                        <param name='name' value='sark_distribution/Sheet1' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/sa/sark_distribution/Sheet1/1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='showVizHome' value='no' />
+                        <param name='showTabs' value='n' />
+                        <param name='bootstrapWhenNotified' value='true' />
+                    </object>
+                </div>
+                <p class="small text-center text-muted img-caption">Fig. 1 - Map of the source locations of all extant Sarkisian field recordings in the collection.</p>
+                <br>
+
+                <p>Now 50 years old and still going strong, the show is Voice of America's longest-running music program. Its value both as a cultural artifact and in its influence on the millions of listeners who have tuned in over the decades is indisputable. In 2012 the US government officially recognized this when the entire program was enshrined into the National Registry of Recorded Sound by the Library of Congress. Among the 24 other inductees that year were such records as Simon & Garfunkel’s "Sounds of Silence," Chubby Checker’s "The Twist," and Pink Floyd's "Dark Side of the Moon."</p>
+                <p>Because of legal constraints only recently removed by the US Congress, Music Time in Africa has never been heard outside of the African continent. With over 20 million listeners per year, VoA’s Music Time in Africa radio show has been a key part of the global listener experience, and its immense popularity is evidenced from the 1,000+ fan letters that the show has received every month for decades, and which Leo and his wife Mary have faithfully responded to—letter by letter.</p>
+            </div>
+
+            <h1 id="Archive">The Leo Sarkisian Library and Archive<br><small>Provenance, scope, and value</small></h1>
+            <div>
+                <p>Until the VoA inventoried, boxed, and transferred major portions of the collection to the University of Michigan Library (MLibrary) in January 2015, the Leo Sarkisian Archive was a very active and highly organic music library of original and commercial sound recordings. The library supported all aspects of the creation, production, and delivery of MTiA, from 1965 to 2007 (when the program shifted to a digital format). In its former home at the headquarters in Washington, DC, the Leo Sarkisian Library consisted of five major clusters of item types that lived in a single room in a near constant state of organizational flux:</p>
+                <br>
+                <ol>
+                    <li><strong>MTiA radio program recordings</strong>, as either full broadcasts or the “inserts” of musical selections for the programs; </li>
+                    <li><strong>typewritten scripts</strong> for MTiA, to be read by a broadcaster surrounding musical selections;</li>
+                    <li><strong>live performance recordings</strong> made by Leo Sarkisian in his travels through Africa or by African staff trained by Leo Sarkisian to make professional quality recordings on his behalf—often at the radio stations he helped found.</li>
+                    <li><strong>transferred recordings</strong> from other media to magnetic tape, created to support the production of the radio broadcast.</li>
+                    <li><strong>commercial recordings</strong> acquired by Leo Sarkisian or sent to him by record companies and listeners in the form of LPs, 45s, and cassettes.</li>
+
+                </ol>
+                <br>
+                <p>Transfer to the University redefined this once-active and organic music library into the static Leo Sarkisian Archive, housed by the University of Michigan Library in a group of 188 archival storage boxes, accompanied by brief item inventories. The University components constitute the vast majority of the original Leo Sarkisian Library, and now form a structured archival collection from which materials have been selected for inclusion in this project.</p>
+                <h3>Scope and value</h3>
+                <p>Leo Sarkisian embraced the full spectrum of African musical practices, including not only traditional forms of music, but popular music (ranging from jazz bands to Afro-funk), as well as gospel and African-composed classical music (opera and symphonies). Leo, furthermore, carries the singular credit for being the first ethnomusicologist to train African sound engineers, making possible African-initiated music archiving; this training process was part of his role as US cultural ambassador to newly-independent African nations, to ensure that Africans could carry on the work of documenting and preserving their own musical heritage. The Sarkisian collection contains both Leo’s own field recordings and recordings made by sound engineers he trained across the continent: Radio Tanzania, Radio Comores, Radiodiffusion nationale Tchadienne (Chad), Radio Dahomey, Radio Rurale (Burkina Faso), Radio Burundi, Radio Douala (Cameroon).</p>
+                <p>Within the breadth and depth of the musical holdings lies incredible value for research and teaching for the humanities—including the public humanities. This value is at least three-fold:</p>
+                <p>First, the Archive documents Leo’s role in training people in audio recording techniques in the countries he visited, and in doing so helped safeguard the vast and varied musical traditions of nations newly established and emerging from the ravages of colonialism. This musical conservation intervention has proved critically important, since colonial governments had argued that Africans had no culture worth preserving at all.</p>
+                <p>Second, the radio programs, together with the Sarkisian musical recordings, constitute a global resource documenting Africa’s cultural heritage, one not restricted to nationalist agendas. An overwhelmingly significant amount of contemporary popular culture derives from African musical roots. Once accessible, the Sarkisian archive will allow musicians, music scholars, and music lovers to explore and more deeply research the circulating flows of Central and West African traditional rhythms—that, for instance, form the basis of Cuban and other Latin music, which then gets re-appropriated in the Congo and neighboring nations as ‘Congolese rumba.’ </p>
+                <p>Third, the scripts and radio programs, bolstered by full field recordings, are irreplaceable primary source material. Because the recordings have not previously been accessible to scholars, digitizing major parts of it and facilitating access to it will enable researchers in the USA, Africa, and elsewhere to mine this curated collection for research, including (but not limited to) ethnomusicology, history, anthropology, folklore, literature, the fine arts, and cultural studies. Empirical, formal, and interpretive work in multiple disciplines is all deeply enabled by the Sarkisian materials. </p>
+
+                <h3>Related collections</h3>
+                <p>As the central component of the radio programs and the associated musical inserts, the heart and soul of the Leo Sarkisian Archive are the recordings that Leo made or fostered over a thirty-year period. The Archive is one of the top four collections of African musical heritage in existence, the others being the Hugh Tracey collection at the International Library of African Music (ILAM) in Grahamstown, South Africa, the Kwabena Nketia collection at the Institute of African Studies, University of Ghana, and the Gerhard Kubik collection housed privately in Vienna. All four collections span many African countries and ethnic groups; all include both traditional and popular musical forms. The Sarkisian collection, however, exceeds the others in its geographic and musical breadth. The Music Time in Africa recordings and associated live field recordings are neither duplicated nor truly complemented by Voice of America materials housed at the US National Archives and Records Administration and the Library of Congress. Additionally, the Leo Sarkisian Archive is among the very best documentary resources for studying the history of radio broadcasting on an international level. </p>
+            </div>
+            <h1 id="Selection">Materials Selected for the MTiA Project</h1>
+            <div>
+                <p>The project incorporates into a unified delivery system selections from three categories of items as found in the Leo Sarkisian Archive at the University of Michigan: </p>
+                <br>
+                <ol>
+                    <li><strong>Music Time in Africa Broadcasts and Inserts, 1965 to 1989</strong>
+                        <ul type="disc">
+                            <li>900 items (each 20–30 minutes duration)</li>
+                            <li>Format: ¼ inch reel-to-reel magnetic tape, mono single track</li>
+                            <li>Thirty-minute pre-recorded programs, broadcast on Sunday afternoons (once weekly from 1965–1982, and starting in 1983, with two separate Sunday programs). The series contains selected full radio programs from 1965–1975, and a nearly complete run of radio programs from 1976–1989. Much of the weekly production work for the program involved choosing musical selections or excerpts from the Leo Sarkisian Library, then crafting an appropriate script. Leo assembled program excerpts on a tape reel of “inserts;” the reel typically mixes original Sarkisian field recordings with complementary tracks from commercially-produced and distributed recordings (45s, LPs, cassettes, and other media). At transmission time, a radio announcer (supported by a sound technician) “performed the box” containing the script and associated musical inserts. Some scripts are in the tape box with the insert reels.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li><strong>Scripts for Music Time in Africa, 1965 to 1989</strong>
+                        <ul type="disc">
+                            <li>900 items (3–4 pages per script)</li>
+                            <li>Format: 8.5” x 11”, typescript, mimeograph, or electrostatic photocopy</li>
+                            <li>The printed script is the textual record of each broadcast program included in the series. The script is both an extraordinarily rich source of information about the program itself and the cultural context that the program seeks to synthesize. Each script is a self-contained narrative, with a remarkably similar flow from program to program that remained stable over four decades. Typically, each script first introduces a program’s theme, then describes the musical selections, including commentary on composition, performers, instrumentation, and the selected track’s context in the overall sociocultural context of the program’s theme. Scripts conclude with acknowledgements and VoA contact information. Scripts tend not to be overtly “newsy,” although passing references to current events is a common feature. For archiving purposes, scripts provide invaluable technical and descriptive metadata for each broadcast recording and the associated musical excerpts. Each program script is dated. Each program contains timing marks (mm:ss) indicating the excerpt lengths and its sequence in the program. Finally, programs also provide copious references to proper names (places and people) and other identifiers that link musical selections to genres, instruments, and musical concepts</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li><strong>Leo Sarkisian Live Field Recordings, 1953 to 1985</strong>
+                        <ul type="disc">
+                            <li>360 items (10–75 minutes per item)</li>
+                            <li>Format: ¼ reel-to-reel magnetic tape, 1 or 2 channel mono, 5”, 7” or 10” reels)</li>
+                            <li>Leo Sarkisian traveled throughout Africa with professional sound equipment on which he was trained by Central Recording Studios in Hollywood, California. In 1953, he started in Central Asia (Pakistan, Afghanistan, Bangladesh) as an employee of Tempo Records in Hollywood, which had hired Leo to obtain music for films set in exotic locales (Sarkisian 2012, 15). In 1958, Leo was sent to newly-independent Ghana. There, he worked with Radio Ghana music director Atta Mensah, recording music throughout the country and across ethnic groups. In 1962, invited by Edward R. Murrow, Leo became Music Director for the VOA Program Center in Monrovia, Liberia. Leo continued his work recording music and training sound engineers, now under the banner of the US diplomacy (Sarkisian 2012, 63). Working fifty years as a VOA employee, Leo recorded music in over thirty-eight African nations from Senegal to Ethiopia. Included within the corpus are the only known recording of Louis Armstrong performing at the 1967 Tunis Festival, the first-known recording of famed Nigerian Fela Anikulapo-Kuti, and the first-known recording of Guinea’s popular Bembeya Jazz Band. Also represented are traditional music, chorale music, big band music, Afro-funk, Latin covers, and Western-style opera and symphonies by African composers.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="Challenges">Challenges</h1>
+            <div>
+                <p>The need to preserve and make available the audiovisual cultural heritage is the twenty-first century’s brittle-books crisis. Disintegrating media imperils research, education, and public programming across nearly all humanities disciplines. The crisis manifests itself in three deeply-interrelated ways. First, vast quantities of audiovisual content exist on obsolete, deteriorating, and increasingly at-risk media—the majority of it magnetic tapes of various vintages. Second (and paradoxically), while unique, non-commercial recordings are arguably the most intellectually-rich and valuable materials in an archive, knowledge about finding and using these materials is almost always inadequate or catching up to the conservation demands of the media. Third, even in those cases where a tape or recording can be handled, where working playback equipment is available, and where the contents of the object is known beyond what may be scrawled on a tape box or summary inventory, access and use are further limited by intellectual property laws and regulations. This interplay of physical, intellectual, and legal constraints is the next challenge to the survival of vital and vast segments of the world’s cultural heritage. Without creative innovation in accessibility, audiovisual resources of the second half of the twentieth century face inevitable and catastrophic loss. </p>
+                <p>A primary goal of the proposed MTiA project is to explore the feasibility of a performer/community based process, which we have dubbed “ethical access,” that may well mitigate some of the legal barriers inhibiting online access to recorded sound, even including streaming, where it is lawful to do so. Our focus is on the prerogatives of performers to express their access preferences for the radio programs and the live field recordings. Such recordings and broadcasts (often of traditional songs) were a source of pride for the musicians and their communities. Access carries with it a scholarly responsibility to engage performers, their descendants, and their communities in a dialogue on their music and its meaning to wider audiences. The project draws on precedents from three ongoing developments in audiovisual preservation and access: efforts to make available historic radio programs through the Internet, efforts to distribute unpublished musical recordings made live in the field, and efforts to repatriate cultural property to those who made it.</p>
+            </div>
+
+            <br>
+            <h1 id="Activities">Project Activities</h1>
+            <div>
+                <p>The proposed project starts with digitization, but establishes a new and potentially influential model for providing intellectual and physical access to live sound recordings and radio broadcasts, particularly those with associated program scripts.</p>
+
+                <h3>Digitize Sound Recordings and Scripts</h3>
+                <p>We have identified 900 MTiA scripts in the collection with associated full program recordings (ca. 825) or insert reels in the absence of a full recording (ca. 75). The grant will support the digitization of all 900 programs through a third party vendor, MediaPreserve of Cranberry Township, Pennsylvania. As part of the quality assurance workflow, graduate students will undertake a set of processes that prepare the production master for ingest into an access and delivery system. The MTiA recordings chosen for inclusion in the project consist of ¼” magnet tape wound on 5”or 7” plastic reels or 10” aluminum reels. Recordings made from 1963 to 1977 (ca. 10% of total) are generally acetate tape; recordings made after 1977 are generally polyester tape. All tapes are housed in individual containers with typed or handwritten labels affixed. </p>
+
+                <h3>Access System Development</h3>
+                <p>A robust access and delivery system is the centerpiece of the project. The MTiA delivery system will support search and discovery of radio programs by full text of the script as well as faceted search and browse by a number of criteria, including date of broadcast, geographic topic, musical genre, instrumentation, musician name, and song title, where available. Much of the information for searching will be extracted from the scripts, which are such a rich source of information on a given program. The underlying tools for search, sound file streaming, and image/text display will support a dynamic web interface. In addition to incorporating tools from the University of Michigan Library and Information Services, plans call for an ongoing evaluation and testing of the usability and accessibility of the access and delivery implementation.</p>
+
+                <h3>Performer/Community Outreach</h3>
+                <p>A significant proportion of the work for this grant is focused on connecting the access/delivery system to those performers represented on 1965-89 MTiA radio broadcasts and the Sarkisian live field recordings. The key to our connections with the African continent in this project is the engagement of the vast listener base for the current on-air version of Music Time in Africa and the ability of our delivery system to function optimally on low-bandwidth mobile devices. Through our partnership with the VoA, the MTiA project will be spread through the extensively-read VoA blog, English-to-Africa news, and music programming. Through these channels, we will alert listeners to the project and invite them to visit and engage with the radio programs and the live field recordings. Using simple email or text feedback links as well as established social media connections (like Facebook and Twitter), the project will capture the attention of people who have tuned in to Music Time in Africa for decades and invite them to participate in valuing the musical performances that Leo Sarkisian collected for their communities of performers. Students working on the project will nurture all outreach and communication activities and log all information acquired about interests in the music in the metadata files for each recording.</p>
+            </div>
+            <br>
+            <h1 id="Team">Meet the team</h1>
+            <hr>
+            <h2 id="PIs">Principal Investigators</h2>
+            <div class="media">
+                <div class="media-body pad-top">
+                    <h3 class="media-heading">Paul Conway <br><small>Associate Professor, University of Michigan School of Information</small></h3>
+                    <p>As the principal investigator of for the project, Professor Conway will oversee digitization, post-processing, and metadata activities; supervise graduate students; lead the design of the delivery system; and report on the project in writing and public presentations. Professor Conway conducts research and teaches courses on archival science, the digitization and preservation of photographs, books, and audiovisual resources, and the ethics of new technologies.</p>
+                </div>
+
+                <div class="media-right">
+                    <div class="user-profile-image media-object" style="background-image:url('{% static 'sarkfiles/img/profile_conway.jpg' %}')"></div>
+                </div>
+
+            </div>
+            <div class="media">
+
+                <div class="media-left">
+                    <div class="user-profile-image media-object" style="background-image:url('{% static 'sarkfiles/img/profile_askew.jpg' %}')"></div>
+                </div>
+
+                <div class="media-body pad-top">
+                    <h3 class="media-heading">Kelly Askew <br><small>Professor, Anthropology, Afroamerican and African Studies, University of Michigan</small></h3>
+                    <p>As co-principal investigator, Professor Askew's responsibilities involve domain expertise in African music and culture, liaison with the Voice of America English-to-Africa Division, and leading the community/performer outreach aspects of the project. Professor Askew is Director of the African Studies Center at Michigan, and has worked for over two decades in Tanzania and Kenya. Her writings and film projects span two primary research areas: poetic arts as vehicles for populist engagement with politics, and the formalization of property rights. </p>
+                </div>
+            </div>
+            <div class="media">
+
+                <div class="media-body pad-top">
+                    <h3 class="media-heading">David Wallace <br><small>Clinical Associate Professor, University of Michigan</small></h3>
+                    <p>Joining Professor Askew as co-principal investigator, Professor Wallace is to lead and coordinate the intellectual-property-management aspects of the project, in particularly close association with members of the distinguished Advisory Board. Professor Wallace has consulted widely, including substantial associations with the South African History Archive’s Freedom of Information Programme, and Stories for Hope, an intergenerational storytelling NGO in Rwanda.</p>
+                </div>
+                <div class="media-right">
+                    <div class="user-profile-image media-object" style="background-image:url('{% static 'sarkfiles/img/profile_wallace.jpg' %}')"></div>
+                </div>
+
+            </div>
+            <h2 id="Board">Advisory Board</h2>
+            <p>...On its way...</p>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="sidebar-nav affix" id="sidebar">
+                <h3 id="Project-sidebar" class="active"><a href="#Project">The Project</a></h3>
+                <h3 id="MTiA-sidebar"><a href="#MTiA">Music Time in Africa</a></h3>
+                <h3 id="Archive-sidebar"><a href="#Archive">The Archive</a></h3>
+                <h3 id="Selection-sidebar"><a href="#Selection">Selected Materials</a></h3>
+                <h3 id="Challenges-sidebar"><a href="#Challenges">Challenges</a></h3>
+                <h3 id="Activities-sidebar"><a href="#Activities">Project Activities</a></h3>
+                <h3 id="Team-sidebar"><a href="#Team">Meet the team</a></h3>
+                {#                <h4 id="PIs-sidebar"><a href="#PIs">Principal Investigators</a></h4>#}
+                {#                <h4 id="Board-sidebar"><a href="#Board">Advisory Board</a></h4>#}
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Code for scroll-position-based sidebar highlighting, using the jquery.waypoints.js library.
+        // Requires two waypoints for every location: both + and - 5%.
+
+        $(document).ready(function () {
+            var project_waypoint = $('#Project').waypoint({
+                handler: function () {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Project-sidebar').addClass('active');
+                },
+                offset: "-5%"
+            });
+            var project_waypoint2 = $('#Project').waypoint({
+                handler: function () {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Project-sidebar').addClass('active');
+                },
+                offset: "5%"
+            });
+            var mtia_waypoint = $('#MTiA').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#MTiA-sidebar').addClass('active');
+                },
+                offset: "-5%"
+            });
+            var mtia_waypoint2 = $('#MTiA').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#MTiA-sidebar').addClass('active');
+                },
+                offset: "5%"
+            });
+
+            var archive_waypoint = $('#Archive').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Archive-sidebar').addClass('active');
+                },
+                offset: "-5%"
+            });
+            var archive_waypoint2 = $('#Archive').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Archive-sidebar').addClass('active');
+                },
+                offset: "5%"
+            });
+
+            var selection_waypoint = $('#Selection').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Selection-sidebar').addClass('active');
+                },
+                offset: "-5%"
+            });
+            var selection_waypoint2 = $('#Selection').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Selection-sidebar').addClass('active');
+                },
+                offset: "5%"
+            });
+            var challenges_waypoint = $('#Challenges').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Challenges-sidebar').addClass('active');
+                },
+                offset: "-5%"
+            });
+            var challenges_waypoint2 = $('#Challenges').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Challenges-sidebar').addClass('active');
+                },
+                offset: "5%"
+            });
+            var activities_waypoint = $('#Activities').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Activities-sidebar').addClass('active');
+                },
+                offset: "-5%"
+            });
+            var activities_waypoint2 = $('#Activities').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Activities-sidebar').addClass('active');
+                },
+                offset: "5%"
+            });
+            var team_waypoint = $('#Team').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Team-sidebar').addClass('active');
+                },
+                offset: "-5%"
+            });
+            var team_waypoint2 = $('#Team').waypoint({
+                handler: function() {
+                    $('#sidebar h3').removeClass('active');
+                    $('#Team-sidebar').addClass('active');
+                },
+                offset: "5%"
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block bottom-content %}
+    <script src="{% static 'js/jquery.waypoints.js' %}"></script>
+{% endblock %}

@@ -49,8 +49,7 @@
             <ul class="nav navbar-nav">
                 <li {% ifequal "demo" selected %}id="selected"{% endifequal %}><a href="/demo">Live demo</a></li>
                 <li {% ifequal  "inventory" selected %}id="selected"{% endifequal %}><a href="/inventory">Browse inventory</a></li>
-                <li {% ifequal  "aboutmtia" selected %}id="selected"{% endifequal %}><a href="/aboutmtia">About MTiA</a></li>
-                <li {% ifequal  "aboutus" selected %}id="selected"{% endifequal %}><a href="/aboutus">About us</a></li>
+                <li {% ifequal  "about" selected %}id="selected"{% endifequal %}><a href="/about">About</a></li>
             </ul>
             {% block navbar_search %}
                 <form class="navbar-form" role="search" method="get" action="/search">
