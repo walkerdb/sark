@@ -210,6 +210,7 @@ th {
     border-top: 0px solid #ddd;
 }
 
+
 /* Performance list (field recording view) */
 
 .performance-list-item {
@@ -230,11 +231,35 @@ th {
     position: relative;
     width:75px;
     height: 75px;
-    background-color: rgba(239, 184, 88, 0.31);
+    background-color: rgba(239, 184, 88, 0.42);
+    background-image: url(../js/soundmanager2/bar-ui/image/icomoon/entypo-25px-ffffff/PNG/play.png);
+    background-image: none, url(../js/soundmanager2/bar-ui/image/icomoon/entypo-25px-ffffff/SVG/play.svg);
+    background-size: 75%;
+    background-position: 40% 53%;
 }
 
-.performance-list-play:hover {
+.performance-list-play:hover, .selected-audio {
     background-color: rgba(239, 184, 88, 0.85);
+}
+
+.performance-list-pause.play-pause {
+    position: relative;
+    width:75px;
+    height: 75px;
+    background-color: rgba(239, 184, 88, 0.85);
+    background-image: url(../fonts/open-iconic/png/volume-high-8x.png);
+    background-image: none, url(../fonts/open-iconic/svg/volume-high.svg);
+    background-repeat: no-repeat;
+    background-size: 47%;
+    background-position: 55% 53%;
+}
+
+.performance-list-pause.play-pause:hover {
+    background-image: url(../fonts/open-iconic/png/volume-high-8x.png);
+    background-image: none, url(../fonts/open-iconic/svg/volume-high.svg);
+    background-repeat: no-repeat;
+    background-size: 47%;
+    background-position: 55% 53%;
 }
 
 .play-link {

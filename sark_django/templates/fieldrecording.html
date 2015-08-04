@@ -55,8 +55,8 @@
         <div class="media performance-list-item">
 
             <div class="media-left">
-                <div class="performance-list-play play-pause">
-                    <a href="#play"><span class="play-link" id="audio{{ forloop.counter0 }}"></span></a>
+                <div class="performance-list-play play-pause" id="audio{{ forloop.counter0 }}">
+                    <a href="#play"><span class="play-link"></span></a>
                 </div>
             </div>
             <div class="media-body media-middle">
@@ -114,7 +114,7 @@
             <div class="sm2-inline-gradient"></div>
             <div class="sm2-inline-element sm2-button-element">
                 <div class="sm2-button-bd">
-                    <a href="#play" class="sm2-inline-button play-pause">Play / pause</a>
+                    <a href="#play" class="sm2-inline-button play-pause" id="play-button">Play / pause</a>
                 </div>
             </div>
             <div class="sm2-inline-element sm2-inline-status">
@@ -154,11 +154,7 @@
                     <a href="#next" title="Next" class="sm2-inline-button next">&gt; next</a>
                 </div>
             </div>
-            <div class="sm2-inline-element sm2-button-element sm2-menu">
-                <div class="sm2-button-bd">
-                    <a href="#menu" class="sm2-inline-button menu">menu</a>
-                </div>
-            </div>
+
         </div>
         <div class="bd sm2-playlist-drawer sm2-element">
             <div class="sm2-inline-texture">
@@ -181,16 +177,6 @@
 
                 </ul>
             </div>
-            <div class="sm2-extra-controls">
-                <div class="bd">
-                    <div class="sm2-inline-element sm2-button-element">
-                        <a class="sm2-inline-button previous" title="Previous" href="#prev">< previous</a>
-                    </div>
-                    <div class="sm2-inline-element sm2-button-element">
-                        <a class="sm2-inline-button next" title="Next" href="#next">> next</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -199,9 +185,11 @@
         {% for performance in performances %}
             $('#audio{{ forloop.counter0 }}').click(function(){
                 window.sm2BarPlayers[0].actions.play({{ forloop.counter0 }});
-                $('.performance-list-play').removeClass('performance-list-pause');
-                $('#audio{{ forloop.counter }}').addClass('performance-list-pause');
+                window.sm2BarPlayers[0].playlistController.data.selectedIndex = {{ forloop.counter0 }};
+                $(".media-left div").removeClass("performance-list-pause").addClass("performance-list-play");
+                $("#audio{{ forloop.counter0 }}").removeClass("performance-list-play").addClass("performance-list-pause");
             });
         {% endfor %}
+
     </script>
 {% endblock %}

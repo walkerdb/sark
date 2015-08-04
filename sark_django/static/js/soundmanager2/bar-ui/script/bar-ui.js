@@ -204,6 +204,8 @@
         },
 
         onplay: function() {
+          $(".media-left div").removeClass("performance-list-pause").addClass("performance-list-play");
+          $("#audio" + (parseInt(playlistController.data.selectedIndex))).removeClass("performance-list-play").addClass("performance-list-pause");
           utils.css.swap(dom.o, 'paused', 'playing');
           callback('play');
         },
@@ -456,7 +458,6 @@
       }
 
       function getNext() {
-
         // don't increment if null.
         if (data.selectedIndex !== null) {
           data.selectedIndex++;
@@ -494,7 +495,6 @@
       }
 
       function getPrevious() {
-
         data.selectedIndex--;
 
         if (data.selectedIndex < 0) {
@@ -506,7 +506,6 @@
             data.selectedIndex++;
           }
         }
-
         return getItem();
 
       }
@@ -563,7 +562,7 @@
         // update selected offset, too.
         offset = findOffsetFromItem(item);
 
-        // data.selectedIndex = offset;
+        //data.selectedIndex = offset;
 
       }
 
