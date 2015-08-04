@@ -29,7 +29,6 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Search</h2>
     <br>
     <form class="form" role="search" method="get" action=".">
         <div class="input-group">
@@ -40,16 +39,17 @@
         </div>
     </form>
     <br>
-    <hr>
+    <br>
+{#    <hr>#}
 
 
-    <a href="{{ request.get_full_path }}&amp;sort=date_asc">Date descending</a>
+{#    <a href="{{ request.get_full_path }}&amp;sort=date_asc">Date descending</a>#}
 
 
     {% if query %}
         <div class="row">
             <div class="col-md-2">
-                <h2>Refine search</h2>
+{#                <h2>Refine search</h2>#}
                 <dl>
                     {% if facets.fields.faceted_model_type %}
                         <dt>Type</dt>
@@ -130,7 +130,6 @@
             </div>
 
             <div class="col-md-10">
-                <h2>Results</h2>
 {#                <form class="pull-right" style="width:150px">#}
 {#                    <select class="form-control" id="sort">#}
 {#                        <option>Sort options</option>#}
@@ -141,6 +140,8 @@
 {#                    </select>#}
 {#                </form>#}
                 <div class="search-result-list">
+{#                    <h2 style="margin-left:10px;">Results</h2>#}
+
                     {% for result in page.object_list %}
                         <div class="search_result">
 
@@ -149,7 +150,13 @@
                                     <div class="media-body">
                                         <h3 class="search-header">Field recording: <a href="{% url 'sark_django.sark.views.field_recording' result.object.unique_id %}">{{ result.object.title }}</a></h3>
                                         <p class="search-description"><em>{{ result.object.description }}</em></p>
-                                        {#                                        <div class="small search-script"><strong style="color: #4e4e4e">Script excerpt:</strong><br>{% highlight result.object.script with query %}</div>#}
+                                        <div class="small search-script"><strong>Location:</strong> {{ result.object.location }}</div>
+                                        <div class="small search-script"><strong>Recording date:</strong> {{ result.object.date_text }}</div>
+{#                                        <div class="small search-script"><strong style="color: #4e4e4e">Tracks:</strong>#}
+{#                                            {% for performance in result.object.performances.all %}#}
+{#                                                {{ forloop.counter }}) {{ performance.title }}{% if not forloop.last %}; {% endif %}#}
+{#                                            {% endfor %}#}
+{#                                        </div>#}
                                         <br>
                                     </div>
                                     {% if result.object.images.all.0 %}

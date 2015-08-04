@@ -17,7 +17,8 @@ h1 {
 
 h2 {
     font-family: "Crimson text", "serif";
-    font-weight: 900;
+    font-weight: 400;
+    font-size: 27px;
 }
 
 h3 {
@@ -92,6 +93,8 @@ p.img-caption {
 .description {
     color: #787878;
     font-weight: 300;
+    font-size: 1.2em;
+    margin-top: -5px;
 }
 
 .sark {
@@ -390,16 +393,17 @@ form div input.search {
 }
 
 .search-header {
-    font-size: 1.5em;
+    font-size: 1.3em;
     color: #5d5d5d;
-    font-family: 'Crimson text', 'serif';
+    font-family: 'Open sans', 'sans-serif';
     padding: 0 10px 2px 0;
     margin: 0;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .search-description {
-    font-size: 1.1em;
+    font-size: 1.0em;
+    margin-top: 2px;
     color: rgba(0, 0, 0, 0.68);
 }
 
@@ -411,7 +415,7 @@ form div input.search {
     min-height: 20px;
     padding: 15px;
     margin-left: 15px;
-    background-color: #e6e6e6;
+    background-color: #f2f2f2;
     border: 1px solid #e3e3e3;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
