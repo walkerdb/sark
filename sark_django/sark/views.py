@@ -175,7 +175,7 @@ def model_list(request, model):
 
                 cell_1_data = [broadcast_url,  show.title]
                 cell_2_data = [host_url, show.host.name]
-                cell_3_data = ["", str(show.date)]
+                cell_3_data = ["", str(show.date_text)]
                 data.append([cell_1_data, cell_2_data, cell_3_data])
             except:
                 print("womp")
@@ -185,7 +185,7 @@ def model_list(request, model):
         data = []
         for recording in objects:
             try:
-                date = str(recording.date)
+                date = str(recording.date_text)
                 recording_url = reverse('sark_django.sark.views.field_recording', args=(recording.unique_id, ))
                 location_url = reverse('sark_django.sark.views.location', kwargs={'country': recording.location.country, 'name': recording.location.name})
 
