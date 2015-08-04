@@ -27,8 +27,8 @@
     <h3>{{ show.title }} <span class="small"><a href="/admin/sark/radioshow/{{ show.pk }}" target="_blank">[edit show]</a></span></h3>
     <p class="description"><em>{{ show.description }}</em> </p>
     <div class="recording-metadata">
-    <p><strong>Host:</strong> <a href="{% url 'sark_django.sark.views.agent' show.host.name %}" target="_blank">{{ show.host.name }}</a></p>
-    <p><strong>Air-date:</strong> {{ show.date }}</p>
+        <p><strong>Host:</strong> <a href="{% url 'sark_django.sark.views.agent' show.host.name %}" target="_blank">{{ show.host.name }}</a></p>
+        <p><strong>Air-date:</strong> {{ show.date }}</p>
     </div>
     {% if photos %}
         <div class="row">
