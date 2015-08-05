@@ -39,6 +39,26 @@ li {
     font-size: 1.2em;
 }
 
+.showcase-img {
+    /* max-height: 200px; */
+    max-width: 200px;
+}
+
+.showcase-row {
+    width: 100%;
+    /* border: 1px solid #ccc; */
+    /* height: 200px; */
+}
+
+.showcase-body {
+    padding-left: 15px;
+}
+
+.showcase-body h3 {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
 .source-list {
     font-family: "Crimson text", "serif";
     font-weight: 100;
