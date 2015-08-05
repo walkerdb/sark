@@ -40,16 +40,12 @@
     </form>
     <br>
     <br>
-{#    <hr>#}
-
 
 {#    <a href="{{ request.get_full_path }}&amp;sort=date_asc">Date descending</a>#}
-
 
     {% if query %}
         <div class="row">
             <div class="col-md-2">
-{#                <h2>Refine search</h2>#}
                 <dl>
                     {% if facets.fields.faceted_model_type %}
                         <dt>Type</dt>
@@ -115,7 +111,6 @@
                 </dl>
                 <dl>
                     {% if facets.fields.performers %}
-                        {#                        {{ facets }}#}
                         <dt>Performer</dt>
                         {% for performer in facets.fields.performers|slice:':10' %}
                             {% if performer.1 > 0 %}
@@ -140,7 +135,6 @@
 {#                    </select>#}
 {#                </form>#}
                 <div class="search-result-list">
-{#                    <h2 style="margin-left:10px;">Results</h2>#}
 
                     {% for result in page.object_list %}
                         <div class="search_result">
@@ -191,11 +185,7 @@
                                                         <img src="{% static 'sarkfiles/' %}{{ image.thumb.name }}" alt="{{ image.description }}" class="search-result-image"/>
                                                     </a>
                                                     <br><br>
-                                                    {#                            <figcaption itemprop="caption description">{{ image.description }}</figcaption>#}
                                                 </figure>
-
-                                                {#                                                <img src="{% static 'sarkfiles/' %}{{ image.thumb.name }}" itemprop="thumbnail" alt="{{ image.description }}" class="search-result-image"/>#}
-
                                             {% endfor %}
                                         </div>
                                     {% endif %}
